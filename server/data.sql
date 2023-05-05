@@ -31,4 +31,6 @@ CREATE TABLE invoices (
     paid BOOLEAN
 );
 
--- INSERT INTO customers (name, surname, e_mail, phone_number, address, notes) VALUES ('Anna', 'Kupaczewska', 'anna@gmail.com', '737705689', 'ul.Brzydka 32 Gdańsk', null);
+-- INSERT INTO customers (name, surname, e_mail, phone_number, address, notes) 
+-- VALUES 
+-- ('Anna', 'Kupaczewska', 'anna@gmail.com', '737705689', 'ul.Brzydka 32 Gdańsk', null);

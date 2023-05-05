@@ -10,10 +10,6 @@ app.use(express.json());
 
 app.use('/', routerCustomers);
 
-app.get("/", (req, res) => {
-    res.send("server connected")
-})
-
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
