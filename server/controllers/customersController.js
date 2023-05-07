@@ -1,25 +1,65 @@
-import pool from "../database/db.js"
+import pool from "../database/db.js";
 
 const getCustomers = async (req, res) => {
-    try {
-        const customers = await pool.query('SELECT * FROM customers')
-        res.json(customers.rows)
-    } catch (err) {
-        console.log(err)
-    }
-}
+  try {
+    const customers = await pool.query('SELECT * FROM customers');
+    res.json(customers.rows);
+  } catch (error) {
+    console.error('Error in getCustomers:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
 
-const addCustomers = async (req, res) => {
+const addCustomer = async (req, res) => {
+  try {
+    const { name, surname, e_mail, phone_number, address, notes } = req.body;
+
+    // Walidacja danych
+    if (!name || !surname || !e_mail || !phone_number || !address) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+
+    const newCustomer = await pool.query(
+      'INSERT INTO customers (name, surname, e_mail, phone_number, address, notes) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+      [name, surname, e_mail, phone_number, address, notes]
+    );
+    res.json(newCustomer.rows);
+  } catch (error) {
+    console.error('Error in addCustomer:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+const deleteCustomer = async (req, res) => {
+  try {
+    const customerId = req.params.id;
+    const deletedCustomer = await pool.query(
+      'DELETE FROM customers WHERE id = $1 RETURNING name, surname',
+      [customerId]
+    );
+    if (deletedCustomer.rowCount === 1) {
+      res.json(`Usunięto klienta ${deletedCustomer.rows[0].name} ${deletedCustomer.rows[0].surname}`);
+    } else {
+      res.status(404).json({ error: 'Nie znaleziono klienta o podanym Id' });
+    }
+  } catch (error) {
+    console.error('Error in deleteCustomer:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+const editCustomer = async (req, res) => {
     try {
+        const customerId = req.params.id;
         const { name, surname, e_mail, phone_number, address, notes } = req.body;
-        const newCustomer = await pool.query(
-            "INSERT INTO customers (name,surname, e_mail, phone_number, address, notes) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-            [name, surname, e_mail, phone_number, address, notes]
+        const editedCustomer = await pool.query(
+            "UPDATE customers SET name = $1, surname = $2, e_mail = $3, phone_number = $4, address = $5, notes = $6 WHERE id = $7 RETURNING *",
+            [name, surname, e_mail, phone_number, address, notes, customerId]
         );
-        res.json(newCustomer.rows);
+        res.json(editedCustomer.rows);
     } catch (err) {
-        console.log(err)
+        console.error(err.message);
     }
-}
+};
 
-export { getCustomers, addCustomers }
+export { getCustomers, addCustomer, deleteCustomer, editCustomer };
