@@ -1,4 +1,4 @@
-import path from 'path';
+const path = require('path');
 
 module.exports = {
   env: {
@@ -12,6 +12,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
   ],
   overrides: [],
   parser: '@typescript-eslint/parser',
@@ -20,6 +21,15 @@ module.exports = {
     sourceType: 'module',
     project: path.resolve(__dirname, './tsconfig.json'),
   },
-  plugins: ['react', '@typescript-eslint'],
-  rules: {},
+  plugins: ['react', '@typescript-eslint', 'prettier'],
+  rules: {
+    '@typescript-eslint/no-var-requires': 'off',
+    'react/react-in-jsx-scope': 0,
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
+  },
 };
