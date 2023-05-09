@@ -1,5 +1,10 @@
+import CustomerList from './componenets/CustomerList';
+import useCustomers from './hooks/useCustomers';
+
 function Customers() {
-  return <div>Customers</div>;
+  const { customers, loading } = useCustomers();
+
+  return <div>{loading ? <p>Loading...</p> : <CustomerList customers={customers} />}</div>;
 }
 
 export default Customers;
