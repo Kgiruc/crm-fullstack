@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Customer } from '../../../../types/customer';
 
 type CustomerState = {
@@ -16,14 +16,13 @@ const customersSlice = createSlice({
   initialState,
   reducers: {
     getCustomersFetch: (state) => {
-      state.isLoading = true;
+      return { ...state, isLoading: true };
     },
-    getCustomersSuccess: (state, action) => {
-      state.customers = action.payload;
-      state.isLoading = false;
+    getCustomersSuccess: (state, action: PayloadAction<Customer[]>) => {
+      return { ...state, customers: action.payload, isLoading: false };
     },
     getCustomersFailure: (state) => {
-      state.isLoading = false;
+      return { ...state, isLoading: false };
     },
   },
 });

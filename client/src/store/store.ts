@@ -16,5 +16,5 @@ export const store = configureStore({
 
 sagaMiddleware.run(customersSaga);
 
-export const useAppDispath: () => typeof store.dispatch = useDispatch;
+export const useAppDispatch: () => typeof store.dispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<ReturnType<typeof store.getState>> = useSelector;
