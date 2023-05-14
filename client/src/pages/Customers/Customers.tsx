@@ -1,10 +1,17 @@
-import CustomerList from './componenets/CustomerList';
-import useCustomers from './hooks/useCustomers';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCustomersFetch } from './redux/states/Customers';
 
 function Customers() {
-  const { customers, loading } = useCustomers();
+  const customers = useSelector((state) => state.customers.customers);
+  const dispatch = useDispatch();
 
-  return <div>{loading ? <p>Loading...</p> : <CustomerList customers={customers} />}</div>;
+  useEffect(() => {
+    dispatch(getCustomersFetch());
+  }, [dispatch]);
+  console.log(customers);
+
+  return <div>Customers</div>;
 }
 
 export default Customers;

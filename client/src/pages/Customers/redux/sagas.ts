@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import { GET_CUSTOMERS_FETCH, GET_CUSTOMERS_SUCCESS, getCustomersFetch } from './actions/actions';
 import { Customer } from '../../../types/customer';
+import { getCustomersSuccess } from './states/Customers';
 
 async function customersFetch() {
   const response = await axios.get<Customer[]>('http://localhost:8800/clients');
@@ -10,11 +10,11 @@ async function customersFetch() {
 
 function* workGetCustomersFetch() {
   const customers: Customer[] = yield call(customersFetch);
-  yield put({ type: GET_CUSTOMERS_SUCCESS, customers });
+  yield put(getCustomersSuccess(customers));
 }
 
-function* mySaga() {
-  yield takeEvery(GET_CUSTOMERS_FETCH, workGetCustomersFetch);
+function* customersSaga() {
+  yield takeEvery('customers/getCustomersFetch', workGetCustomersFetch);
 }
 
-export default mySaga;
+export default customersSaga;
