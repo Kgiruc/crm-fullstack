@@ -1,7 +1,7 @@
 import createSagaMiddleware from 'redux-saga';
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
-import customerReducer from '../pages/Customers/redux/states/Customers';
+import customerReducer from '../pages/Customers/redux/slices/Customers';
 import customersSaga from '../pages/Customers/redux/sagas';
 
 const sagaMiddleware = createSagaMiddleware();

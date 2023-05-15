@@ -1,10 +1,10 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 import { Customer } from '../../../types/customer';
-import { getCustomersSuccess } from './states/Customers';
+import { getCustomersSuccess } from './slices/Customers';
 
 async function customersFetch() {
-  const response = await axios.get<Customer[]>('http://localhost:8800/clients');
+  const response = await axios.get<Customer[]>(import.meta.env.VITE_API_URL);
   return response.data;
 }
 

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/store';
-import { getCustomersFetch } from './redux/states/Customers';
+import { getCustomersFetch } from './redux/slices/Customers';
 import CustomerList from './componenets/CustomerList';
 
 function Customers() {
