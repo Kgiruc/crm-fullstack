@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Customer } from '../../../../types/customer';
 
-type CustomerState = {
+export type CustomerState = {
   customers: Customer[];
   isLoading: boolean;
 };
