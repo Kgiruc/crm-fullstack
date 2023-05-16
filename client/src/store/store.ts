@@ -1,20 +1,13 @@
-import createSagaMiddleware from 'redux-saga';
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
-import customerReducer from '../pages/Customers/redux/slices/Customers';
-import customersSaga from '../pages/Customers/redux/sagas';
-
-const sagaMiddleware = createSagaMiddleware();
-const middleware = [sagaMiddleware];
+import { customersApi } from '../pages/Customers/services/customersApi';
 
 export const store = configureStore({
   reducer: {
-    customers: customerReducer,
+    [customersApi.reducerPath]: customersApi.reducer,
   },
-  middleware: (getDeafultMiddleware) => getDeafultMiddleware().concat(middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(customersApi.middleware),
 });
-
-sagaMiddleware.run(customersSaga);
 
 export const useAppDispatch: () => typeof store.dispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<ReturnType<typeof store.getState>> = useSelector;

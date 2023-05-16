@@ -1,18 +1,17 @@
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../store/store';
-import { getCustomersFetch } from './redux/slices/Customers';
 import CustomerList from './componenets/CustomerList';
+import { useCustomersQuery } from './services/customersApi';
 
 function Customers() {
-  const customers = useAppSelector((state) => state.customers.customers);
-  const isLoading = useAppSelector((state) => state.customers.isLoading);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getCustomersFetch());
-  }, [dispatch]);
-
-  return <div>{isLoading ? <p>loading...</p> : <CustomerList customers={customers} />}</div>;
+  const { data, error, isLoading, isFetching, isSuccess } = useCustomersQuery();
+  return (
+    <div>
+      <h1>czesc kolega</h1>
+      {isLoading && <p>loading...</p>}
+      {isFetching && <p>fetching</p>}
+      {error && <p>error</p>}
+      {isSuccess && <CustomerList customers={data} />}
+    </div>
+  );
 }
 
 export default Customers;
