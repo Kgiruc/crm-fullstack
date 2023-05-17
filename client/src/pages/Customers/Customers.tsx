@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import CustomerList from './componenets/CustomerList';
 import { useCustomersQuery } from './services/customersApi';
 
@@ -10,6 +11,7 @@ function Customers() {
       {isFetching && <p>fetching</p>}
       {error && <p>error</p>}
       {isSuccess && <CustomerList customers={data} />}
+      <Link to="/customers/add">dodaj klienta</Link>
     </div>
   );
 }

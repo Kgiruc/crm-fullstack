@@ -8,6 +8,7 @@ import Invoices from './pages/Invoices/Invoices';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Tasks from './pages/Tasks/Tasks';
+import AddCustomer from './pages/Customers/componenets/AddCustomer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/agreements" element={<Agreements />} />
       <Route path="/contacts" element={<Contacts />} />
       <Route path="/customers" element={<Customers />} />
+      <Route path="/customers/add" element={<AddCustomer />} />
       <Route path="/invoices" element={<Invoices />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/register" element={<Register />} />
