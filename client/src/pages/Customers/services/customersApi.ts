@@ -16,6 +16,7 @@ export const customersApi = createApi({
         method: 'POST',
         body: customer,
       }),
+      invalidatesTags: ['Clients'],
     }),
     updateCustomer: builder.mutation<void, Customer>({
       query: ({ id, ...rest }) => ({
@@ -23,6 +24,7 @@ export const customersApi = createApi({
         method: 'PUT',
         body: rest,
       }),
+      invalidatesTags: ['Clients'],
     }),
     deleteCustomer: builder.mutation<void, string>({
       query: (id) => ({
