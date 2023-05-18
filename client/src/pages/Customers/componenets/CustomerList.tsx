@@ -1,10 +1,13 @@
 import { Customer } from '../../../models/customer';
+import { useDeleteCustomerMutation } from '../services/customersApi';
 
 type Props = {
   customers: Customer[];
 };
 
 function CustomerList({ customers }: Props) {
+  const [deleteCustomer] = useDeleteCustomerMutation();
+
   return (
     <>
       {customers.map((customer) => (
@@ -15,6 +18,14 @@ function CustomerList({ customers }: Props) {
           <li>{customer.phone_number}</li>
           <li>{customer.address}</li>
           {customer.notes && <li>{customer.notes}</li>}
+          <li>
+            <button
+              type="button"
+              onClick={() => customer.id && deleteCustomer(customer.id)}
+            >
+              usuń
+            </button>
+          </li>
         </ul>
       ))}
     </>

@@ -4,9 +4,11 @@ import { Customer } from '../../../models/customer';
 export const customersApi = createApi({
   reducerPath: 'customersApi',
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL }),
+  tagTypes: ['Clients'],
   endpoints: (builder) => ({
     customers: builder.query<Customer[], void>({
       query: () => '/clients',
+      providesTags: ['Clients'],
     }),
     addCustomer: builder.mutation<void, Customer>({
       query: (customer) => ({
@@ -27,6 +29,7 @@ export const customersApi = createApi({
         url: `/clients/${id}`,
         method: 'DELETE',
       }),
+      invalidatesTags: ['Clients'],
     }),
   }),
 });
