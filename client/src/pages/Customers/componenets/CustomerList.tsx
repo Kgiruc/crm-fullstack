@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Customer } from '../../../models/customer';
 import { useDeleteCustomerMutation } from '../services/customersApi';
 
@@ -18,14 +19,15 @@ function CustomerList({ customers }: Props) {
           <li>{customer.phone_number}</li>
           <li>{customer.address}</li>
           {customer.notes && <li>{customer.notes}</li>}
-          <li>
-            <button
-              type="button"
-              onClick={() => customer.id && deleteCustomer(customer.id)}
-            >
-              usuń
-            </button>
-          </li>
+          <button
+            type="button"
+            onClick={() => customer.id && deleteCustomer(customer.id)}
+          >
+            usuń
+          </button>
+          <Link to={`/customers/update/${customer.id}`} state={customer}>
+            Edit
+          </Link>
         </ul>
       ))}
     </>

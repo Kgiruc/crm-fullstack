@@ -20,7 +20,6 @@ function AddCustomer() {
       ...customer,
       [event.target.name]: event.target.value,
     });
-    console.log(customer);
   };
 
   const AddHandler = async () => {

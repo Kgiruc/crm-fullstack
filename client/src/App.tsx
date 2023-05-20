@@ -9,6 +9,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Tasks from './pages/Tasks/Tasks';
 import AddCustomer from './pages/Customers/componenets/AddCustomer';
+import UpdateCustomer from './pages/Customers/componenets/UpdateCustomer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/contacts" element={<Contacts />} />
       <Route path="/customers" element={<Customers />} />
       <Route path="/customers/add" element={<AddCustomer />} />
+      <Route path="/customers/update/:id" element={<UpdateCustomer />} />
       <Route path="/invoices" element={<Invoices />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/register" element={<Register />} />
