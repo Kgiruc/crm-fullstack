@@ -10,27 +10,31 @@ function CustomerList({ customers }: Props) {
   const [deleteCustomer] = useDeleteCustomerMutation();
 
   return (
-    <>
+    <tbody>
       {customers.map((customer) => (
-        <ul key={customer.id}>
-          <li>{customer.name}</li>
-          <li>{customer.surname}</li>
-          <li>{customer.e_mail}</li>
-          <li>{customer.phone_number}</li>
-          <li>{customer.address}</li>
-          {customer.notes && <li>{customer.notes}</li>}
-          <button
-            type="button"
-            onClick={() => customer.id && deleteCustomer(customer.id)}
-          >
-            usuń
-          </button>
-          <Link to={`/customers/update/${customer.id}`} state={customer}>
-            Edit
-          </Link>
-        </ul>
+        <tr key={customer.id}>
+          <td>{customer.name}</td>
+          <td>{customer.surname}</td>
+          <td>{customer.e_mail}</td>
+          <td>{customer.phone_number}</td>
+          <td>{customer.address}</td>
+          {customer.notes ? <td>{customer.notes}</td> : <td>-</td>}
+          <td>
+            <button
+              type="button"
+              onClick={() => customer.id && deleteCustomer(customer.id)}
+            >
+              usuń
+            </button>
+          </td>
+          <td>
+            <Link to={`/customers/update/${customer.id}`} state={customer}>
+              Edit
+            </Link>
+          </td>
+        </tr>
       ))}
-    </>
+    </tbody>
   );
 }
 

@@ -1,18 +1,37 @@
 import { Link } from 'react-router-dom';
 import CustomerList from './componenets/CustomerList';
 import { useCustomersQuery } from './services/customersApi';
+import './styles/table.css';
 
 function Customers() {
   const { data, error, isLoading, isFetching, isSuccess } = useCustomersQuery();
   return (
-    <div>
-      <h1>czesc kolega</h1>
+    <section>
+      <h1>All Clients</h1>
       {isLoading && <p>loading...</p>}
       {isFetching && <p>fetching</p>}
       {error && <p>error</p>}
-      {isSuccess && <CustomerList customers={data} />}
-      <Link to="/customers/add">dodaj klienta</Link>
-    </div>
+      {isSuccess && (
+        <>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Notes</th>
+                <th>Actions</th>
+                <th>Edit</th>
+              </tr>
+            </thead>
+            <CustomerList customers={data} />
+          </table>
+          <Link to="/customers/add">Add Customer</Link>
+        </>
+      )}
+    </section>
   );
 }
 
