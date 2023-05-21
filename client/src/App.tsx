@@ -21,7 +21,7 @@ function App() {
       <Route path="/customers/add" element={<AddCustomer />} />
       <Route path="/customers/update/:id" element={<UpdateCustomer />} />
       <Route path="/invoices" element={<Invoices />} />
-      <Route path="/Login" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/tasks" element={<Tasks />} />
       <Route path="*" element={<NotFound />} />
