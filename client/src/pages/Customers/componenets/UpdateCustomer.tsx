@@ -1,5 +1,4 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import { useUpdateCustomerMutation } from '../services/customersApi';
 import FormCustomer from './FormCustomer';
 import { Customer } from '../../../models/customer';
@@ -13,7 +12,7 @@ function UpdateCustomer() {
   const { id, name, surname, e_mail, phone_number, address, notes } =
     location.state as Customer;
 
-  const [customer, setCustomer] = useState<Customer>({
+  const initialCustomer: Customer = {
     id,
     name,
     surname,
@@ -21,19 +20,18 @@ function UpdateCustomer() {
     phone_number,
     address,
     notes,
-  });
+  };
 
-  const updateHandler = async () => {
-    await updateCustomer(customer);
+  const updateHandler = async (values: Customer) => {
+    await updateCustomer(values);
     navigate('/customers');
   };
 
   return (
     <div>
       <FormCustomer
-        funcSet={setCustomer}
-        customer={customer}
         buttonFunction={updateHandler}
+        initialCustomer={initialCustomer}
       />
     </div>
   );

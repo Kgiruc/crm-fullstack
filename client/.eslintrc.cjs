@@ -31,5 +31,6 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'jsx-a11y/label-has-associated-control': 0,
   },
 };
