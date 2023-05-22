@@ -1,5 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import * as Yup from 'yup';
+import validationSchema from '../../../common/formValidations';
 import { Customer } from '../../../models/customer';
 
 interface FormCustomerProps {
@@ -8,18 +8,6 @@ interface FormCustomerProps {
 }
 
 function FormCustomer({ buttonFunction, initialCustomer }: FormCustomerProps) {
-  const validationSchema = Yup.object({
-    name: Yup.string().required('Podaj pełne imię'),
-    surname: Yup.string().required('Podaj pełne nazwisko'),
-    e_mail: Yup.string()
-      .required('Podaj pełny email')
-      .email('Podaj poprawy mail'),
-    phone_number: Yup.string()
-      .required('Podaj pełny numer telefonu')
-      .matches(/^\d+$/, 'Podaj poprawny numer telefonu'),
-    address: Yup.string().required('Podaj ulicę'),
-  });
-
   return (
     <Formik
       initialValues={initialCustomer}
