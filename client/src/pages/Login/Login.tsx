@@ -1,5 +1,11 @@
+import LoginForm from './componenets/LoginForm';
+
 function Login() {
-  return <div>Login</div>;
+  return (
+    <section>
+      <LoginForm />
+    </section>
+  );
 }
 
 export default Login;

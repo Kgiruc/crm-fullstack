@@ -31,6 +31,17 @@ CREATE TABLE invoices (
     paid BOOLEAN
 );
 
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    login VARCHAR(30),
+    e_mail VARCHAR(50),
+    password VARCHAR(30)
+);
+
 -- INSERT INTO customers (name, surname, e_mail, phone_number, address, notes) 
 -- VALUES 
 -- ('Anna', 'Kupaczewska', 'anna@gmail.com', '737705689', 'ul.Brzydka 32 Gdańsk', null);
+
+-- INSERT INTO users (login, e_mail, password) 
+-- VALUES 
+-- ('Admin', 'Admin', crypt('Admin', gen_salt('bf', 4)));
