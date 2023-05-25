@@ -1,5 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import validationSchema from '../../../common/formValidations';
+import validationSchema from '../validations/formValidationsCustomers';
 import { Customer } from '../../../models/customer';
 
 interface FormCustomerProps {

@@ -1,35 +1,31 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import validationSchema from '../../../common/formValidations';
 import { User } from '../../../models/login';
+import validationSchema from '../validations/formValidationsLogin';
 
 interface FormUserProps {
+  buttonFunction: (values: User) => void;
   initialUser: User;
 }
-function LoginForm({ initialUser }: FormUserProps) {
-  const handleSubmit = (values: User) => {
-    console.log(values);
-  };
 
+function LoginForm({ initialUser, buttonFunction }: FormUserProps) {
   return (
-    <Formik
-      initialValues={initialUser}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-    >
-      <Form>
-        <label>
-          Login:
+    <div>
+      <h1>My Example</h1>
+      <Formik
+        initialValues={initialUser}
+        onSubmit={buttonFunction}
+        validationSchema={validationSchema}
+      >
+        <Form>
+          <label htmlFor="login">Login</label>
           <Field type="text" id="login" name="login" />
           <ErrorMessage name="login" component="p" />
-        </label>
-        <label>
-          Hasło:
+          <label htmlFor="password">Password</label>
           <Field type="password" id="password" name="password" />
-          <ErrorMessage name="password" component="p" />
-        </label>
-        <button type="submit">Zaloguj</button>
-      </Form>
-    </Formik>
+          <button type="submit">Zaloguj</button>
+        </Form>
+      </Formik>
+    </div>
   );
 }
 
