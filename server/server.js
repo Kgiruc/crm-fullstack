@@ -10,7 +10,7 @@ const PORT = process.env.PORT ?? 8800;
 app.use(cors());
 app.use(express.json());
 
-app.use('/', authMiddleware ,routerCustomers);
+app.use('/' ,routerCustomers);
 app.use('/', routerUsers);
 
 app.listen(PORT, () => {

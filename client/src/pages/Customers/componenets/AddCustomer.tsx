@@ -21,12 +21,12 @@ function AddCustomer() {
     navigate('/customers');
   };
   return (
-    <div>
+    <section>
       <FormCustomer
         buttonFunction={AddHandler}
         initialCustomer={initialCustomer}
       />
-    </div>
+    </section>
   );
 }
 

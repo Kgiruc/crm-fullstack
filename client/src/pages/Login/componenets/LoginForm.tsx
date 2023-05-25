@@ -1,8 +1,21 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import validationSchema from '../../../common/formValidations';
+import { User } from '../../../models/login';
 
-function LoginForm() {
+interface FormUserProps {
+  initialUser: User;
+}
+function LoginForm({ initialUser }: FormUserProps) {
+  const handleSubmit = (values: User) => {
+    console.log(values);
+  };
+
   return (
-    <Formik>
+    <Formik
+      initialValues={initialUser}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
       <Form>
         <label>
           Login:

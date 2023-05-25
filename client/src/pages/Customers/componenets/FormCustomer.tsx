@@ -16,7 +16,7 @@ function FormCustomer({ buttonFunction, initialCustomer }: FormCustomerProps) {
     >
       {({ isValid }) => (
         <Form>
-          <label htmlFor="name">
+          <label>
             name
             <Field type="text" id="name" name="name" />
             <ErrorMessage name="name" component="p" />
