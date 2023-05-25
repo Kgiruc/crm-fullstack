@@ -5,7 +5,7 @@ import { useLoginMutation } from './services/loginApi';
 
 function Login() {
   const navigate = useNavigate();
-  const [login, { error, isLoading, data }] = useLoginMutation();
+  const [login, { error, isLoading }] = useLoginMutation();
 
   const initialUser: User = {
     login: '',
@@ -13,8 +13,8 @@ function Login() {
   };
 
   const loginHandler = async (values: User) => {
-    await login(values);
-    if (data) {
+    const result = await login(values);
+    if ('data' in result) {
       navigate('/');
     }
   };
