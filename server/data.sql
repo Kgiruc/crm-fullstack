@@ -42,6 +42,6 @@ CREATE TABLE users (
 -- VALUES 
 -- ('Anna', 'Kupaczewska', 'anna@gmail.com', '737705689', 'ul.Brzydka 32 Gdańsk', null);
 
-INSERT INTO users (login, e_mail, password) 
-VALUES 
-('Admin', 'Admin', crypt('Admin', gen_salt('bf', 4)));
+-- INSERT INTO users (login, e_mail, password) 
+-- VALUES 
+-- ('Admin', 'Admin', crypt('Admin', gen_salt('bf', 4)));

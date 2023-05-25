@@ -15,7 +15,7 @@ const getLogin = async (req, res) => {
         return res.status(401).json({ error: 'Invalid login' });
       }
       
-      const token = jwt.sign({login}, 'secret', {expiresIn: '1hr'})
+      const token = jwt.sign({login}, process.env.ACCESS_TOKEN, {expiresIn: '1hr'})
       
       res.json({ login: result.rows[0].login, token });
     } catch (error) {
@@ -34,7 +34,7 @@ const getLogin = async (req, res) => {
         [login, e_mail, hashedPassword]
         );
       
-        const token = jwt.sign({login}, 'secret', {expiresIn: '1hr'})
+        const token = jwt.sign({login}, process.env.ACCESS_TOKEN, {expiresIn: '1hr'})
 
         res.json({ e_mail: result.rows[0].e_mail, token})
 
