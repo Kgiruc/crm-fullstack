@@ -16,17 +16,17 @@ export const loginApi = createApi({
   }),
 });
 
-loginApi.middleware.push(async (baseQuery, options, _api, _endpoint) => {
-  const token = getAccessTokenFromCookie();
+// loginApi.middleware.push(async (baseQuery, options, _api, _endpoint) => {
+//   const token = getAccessTokenFromCookie();
 
-  if (token) {
-    options.headers = {
-      ...options.headers,
-      Authorization: `Bearer ${token}`,
-    };
-  }
+//   if (token) {
+//     options.headers = {
+//       ...options.headers,
+//       Authorization: `Bearer ${token}`,
+//     };
+//   }
 
-  return baseQuery(options);
-});
+//   return baseQuery(options);
+// });
 
 export const { useLoginMutation } = loginApi;

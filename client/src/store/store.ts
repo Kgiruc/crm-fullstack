@@ -9,9 +9,10 @@ export const store = configureStore({
     [loginApi.reducerPath]: loginApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware()
-      .concat(customersApi.middleware)
-      .concat(loginApi.middleware),
+    getDefaultMiddleware().concat([
+      customersApi.middleware,
+      loginApi.middleware,
+    ]),
 });
 
 export const useAppDispatch: () => typeof store.dispatch = useDispatch;
