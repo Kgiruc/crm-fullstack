@@ -2,7 +2,6 @@ import pool from "../database/db.js"
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 
-
 const getLogin = async (req, res) => {
     try {
       const { login, password } = req.body;
@@ -16,7 +15,6 @@ const getLogin = async (req, res) => {
       }
       
       const token = jwt.sign({login}, process.env.ACCESS_TOKEN, {expiresIn: '1hr'})
-      
       res.json({ login: result.rows[0].login, token });
     } catch (error) {
       console.error('Error in Login:', error.message);

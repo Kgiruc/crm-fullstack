@@ -10,8 +10,8 @@ const PORT = process.env.PORT ?? 8800;
 app.use(cors());
 app.use(express.json());
 
-app.use('/' ,routerCustomers);
-app.use('/', routerUsers);
+app.use('/customers' , authMiddleware, routerCustomers);
+app.use('/user', routerUsers);
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);

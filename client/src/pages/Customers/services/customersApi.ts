@@ -4,34 +4,34 @@ import { Customer } from '../../../models/customer';
 export const customersApi = createApi({
   reducerPath: 'customersApi',
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL }),
-  tagTypes: ['Clients'],
+  tagTypes: ['Customers'],
   endpoints: (builder) => ({
     customers: builder.query<Customer[], void>({
-      query: () => '/clients',
-      providesTags: ['Clients'],
+      query: () => '/customers',
+      providesTags: ['Customers'],
     }),
     addCustomer: builder.mutation<void, Customer>({
       query: (customer) => ({
-        url: '/clients',
+        url: '/customers',
         method: 'POST',
         body: customer,
       }),
-      invalidatesTags: ['Clients'],
+      invalidatesTags: ['Customers'],
     }),
     updateCustomer: builder.mutation<void, Customer>({
       query: ({ id, ...rest }) => ({
-        url: `/clients/${id}`,
+        url: `customers/${id}`,
         method: 'PUT',
         body: rest,
       }),
-      invalidatesTags: ['Clients'],
+      invalidatesTags: ['Customers'],
     }),
     deleteCustomer: builder.mutation<void, string>({
       query: (id) => ({
-        url: `/clients/${id}`,
+        url: `customers/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['Clients'],
+      invalidatesTags: ['Customers'],
     }),
   }),
 });

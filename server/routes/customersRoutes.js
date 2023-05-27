@@ -8,9 +8,9 @@ import {
 
 const routerCustomers = express.Router();
 
-routerCustomers.get('/clients', getCustomers );
-routerCustomers.post('/clients', addCustomer );
-routerCustomers.delete('/clients/:id', deleteCustomer );
-routerCustomers.put('/clients/:id', editCustomer );
+routerCustomers.get('/', getCustomers );
+routerCustomers.post('/', addCustomer );
+routerCustomers.delete('/:id', deleteCustomer );
+routerCustomers.put('/:id', editCustomer );
 
 export default routerCustomers;
