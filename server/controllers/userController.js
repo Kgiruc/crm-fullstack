@@ -34,7 +34,7 @@ const getLogin = async (req, res) => {
         );
       
         const token = jwt.sign({login}, process.env.ACCESS_TOKEN, {expiresIn: '1hr'})
-
+        res.cookie('accessToken', token, { httpOnly: true });
         res.json({ e_mail: result.rows[0].e_mail, token})
 
     } catch (error) {

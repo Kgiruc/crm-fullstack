@@ -1,9 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../store/store';
 import { User } from '../../models/login';
 import LoginForm from './componenets/LoginForm';
 import { useLoginMutation } from './services/loginApi';
+import { addLogin } from './services/accountSlice';
 
 function Login() {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [login, { error, isLoading }] = useLoginMutation();
 
@@ -15,6 +18,7 @@ function Login() {
   const loginHandler = async (values: User) => {
     const result = await login(values);
     if ('data' in result) {
+      dispatch(addLogin(result.data.login));
       navigate('/');
     }
   };

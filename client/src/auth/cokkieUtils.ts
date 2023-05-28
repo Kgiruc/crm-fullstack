@@ -7,3 +7,4 @@ function getAccessTokenFromCookie() {
 }
 
 export default getAccessTokenFromCookie;
+/// narazie nie używane
