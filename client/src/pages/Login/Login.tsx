@@ -15,7 +15,6 @@ function Login() {
   const loginHandler = async (values: User) => {
     const result = await login(values);
     if ('data' in result) {
-      document.cookie = `accessToken=${result.data.token}; path=/`;
       navigate('/');
     }
   };

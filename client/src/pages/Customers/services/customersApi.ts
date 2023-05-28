@@ -3,7 +3,10 @@ import { Customer } from '../../../models/customer';
 
 export const customersApi = createApi({
   reducerPath: 'customersApi',
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: import.meta.env.VITE_API_URL,
+    credentials: 'include',
+  }),
   tagTypes: ['Customers'],
   endpoints: (builder) => ({
     customers: builder.query<Customer[], void>({
