@@ -23,7 +23,11 @@ const getLogin = async (req, res) => {
 
     const token = jwt.sign({ login }, process.env.ACCESS_TOKEN, { expiresIn: '1hr' });
     res.cookie('accessToken', token, { httpOnly: true, session: 0 });
-    res.json({ login: result.rows[0].login, token });
+    res.json({ 
+      login: result.rows[0].login,
+      e_mail: result.rows[0].e_mail,
+      token 
+      });
   } catch (error) {
     console.error('Error in Login:', error.message);
     res.status(500).json({ error: 'Internal Server Error' });

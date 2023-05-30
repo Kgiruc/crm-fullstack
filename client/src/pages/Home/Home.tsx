@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../store/store';
+import ProfileButton from './components/ProfileButton';
 
 function Home() {
   const isLogin = useAppSelector((state) => state.account.isLogin);
@@ -14,7 +15,9 @@ function Home() {
         <Link to="/invoices">faktury</Link>
         <Link to="/tasks">zadania</Link>
         {isLogin ? (
-          <p>profil</p>
+          <section>
+            <ProfileButton />
+          </section>
         ) : (
           <section>
             <Link to="/login">zaloguj się</Link>

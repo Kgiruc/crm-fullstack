@@ -11,11 +11,20 @@ const accountSlice = createSlice({
   name: 'account',
   initialState,
   reducers: {
-    addLogin(state, action: PayloadAction<string>) {
-      return { ...state, login: action.payload, isLogin: true };
+    addLoginUser(
+      state,
+      action: PayloadAction<{ login: string; email: string }>
+    ) {
+      const { login, email } = action.payload;
+      return {
+        ...state,
+        login,
+        email,
+        isLogin: true,
+      };
     },
   },
 });
 
-export const { addLogin } = accountSlice.actions;
+export const { addLoginUser } = accountSlice.actions;
 export default accountSlice.reducer;

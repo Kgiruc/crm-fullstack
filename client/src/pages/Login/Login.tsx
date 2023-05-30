@@ -1,9 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../store/store';
 import { User } from '../../models/login';
-import LoginForm from './componenets/LoginForm';
+import LoginForm from './components/LoginForm';
 import { useLoginMutation } from './services/loginApi';
-import { addLogin } from './services/accountSlice';
+import { addLoginUser } from './services/accountSlice';
 
 function Login() {
   const dispatch = useAppDispatch();
@@ -18,7 +18,9 @@ function Login() {
   const loginHandler = async (values: User) => {
     const result = await login(values);
     if ('data' in result) {
-      dispatch(addLogin(result.data.login));
+      dispatch(
+        addLoginUser({ login: result.data.login, email: result.data.e_mail })
+      );
       navigate('/');
     }
   };

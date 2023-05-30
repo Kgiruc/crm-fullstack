@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import CustomerList from './componenets/CustomerList';
+import CustomerList from './components/CustomerList';
 import { useCustomersQuery } from './services/customersApi';
 import './styles/table.css';
 

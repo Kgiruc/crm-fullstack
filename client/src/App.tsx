@@ -8,9 +8,10 @@ import Invoices from './pages/Invoices/Invoices';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Tasks from './pages/Tasks/Tasks';
-import AddCustomer from './pages/Customers/componenets/AddCustomer';
-import UpdateCustomer from './pages/Customers/componenets/UpdateCustomer';
+import AddCustomer from './pages/Customers/components/AddCustomer';
+import UpdateCustomer from './pages/Customers/components/UpdateCustomer';
 import AuthRoutes from './auth/authRoutes';
+import Profile from './pages/Profie/Profile';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/customers/update/:id" element={<UpdateCustomer />} />
         <Route path="/invoices" element={<Invoices />} />
         <Route path="/tasks" element={<Tasks />} />
+        <Route path="/profile" element={<Profile />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
