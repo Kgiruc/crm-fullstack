@@ -4,6 +4,6 @@ import {getLogin, Signup} from "../controllers/userController.js"
 const routerUsers = express.Router();
 
 routerUsers.post('/login', getLogin );
-routerUsers.post('/signup', Signup)
+routerUsers.post('/register', Signup)
 
 export default routerUsers;
