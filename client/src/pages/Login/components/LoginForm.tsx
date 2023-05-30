@@ -10,7 +10,7 @@ interface FormUserProps {
 function LoginForm({ initialUser, buttonFunction }: FormUserProps) {
   return (
     <div>
-      <h1>My Example</h1>
+      <h1>Zaloguj się</h1>
       <Formik
         initialValues={initialUser}
         onSubmit={buttonFunction}
@@ -22,6 +22,7 @@ function LoginForm({ initialUser, buttonFunction }: FormUserProps) {
           <ErrorMessage name="login" component="p" />
           <label htmlFor="password">Password</label>
           <Field type="password" id="password" name="password" />
+          <ErrorMessage name="password" component="p" />
           <button type="submit">Zaloguj</button>
         </Form>
       </Formik>
