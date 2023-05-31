@@ -1,18 +1,28 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import validationSchema from '../validations/formValidationsRegister';
+import { User } from '../../../models/login';
 
-function RegisterForm() {
+interface FormRegisterProps {
+  buttonFunction: (values: User) => void;
+  initialUser: User;
+}
+
+function RegisterForm({ initialUser, buttonFunction }: FormRegisterProps) {
   return (
     <div>
       <h1>Rejestracja</h1>
-      <Formik initialValues={} onSubmit={} validationSchema={validationSchema}>
+      <Formik
+        initialValues={initialUser}
+        onSubmit={buttonFunction}
+        validationSchema={validationSchema}
+      >
         <Form>
           <label htmlFor="login">Login</label>
           <Field type="text" id="login" name="login" />
           <ErrorMessage name="login" component="p" />
-          <label htmlFor="email">Email</label>
-          <Field type="email" id="email" name="email" />
-          <ErrorMessage name="email" component="p" />
+          <label htmlFor="e_mail">Email</label>
+          <Field type="e_mail" id="e_mail" name="e_mail" />
+          {/* <ErrorMessage name="e_mail" component="p" /> */}
           <label htmlFor="password">Password</label>
           <Field type="password" id="password" name="password" />
           <ErrorMessage name="password" component="p" />
