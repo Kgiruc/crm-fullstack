@@ -8,7 +8,7 @@ import { addLoginUser } from '../Login/services/accountSlice';
 function Register() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [register, { error, isLoading }] = useRegisterMutation();
+  const [register, { error, isLoading, isError }] = useRegisterMutation();
 
   const initialUser: User = {
     login: '',
@@ -18,7 +18,6 @@ function Register() {
 
   const registerHandler = async (values: User) => {
     const result = await register(values);
-    console.log(result)
     if ('data' in result) {
       dispatch(
         addLoginUser({ login: result.data.login, email: result.data.e_mail })
@@ -26,10 +25,24 @@ function Register() {
       navigate('/');
     }
   };
+
+  const getErrorMessage = () => {
+    if (isError && error) {
+      if ('data' in error && typeof error.data === 'object') {
+        const data = error.data as { error?: string };
+        if (data.error) {
+          return data.error;
+        }
+      }
+      return 'Wystąpił błąd';
+    }
+    return null;
+  };
+
   return (
     <section>
       {isLoading && <p>Loading...</p>}
-      {error && <p>Użytkownik istnieje</p>}
+      {isError && <p>{getErrorMessage()}</p>}
       <RegisterForm
         initialUser={initialUser}
         buttonFunction={registerHandler}

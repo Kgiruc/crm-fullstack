@@ -22,7 +22,7 @@ function RegisterForm({ initialUser, buttonFunction }: FormRegisterProps) {
           <ErrorMessage name="login" component="p" />
           <label htmlFor="e_mail">Email</label>
           <Field type="e_mail" id="e_mail" name="e_mail" />
-          {/* <ErrorMessage name="e_mail" component="p" /> */}
+          <ErrorMessage name="e_mail" component="p" />
           <label htmlFor="password">Password</label>
           <Field type="password" id="password" name="password" />
           <ErrorMessage name="password" component="p" />
