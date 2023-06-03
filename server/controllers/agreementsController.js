@@ -14,11 +14,11 @@ const getCustomerAgreements = async(req, res) => {
     try {
         const customerId = req.params.id;
         const agreements = await pool.query(
-            'SELECT * FROM contracts WHERE customer_id = $1 RETURNING *',
+            'SELECT * FROM contracts WHERE customer_id = $1',
             [customerId]
         )
         if (agreements.rowCount > 0) {
-            res.json(agreements)
+            res.json(agreements.rows)
         } else {
             res.status(404).json({ error: 'Brak umów'})
         }
@@ -28,4 +28,22 @@ const getCustomerAgreements = async(req, res) => {
       }
 }
 
-export {getAgreements} 
+const deleteAgreements = async (req, res) => {
+    try {
+        const agreementId = req.params.id;
+        const deletedAgreement = await pool.query(
+            'DELETE FROM contracts WHERE id = $1 RETURNING name, value',
+            [agreementId]
+        );
+        if (deletedAgreement.rowCount === 1) {
+            res.json(`Usunięto umowę ${deletedAgreement.rows[0].name} o wartości ${deletedAgreement.rows[0].value}`);
+        } else {
+            res.status(404).json({ error: 'Nie znaleziono umowy o podanym Id' });
+        }
+    } catch (error) {
+        console.error('Error in deleteAgreements:', error.message);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+export {getAgreements, getCustomerAgreements, deleteAgreements} 
