@@ -13,8 +13,6 @@ const getCustomers = async (req, res) => {
 const addCustomer = async (req, res) => {
   try {
     const { name, surname, e_mail, phone_number, address, notes } = req.body;
-
-    // Walidacja danych
     if (!name || !surname || !e_mail || !phone_number || !address) {
       return res.status(400).json({ error: 'Missing required fields' });
     }

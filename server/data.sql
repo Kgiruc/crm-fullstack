@@ -11,13 +11,15 @@ CREATE TABLE customers (
 );
 
 CREATE TABLE contracts (
-    id SERIAL PRIMARY KEY,
-    customer_id INT REFERENCES customers(id),
-    name VARCHAR(255),
-    date_sign DATE,
-    date_end DATE,
-    value DECIMAL(10, 2),
-    description TEXT
+  id SERIAL PRIMARY KEY,
+  customer_id INT REFERENCES customers(id),
+  name VARCHAR(255),
+  date_sign DATE,
+  date_end DATE,
+  value DECIMAL(10, 2),
+  description TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE invoices (
@@ -45,3 +47,8 @@ CREATE TABLE users (
 -- INSERT INTO users (login, e_mail, password) 
 -- VALUES 
 -- ('Admin', 'Admin', crypt('Admin', gen_salt('bf', 4)));
+
+INSERT INTO contracts (customer_id, name, date_sign, date_end, value, description) 
+VALUES 
+(2, 'Umowa Kupna-Sprzedaży', '2023-05-25', '2023-12-31', 1000.00, 'Opis umowy');
+

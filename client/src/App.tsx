@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
 import Agreements from './pages/Agreements/Agreements';
-import Contacts from './pages/Contacts/Contacts';
 import Customers from './pages/Customers/Customers';
 import Invoices from './pages/Invoices/Invoices';
 import Login from './pages/Login/Login';
@@ -19,7 +18,6 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route element={<AuthRoutes />}>
         <Route path="/agreements" element={<Agreements />} />
-        <Route path="/contacts" element={<Contacts />} />
         <Route path="/customers" element={<Customers />} />
         <Route path="/customers/add" element={<AddCustomer />} />
         <Route path="/customers/update/:id" element={<UpdateCustomer />} />

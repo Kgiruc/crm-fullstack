@@ -10,7 +10,7 @@ const PORT = process.env.PORT ?? 8800;
 
 app.use(cors({
   origin: 'http://localhost:5173', // Adres URL frontendu
-  credentials: true, // Zezwalaj na przesyłanie ciasteczek
+  credentials: true,
 }));
 app.use(express.json());
 app.use(cookieParser());
