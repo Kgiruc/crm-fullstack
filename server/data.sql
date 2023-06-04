@@ -48,7 +48,7 @@ CREATE TABLE users (
 -- VALUES 
 -- ('Admin', 'Admin', crypt('Admin', gen_salt('bf', 4)));
 
-INSERT INTO contracts (customer_id, name, date_sign, date_end, value, description) 
-VALUES 
-(2, 'Umowa Kupna-Sprzedaży', '2023-05-25', '2023-12-31', 1000.00, 'Opis umowy');
+-- INSERT INTO contracts (customer_id, name, date_sign, date_end, value, description) 
+-- VALUES 
+-- (2, 'Umowa Kupna-Sprzedaży', '2023-05-25', '2023-12-31', 1000.00, 'Opis umowy');
 
