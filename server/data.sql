@@ -40,6 +40,17 @@ CREATE TABLE users (
     password VARCHAR(30)
 );
 
+CREATE TABLE tasks (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255),
+  description TEXT,
+  due_date DATE,
+  priority INT,
+  status VARCHAR(50),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- INSERT INTO customers (name, surname, e_mail, phone_number, address, notes) 
 -- VALUES 
 -- ('Anna', 'Kupaczewska', 'anna@gmail.com', '737705689', 'ul.Brzydka 32 Gdańsk', null);
@@ -50,5 +61,9 @@ CREATE TABLE users (
 
 -- INSERT INTO contracts (customer_id, name, date_sign, date_end, value, description) 
 -- VALUES 
--- (2, 'Umowa Kupna-Sprzedaży', '2023-05-25', '2023-12-31', 1000.00, 'Opis umowy');
+-- (2, 'Umowa Kupna-Sprzedaży', '2023-05-25', '2023-12-31', 1000.00, 'Opis umowy')
+
+-- INSERT INTO invoices (customer_id, contract_id, date_issue, date_due, amount, description, paid) 
+-- VALUES 
+-- (2, 2, '2023-06-07', '2023-12-31', 1000.00, 'Opis umowy', true);
 

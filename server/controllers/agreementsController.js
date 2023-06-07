@@ -27,7 +27,7 @@ const getCustomerAgreements = async(req, res) => {
             res.status(404).json({ error: 'Brak umów'})
         }
     } catch (error) {
-        console.error('Error in deleteCustomer:', error.message);
+        console.error('Error in getCustomer:', error.message);
         res.status(500).json({ error: 'Internal Server Error' });
       }
 }

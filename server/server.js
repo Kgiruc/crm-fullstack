@@ -5,6 +5,7 @@ import routerCustomers from './routes/customersRoutes.js';
 import routerUsers from './routes/usersRoutes.js';
 import { authMiddleware } from './middleware/AuthMiddleware.js';
 import routerAgreements from './routes/agreementsRoutes.js';
+import routerInvoices from './routes/invoicesRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT ?? 8800;
@@ -18,6 +19,7 @@ app.use(cookieParser());
 
 app.use('/customers' , authMiddleware, routerCustomers);
 app.use('/agreements' , authMiddleware, routerAgreements);
+app.use('/invoices' , authMiddleware, routerInvoices);
 app.use('/user', routerUsers);
 
 app.listen(PORT, () => {
