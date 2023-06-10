@@ -4,10 +4,12 @@ import { customersApi } from '../pages/Customers/services/customersApi';
 import { loginApi } from '../pages/Login/services/loginApi';
 import accountReducer from '../pages/Login/services/accountSlice';
 import { registerApi } from '../pages/Register/services/registerApi';
+import { agreementsApi } from '../pages/Agreements/services/agreementsApi';
 
 export const store = configureStore({
   reducer: {
     [customersApi.reducerPath]: customersApi.reducer,
+    [agreementsApi.reducerPath]: agreementsApi.reducer,
     [loginApi.reducerPath]: loginApi.reducer,
     [registerApi.reducerPath]: registerApi.reducer,
     account: accountReducer,
