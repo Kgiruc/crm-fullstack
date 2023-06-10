@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import Account from '../../../models/Account';
+import { Account } from '../../../models/account';
+
 
 const initialState = {
   login: '',
