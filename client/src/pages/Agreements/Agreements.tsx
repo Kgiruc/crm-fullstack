@@ -24,6 +24,7 @@ function Agreements() {
                 <th>value</th>
                 <th>description</th>
                 <th>update</th>
+                <th>actions</th>
               </tr>
             </thead>
             <AgreementsList agreements={data} />

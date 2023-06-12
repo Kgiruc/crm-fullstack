@@ -1,5 +1,7 @@
 import { Agreement } from '../../../models/agreement';
+import { useAppDispatch } from '../../../store/store';
 import { useDeleteAgreementMutation } from '../services/agreementsApi';
+import { detailsAgreement } from '../services/detailsSlice';
 
 type Props = {
   agreements: Agreement[];
@@ -7,6 +9,7 @@ type Props = {
 
 function AgreementsList({ agreements }: Props) {
   const [deleteAgreement] = useDeleteAgreementMutation();
+  const dispatch = useAppDispatch();
 
   return (
     <tbody>
@@ -29,7 +32,12 @@ function AgreementsList({ agreements }: Props) {
             </button>
           </td>
           <td>
-            <button type="button">szczegóły</button>
+            <button
+              type="button"
+              onClick={dispatch(detailsAgreement({ agreement }))}
+            >
+              szczegóły
+            </button>
           </td>
         </tr>
       ))}
