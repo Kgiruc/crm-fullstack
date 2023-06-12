@@ -1,10 +1,13 @@
 import { Agreement } from '../../../models/agreement';
+import { useDeleteAgreementMutation } from '../services/agreementsApi';
 
 type Props = {
   agreements: Agreement[];
 };
 
 function AgreementsList({ agreements }: Props) {
+  const [deleteAgreement] = useDeleteAgreementMutation();
+
   return (
     <tbody>
       {agreements.map((agreement) => (
@@ -16,7 +19,18 @@ function AgreementsList({ agreements }: Props) {
           <td>{agreement.date_end.toString()}</td>
           <td>{agreement.value}</td>
           <td>{agreement.description}</td>
-          <td>{agreement.created_at}</td>
+          <td>{agreement.updated_at}</td>
+          <td>
+            <button
+              type="button"
+              onClick={() => agreement.id && deleteAgreement(agreement.id)}
+            >
+              usuń
+            </button>
+          </td>
+          <td>
+            <button type="button">szczegóły</button>
+          </td>
         </tr>
       ))}
     </tbody>

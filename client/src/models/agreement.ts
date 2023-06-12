@@ -7,7 +7,7 @@ export interface Agreement {
   value: number;
   description: string;
   created_at?: string;
-  update_at?: string;
+  updated_at?: string;
   name?: string;
   surname?: string;
   e_mail?: string;
