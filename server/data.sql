@@ -13,7 +13,7 @@ CREATE TABLE customers (
 CREATE TABLE contracts (
   id SERIAL PRIMARY KEY,
   customer_id INT REFERENCES customers(id),
-  name VARCHAR(255),
+  title VARCHAR(255),
   date_sign DATE,
   date_end DATE,
   value DECIMAL(10, 2),

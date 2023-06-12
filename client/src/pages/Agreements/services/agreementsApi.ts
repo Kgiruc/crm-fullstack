@@ -1,9 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Agreement } from '../../../models/agreement';
 
-
 export const agreementsApi = createApi({
-  reducerPath: 'customersApi',
+  reducerPath: 'agreementsApi',
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_URL,
     credentials: 'include',
@@ -45,4 +44,4 @@ export const {
   useAddAgreementMutation,
   useUpdateAgreementMutation,
   useDeleteAgreementMutation,
-} = agreementsApi
+} = agreementsApi;

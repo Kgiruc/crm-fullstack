@@ -36,11 +36,11 @@ const deleteAgreements = async (req, res) => {
     try {
         const agreementId = req.params.id;
         const deletedAgreement = await pool.query(
-            'DELETE FROM contracts WHERE id = $1 RETURNING name, value',
+            'DELETE FROM contracts WHERE id = $1 RETURNING title, value',
             [agreementId]
         );
         if (deletedAgreement.rowCount === 1) {
-            res.json(`Usunięto umowę ${deletedAgreement.rows[0].name} o wartości ${deletedAgreement.rows[0].value}`);
+            res.json(`Usunięto umowę ${deletedAgreement.rows[0].title} o wartości ${deletedAgreement.rows[0].value}`);
         } else {
             res.status(404).json({ error: 'Nie znaleziono umowy o podanym Id' });
         }
@@ -52,14 +52,14 @@ const deleteAgreements = async (req, res) => {
 
 const addAgreements = async (req, res) => {
     try {
-      const { customer_id, name, date_sign, date_end, value, description  } = req.body;
-      if (!customer_id || !name || !date_sign || !date_end || !value || !description) {
+      const { customer_id, title, date_sign, date_end, value, description  } = req.body;
+      if (!customer_id || !title || !date_sign || !date_end || !value || !description) {
         return res.status(400).json({ error: 'Missing required fields' });
       }
   
       const newAgreement = await pool.query(
-        'INSERT INTO contracts (customer_id, name, date_sign, date_end, value, description)  VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-        [customer_id, name, date_sign, date_end, value, description]
+        'INSERT INTO contracts (customer_id, title, date_sign, date_end, value, description)  VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+        [customer_id, title, date_sign, date_end, value, description]
       );
       res.json(newAgreement.rows);
     } catch (error) {
@@ -71,10 +71,10 @@ const addAgreements = async (req, res) => {
   const editAgreement = async (req, res) => {
     try {
         const agreementId = req.params.id;
-        const { customer_id, name, date_sign, date_end, value, description } = req.body;
+        const { customer_id, title, date_sign, date_end, value, description } = req.body;
         const editedAgreement = await pool.query(
-            "UPDATE contracts SET customer_id = $1, name = $2, date_sign = $3, date_end = $4, value = $5, description = $6 WHERE id = $7 RETURNING *",
-            [customer_id, name, date_sign, date_end, value, description, agreementId]
+            "UPDATE contracts SET customer_id = $1, title = $2, date_sign = $3, date_end = $4, value = $5, description = $6 WHERE id = $7 RETURNING *",
+            [customer_id, title, date_sign, date_end, value, description, agreementId]
         );
         res.json(editedAgreement.rows);
     } catch (err) {

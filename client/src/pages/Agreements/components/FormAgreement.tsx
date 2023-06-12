@@ -1,35 +1,43 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
-import { Agreement } from "../../../models/agreement"
-import validationSchema from "../validations/formValidationsAgreement";
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Agreement } from '../../../models/agreement';
+import validationSchema from '../validations/formValidationsAgreement';
 
 interface FormAgreementProps {
-    buttonFunction: (values: Agreement) => void;
-    initialAgreement: Agreement;
+  buttonFunction: (values: Agreement) => void;
+  initialAgreement: Agreement;
 }
 
-function FormAgreement({ buttonFunction, initialAgreement }: FormAgreementProps) {
+function FormAgreement({
+  buttonFunction,
+  initialAgreement,
+}: FormAgreementProps) {
   return (
-    <Formik 
-        initialValues={initialAgreement}
-        validationSchema={validationSchema} 
-        onSubmit={buttonFunction}
+    <Formik
+      initialValues={initialAgreement}
+      validationSchema={validationSchema}
+      onSubmit={buttonFunction}
     >
-    {({isValid}) => (
+      {({ isValid }) => (
         <Form>
-            <label>
-            Name
-            <Field type="text" id="name" name="name" />
-            <ErrorMessage name="name" component="p" />
+          <label>
+            customer ID
+            <Field type="text" id="customer_id" name="customer_id" />
+            <ErrorMessage name="customer_id" component="p" />
+          </label>
+          <label>
+            Title
+            <Field type="text" id="title" name="title" />
+            <ErrorMessage name="title" component="p" />
           </label>
           <label>
             Date Sign
-            <Field type="date" id="date_sing" name="date_sign" />
-            <ErrorMessage name="date" component="p" />
+            <Field type="date" id="date_sign" name="date_sign" />
+            <ErrorMessage name="date_sign" component="p" />
           </label>
           <label>
             Date End
             <Field type="date" id="date_end" name="date_end" />
-            <ErrorMessage name="date" component="p" />
+            <ErrorMessage name="date_end" component="p" />
           </label>
           <label>
             Value
@@ -45,10 +53,9 @@ function FormAgreement({ buttonFunction, initialAgreement }: FormAgreementProps)
             Add Agreement
           </button>
         </Form>
-    )
-    }    
+      )}
     </Formik>
-  )
+  );
 }
 
-export default FormAgreement
+export default FormAgreement;
