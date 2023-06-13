@@ -19,11 +19,17 @@ function AgreementsList({ agreements }: Props) {
           <td>{agreement.name}</td>
           <td>{agreement.surname}</td>
           <td>{agreement.title}</td>
-          <td>{agreement.date_sign?.toString()}</td>
-          <td>{agreement.date_end?.toString()}</td>
+          {agreement.date_sign && (
+            <td>{new Date(agreement.date_sign).toLocaleDateString()}</td>
+          )}
+          {agreement.date_end && (
+            <td>{new Date(agreement.date_end).toLocaleDateString()}</td>
+          )}
           <td>{agreement.value}</td>
           <td>{agreement.description}</td>
-          <td>{agreement.updated_at}</td>
+          {agreement.updated_at && (
+            <td>{new Date(agreement.updated_at).toLocaleString()}</td>
+          )}
           <td>
             <button
               type="button"

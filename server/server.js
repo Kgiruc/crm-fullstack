@@ -23,7 +23,7 @@ app.use('/agreements' , authMiddleware, routerAgreements);
 app.use('/invoices' , authMiddleware, routerInvoices);
 app.use('/tasks' , authMiddleware, routerTasks);
 app.use('/user', routerUsers);
-
+console.log(new Date().toLocaleString());
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });

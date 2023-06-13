@@ -17,8 +17,9 @@ function UpdateAgreement() {
     id,
     customer_id,
     title,
-    date_sign: date_sign?.slice(0, 10),
-    date_end: date_end?.slice(0, 10),
+    date_sign:
+      date_sign && new Date(date_sign.slice(0, 10)).toLocaleDateString(),
+    date_end: date_end && new Date(date_end.slice(0, 10)).toLocaleDateString(),
     value,
     description,
   };
