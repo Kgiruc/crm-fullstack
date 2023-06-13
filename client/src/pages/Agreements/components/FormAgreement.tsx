@@ -1,6 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Link } from 'react-router-dom';
 import { Agreement } from '../../../models/agreement';
 import validationSchema from '../validations/formValidationsAgreement';
+import { useCustomersQuery } from '../../Customers/services/customersApi';
 
 interface FormAgreementProps {
   buttonFunction: (values: Agreement) => void;
@@ -11,6 +13,7 @@ function FormAgreement({
   buttonFunction,
   initialAgreement,
 }: FormAgreementProps) {
+  const { data: customers } = useCustomersQuery();
   return (
     <Formik
       initialValues={initialAgreement}
@@ -20,10 +23,19 @@ function FormAgreement({
       {({ isValid }) => (
         <Form>
           <label>
-            customer ID
-            <Field type="text" id="customer_id" name="customer_id" />
+            customer
+            <Field as="select" id="customer_id" name="customer_id">
+              {customers &&
+                customers.map((customer) => (
+                  <option key={customer.id} value={customer.id}>
+                    {customer.name} {customer.surname}
+                  </option>
+                ))}
+            </Field>
+            <Link to="/customers/add">+</Link>
             <ErrorMessage name="customer_id" component="p" />
           </label>
+
           <label>
             Title
             <Field type="text" id="title" name="title" />
