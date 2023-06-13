@@ -31,8 +31,7 @@ function AgreementsList({ agreements }: Props) {
             >
               usuń
             </button>
-          </td>
-          <td>
+
             <button
               type="button"
               onClick={() => dispatch(detailsAgreement({ agreement }))}
