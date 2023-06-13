@@ -19,8 +19,8 @@ function AgreementsList({ agreements }: Props) {
           <td>{agreement.name}</td>
           <td>{agreement.surname}</td>
           <td>{agreement.title}</td>
-          <td>{agreement.date_sign.toString()}</td>
-          <td>{agreement.date_end.toString()}</td>
+          <td>{agreement.date_sign?.toString()}</td>
+          <td>{agreement.date_end?.toString()}</td>
           <td>{agreement.value}</td>
           <td>{agreement.description}</td>
           <td>{agreement.updated_at}</td>

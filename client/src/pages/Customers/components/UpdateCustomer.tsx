@@ -28,12 +28,12 @@ function UpdateCustomer() {
   };
 
   return (
-    <div>
+    <main>
       <FormCustomer
         buttonFunction={updateHandler}
         initialCustomer={initialCustomer}
       />
-    </div>
+    </main>
   );
 }
 

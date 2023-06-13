@@ -12,6 +12,7 @@ import UpdateCustomer from './pages/Customers/components/UpdateCustomer';
 import AuthRoutes from './auth/authRoutes';
 import Profile from './pages/Profie/Profile';
 import AddAgreement from './pages/Agreements/components/AddAgreement';
+import UpdateAgreement from './pages/Agreements/components/UpdateAgreement';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route element={<AuthRoutes />}>
         <Route path="/agreements" element={<Agreements />} />
         <Route path="/agreements/add" element={<AddAgreement />} />
+        <Route path="/agreements/update/:id" element={<UpdateAgreement />} />
         <Route path="/customers" element={<Customers />} />
         <Route path="/customers/add" element={<AddCustomer />} />
         <Route path="/customers/update/:id" element={<UpdateCustomer />} />

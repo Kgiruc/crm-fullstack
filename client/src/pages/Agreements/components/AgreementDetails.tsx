@@ -1,11 +1,20 @@
-import { Agreement } from '../../../models/agreement';
+import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../../store/store';
 
-function AgreementDetails({ id }: Agreement) {
+interface AgreementDetailsProps {
+  id: string | undefined;
+}
+
+function AgreementDetails({ id }: AgreementDetailsProps) {
   const details = useAppSelector((state) => state.details);
-  console.log(details);
   return details.isOpen && id === details.agreement.id ? (
-    <p>{details.agreement.name}</p>
+    <ul>
+      <li>{details.agreement.created_at}</li>
+      <li>{details.agreement.address}</li>
+      <li>{details.agreement.phone_number}</li>
+      <li>{details.agreement.description}</li>
+      <Link to={`/agreements/update/${details.agreement.id}`}>Edit</Link>
+    </ul>
   ) : null;
 }
 

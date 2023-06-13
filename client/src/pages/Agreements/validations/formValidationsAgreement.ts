@@ -5,9 +5,9 @@ const validationSchema = Yup.object({
   title: Yup.string().required('Podaj nazwe Umowy'),
   date_sign: Yup.string().required('Podaj date rozpoczęcia umowy'),
   date_end: Yup.string().required('Podaj date podpisania umowy'),
-  value: Yup.string()
+  value: Yup.number()
     .required('Podaj kwotę umowy')
-    .matches(/^\d+$/, 'Podaj poprawną kwotę'),
+    .positive('Podaj poprawną kwotę'),
 });
 
 export default validationSchema;

@@ -1,4 +1,6 @@
+import { Agreement } from './agreement';
+
 export interface Details {
-  agreement: object;
+  agreement: Agreement;
   isOpen: boolean;
 }
