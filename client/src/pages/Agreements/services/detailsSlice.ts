@@ -15,7 +15,7 @@ const detailsSlice = createSlice({
       return {
         ...state,
         agreement,
-        isOpen: true,
+        isOpen: !state.isOpen,
       };
     },
   },

@@ -39,7 +39,7 @@ function AgreementsList({ agreements }: Props) {
             >
               szczegóły
             </button>
-            <AgreementDetails />
+            <AgreementDetails id={agreement.id} />
           </td>
         </tr>
       ))}
