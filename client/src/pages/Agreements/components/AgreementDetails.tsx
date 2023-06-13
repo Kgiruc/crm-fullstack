@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../../store/store';
 
 interface AgreementDetailsProps {
-  id: string | undefined;
+  id: string;
 }
 
 function AgreementDetails({ id }: AgreementDetailsProps) {
@@ -13,7 +13,9 @@ function AgreementDetails({ id }: AgreementDetailsProps) {
       <li>{details.agreement.address}</li>
       <li>{details.agreement.phone_number}</li>
       <li>{details.agreement.description}</li>
-      <Link to={`/agreements/update/${details.agreement.id}`}>Edit</Link>
+      {details.agreement.id && (
+        <Link to={`/agreements/update/${details.agreement.id}`}>Edit</Link>
+      )}
     </ul>
   ) : null;
 }
