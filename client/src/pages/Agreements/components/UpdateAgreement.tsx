@@ -10,7 +10,6 @@ function UpdateAgreement() {
   const agreement = useAppSelector((state) => state.details);
   const navigate = useNavigate();
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   const { id, customer_id, title, date_sign, date_end, value, description } =
     agreement.agreement as Agreement;
 

@@ -24,6 +24,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/naming-convention': 'off',
     'react/react-in-jsx-scope': 0,
     'prettier/prettier': [
       'error',
