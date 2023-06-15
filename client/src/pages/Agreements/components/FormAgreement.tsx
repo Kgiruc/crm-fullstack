@@ -35,7 +35,6 @@ function FormAgreement({
             <Link to="/customers/add">+</Link>
             <ErrorMessage name="customer_id" component="p" />
           </label>
-
           <label>
             Title
             <Field type="text" id="title" name="title" />

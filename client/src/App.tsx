@@ -13,6 +13,8 @@ import AuthRoutes from './auth/authRoutes';
 import Profile from './pages/Profie/Profile';
 import AddAgreement from './pages/Agreements/components/AddAgreement';
 import UpdateAgreement from './pages/Agreements/components/UpdateAgreement';
+import AddInvoices from './pages/Invoices/components/AddInvoices';
+import UpdateInvoices from './pages/Invoices/components/UpdateInvoices';
 
 function App() {
   return (
@@ -22,11 +24,19 @@ function App() {
         <Route path="/agreements" element={<Agreements />} />
         <Route path="/agreements/add" element={<AddAgreement />} />
         <Route path="/agreements/update/:id" element={<UpdateAgreement />} />
+
         <Route path="/customers" element={<Customers />} />
         <Route path="/customers/add" element={<AddCustomer />} />
         <Route path="/customers/update/:id" element={<UpdateCustomer />} />
+
         <Route path="/invoices" element={<Invoices />} />
+        <Route path="/invoices/add" element={<AddInvoices />} />
+        <Route path="/invoices/update/:id" element={<UpdateInvoices />} />
+
         <Route path="/tasks" element={<Tasks />} />
+        <Route path="/tasks/add" element={<Tasks />} />
+        <Route path="/tasks/update/:id" element={<Tasks />} />
+
         <Route path="/profile" element={<Profile />} />
       </Route>
       <Route path="/login" element={<Login />} />

@@ -8,6 +8,7 @@ function AddAgreement() {
   const [addAgreement] = useAddAgreementMutation();
 
   const initialAgreement: Agreement = {
+    id: '',
     customer_id: '',
     title: '',
     date_sign: new Date().toISOString().slice(0, 10),

@@ -38,7 +38,7 @@ function InvoicesList({ invoices }: Props) {
             >
               szczegóły
             </button>
-            <InvoicesDetails id={invoice.id} />
+            {invoice.id && <InvoicesDetails id={invoice.id} />}
           </td>
         </tr>
       ))}
