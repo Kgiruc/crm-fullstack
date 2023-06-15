@@ -14,10 +14,10 @@ export const agreementsApi = createApi({
       providesTags: ['Agreements'],
     }),
     addAgreement: builder.mutation<void, Agreement>({
-      query: (customer) => ({
+      query: (agreement) => ({
         url: '/agreements',
         method: 'POST',
-        body: customer,
+        body: agreement,
       }),
       invalidatesTags: ['Agreements'],
     }),

@@ -6,11 +6,13 @@ import accountReducer from '../pages/Login/services/accountSlice';
 import detailsReducer from '../pages/Agreements/services/detailsSlice';
 import { registerApi } from '../pages/Register/services/registerApi';
 import { agreementsApi } from '../pages/Agreements/services/agreementsApi';
+import { invoicesApi } from '../pages/Invoices/services/invoicesApi';
 
 export const store = configureStore({
   reducer: {
     [customersApi.reducerPath]: customersApi.reducer,
     [agreementsApi.reducerPath]: agreementsApi.reducer,
+    [invoicesApi.reducerPath]: invoicesApi.reducer,
     [loginApi.reducerPath]: loginApi.reducer,
     [registerApi.reducerPath]: registerApi.reducer,
     account: accountReducer,
@@ -20,6 +22,7 @@ export const store = configureStore({
     getDefaultMiddleware().concat([
       agreementsApi.middleware,
       customersApi.middleware,
+      invoicesApi.middleware,
       loginApi.middleware,
       registerApi.middleware,
     ]),

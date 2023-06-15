@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { DateTime } from 'luxon';
 import { Agreement } from '../../../models/agreement';
 import { useUpdateAgreementMutation } from '../services/agreementsApi';
 import FormAgreement from './FormAgreement';
@@ -17,9 +18,8 @@ function UpdateAgreement() {
     id,
     customer_id,
     title,
-    date_sign:
-      date_sign && new Date(date_sign.slice(0, 10)).toLocaleDateString(),
-    date_end: date_end && new Date(date_end.slice(0, 10)).toLocaleDateString(),
+    date_sign: date_sign && (DateTime.fromISO(date_sign).toISODate() as string),
+    date_end: date_end && (DateTime.fromISO(date_end).toISODate() as string),
     value,
     description,
   };

@@ -4,7 +4,7 @@ const getInvoices = async (req, res) => {
     try {
         const invoices = await pool.query(
             "SELECT invoices.*, customers.name, customers.surname, customers.e_mail, customers.address, customers.phone_number, " +
-            "contracts.name AS contract_name, contracts.date_sign, contracts.date_end, contracts.value " +
+            "contracts.title AS contract_title, contracts.date_sign, contracts.date_end, contracts.value " +
             "FROM invoices " +
             "JOIN customers ON invoices.customer_id = customers.id " +
             "JOIN contracts ON invoices.contract_id = contracts.id"
