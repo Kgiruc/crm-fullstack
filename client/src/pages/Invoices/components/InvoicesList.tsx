@@ -1,6 +1,9 @@
-import { Link } from 'react-router-dom';
+import { DateTime } from 'luxon';
 import { Invoice } from '../../../models/invoice';
 import { useDeleteInvoiceMutation } from '../services/invoicesApi';
+import InvoicesDetails from './InvoicesDetails';
+import { useAppDispatch } from '../../../store/store';
+import { detailsInvoice } from '../services/detailsInvSlice';
 
 type Props = {
   invoices: Invoice[];
@@ -8,6 +11,7 @@ type Props = {
 
 function InvoicesList({ invoices }: Props) {
   const [deleteInvoice] = useDeleteInvoiceMutation();
+  const dispatch = useAppDispatch();
 
   return (
     <tbody>
@@ -16,8 +20,8 @@ function InvoicesList({ invoices }: Props) {
           <td>{invoice.name}</td>
           <td>{invoice.surname}</td>
           <td>{invoice.contract_title}</td>
-          <td>{invoice.date_issue}</td>
-          <td>{invoice.date_issue}</td>
+          <td>{DateTime.fromISO(invoice.date_due).toISODate()}</td>
+          <td>{DateTime.fromISO(invoice.date_issue).toISODate()}</td>
           <td>{invoice.amount}</td>
           <td>{invoice.description}</td>
           {invoice.paid ? <td>Zapłacone</td> : <td>nie zapłacone</td>}
@@ -28,9 +32,13 @@ function InvoicesList({ invoices }: Props) {
             >
               usuń
             </button>
-            <Link to={`/customers/update/${invoice.id}`} state={invoice}>
-              details
-            </Link>
+            <button
+              type="button"
+              onClick={() => dispatch(detailsInvoice({ invoice }))}
+            >
+              szczegóły
+            </button>
+            <InvoicesDetails id={invoice.id} />
           </td>
         </tr>
       ))}

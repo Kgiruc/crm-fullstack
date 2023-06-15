@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon';
 import { Agreement } from '../../../models/agreement';
 import { useAppDispatch } from '../../../store/store';
 import { useDeleteAgreementMutation } from '../services/agreementsApi';
@@ -19,12 +20,8 @@ function AgreementsList({ agreements }: Props) {
           <td>{agreement.name}</td>
           <td>{agreement.surname}</td>
           <td>{agreement.title}</td>
-          {agreement.date_sign && (
-            <td>{new Date(agreement.date_sign).toLocaleDateString()}</td>
-          )}
-          {agreement.date_end && (
-            <td>{new Date(agreement.date_end).toLocaleDateString()}</td>
-          )}
+          <td>{DateTime.fromISO(agreement.date_sign).toISODate()}</td>
+          <td>{DateTime.fromISO(agreement.date_end).toISODate()}</td>
           <td>{agreement.value}</td>
           <td>{agreement.description}</td>
           {agreement.updated_at && (
@@ -44,7 +41,7 @@ function AgreementsList({ agreements }: Props) {
             >
               szczegóły
             </button>
-            {agreement.id && <AgreementDetails id={agreement.id} />}
+            <AgreementDetails id={agreement.id} />
           </td>
         </tr>
       ))}

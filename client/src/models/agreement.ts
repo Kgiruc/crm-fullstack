@@ -1,9 +1,9 @@
 export interface Agreement {
-  id?: string;
+  id: string;
   customer_id: string;
   title: string;
-  date_sign?: string;
-  date_end?: string;
+  date_sign: string;
+  date_end: string;
   value: number;
   description: string;
   created_at?: string;

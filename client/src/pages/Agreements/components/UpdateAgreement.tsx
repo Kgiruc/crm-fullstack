@@ -18,8 +18,8 @@ function UpdateAgreement() {
     id,
     customer_id,
     title,
-    date_sign: date_sign && (DateTime.fromISO(date_sign).toISODate() as string),
-    date_end: date_end && (DateTime.fromISO(date_end).toISODate() as string),
+    date_sign: DateTime.fromISO(date_sign).toISODate() as string,
+    date_end: DateTime.fromISO(date_end).toISODate() as string,
     value,
     description,
   };

@@ -4,6 +4,7 @@ import { customersApi } from '../pages/Customers/services/customersApi';
 import { loginApi } from '../pages/Login/services/loginApi';
 import accountReducer from '../pages/Login/services/accountSlice';
 import detailsReducer from '../pages/Agreements/services/detailsSlice';
+import detailsInvReducer from '../pages/Invoices/services/detailsInvSlice';
 import { registerApi } from '../pages/Register/services/registerApi';
 import { agreementsApi } from '../pages/Agreements/services/agreementsApi';
 import { invoicesApi } from '../pages/Invoices/services/invoicesApi';
@@ -17,6 +18,7 @@ export const store = configureStore({
     [registerApi.reducerPath]: registerApi.reducer,
     account: accountReducer,
     details: detailsReducer,
+    detailsInv: detailsInvReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat([
