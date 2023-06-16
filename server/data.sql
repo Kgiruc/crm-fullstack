@@ -67,3 +67,7 @@ CREATE TABLE tasks (
 -- VALUES 
 -- (2, 2, '2023-06-07', '2023-12-31', 1000.00, 'Opis umowy', true);
 
+-- INSERT INTO tasks (title, description, due_date, priority, status) 
+-- VALUES 
+-- ('zadanie', 'wykonac', '2023-06-07', 1, 'zrobione');
+

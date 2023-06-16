@@ -21,7 +21,7 @@ export const tasksApi = createApi({
       }),
       invalidatesTags: ['Tasks'],
     }),
-    updateTasks: builder.mutation<void, Task>({
+    updateTask: builder.mutation<void, Task>({
       query: ({ id, ...rest }) => ({
         url: `tasks/${id}`,
         method: 'PUT',
@@ -29,7 +29,7 @@ export const tasksApi = createApi({
       }),
       invalidatesTags: ['Tasks'],
     }),
-    deleteInvoice: builder.mutation<void, string>({
+    deleteTask: builder.mutation<void, string>({
       query: (id) => ({
         url: `tasks/${id}`,
         method: 'DELETE',
@@ -42,6 +42,6 @@ export const tasksApi = createApi({
 export const {
   useTasksQuery,
   useAddTaskMutation,
-  useUpdateTasksMutation,
-  useDeleteInvoiceMutation,
+  useUpdateTaskMutation,
+  useDeleteTaskMutation,
 } = tasksApi;

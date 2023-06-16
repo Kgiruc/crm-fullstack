@@ -1,10 +1,13 @@
 import { DateTime } from 'luxon';
 import { Task } from '../../../models/task';
+import { useDeleteTaskMutation } from '../services/tasksApi';
 
 type Props = {
   tasks: Task[];
 };
+
 function TasksList({ tasks }: Props) {
+  const [deleteTask] = useDeleteTaskMutation();
   return (
     <tbody>
       {tasks.map((task) => (
@@ -20,6 +23,14 @@ function TasksList({ tasks }: Props) {
           {task.updated_at && (
             <td>{DateTime.fromISO(task.updated_at).toISODate()}</td>
           )}
+          <td>
+            <button
+              type="button"
+              onClick={() => task.id && deleteTask(task.id)}
+            >
+              usuń
+            </button>
+          </td>
         </tr>
       ))}
     </tbody>

@@ -32,14 +32,14 @@ const deleteTasks = async (req, res) => {
 
 const addTasks = async (req, res) => {
     try {
-        const { title, description, date_due, priority, status } = req.body;
-        if (!title || !description || !date_due || !priority || !status) {
+        const { title, description, due_date, priority, status } = req.body;
+        if (!title || !description || !due_date || !priority || !status) {
             return res.status(400).json({ error: 'Missing required fields' });
         }
 
         const newTask = await pool.query(
-            'INSERT INTO tasks (title, description, date_due, priority, status) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-            [title, description, date_due, priority, status]
+            'INSERT INTO tasks (title, description, due_date, priority, status) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+            [title, description, due_date, priority, status]
         );
         res.json(newTask.rows);
     } catch (error) {
