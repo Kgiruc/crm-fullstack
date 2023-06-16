@@ -38,7 +38,12 @@ function FormTask({ buttonFunction, initialTask }: FormTaskProps) {
           </label>
           <label>
             status
-            <Field type="text" id="status" name="status" />
+            <Field as="select" id="status" name="status">
+              <option value="">Choose status</option>
+              <option value="pending">Pending</option>
+              <option value="in_progress">In Progress</option>
+              <option value="completed">Completed</option>
+            </Field>
             <ErrorMessage name="status" component="p" />
           </label>
           <button type="submit" disabled={!isValid}>
