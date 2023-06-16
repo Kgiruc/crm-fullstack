@@ -8,7 +8,6 @@ function UpdateCustomer() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   const { id, name, surname, e_mail, phone_number, address, notes } =
     location.state as Customer;
 

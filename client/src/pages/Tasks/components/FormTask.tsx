@@ -40,9 +40,9 @@ function FormTask({ buttonFunction, initialTask }: FormTaskProps) {
             status
             <Field as="select" id="status" name="status">
               <option value="">Choose status</option>
-              <option value="pending">Pending</option>
-              <option value="in_progress">In Progress</option>
-              <option value="completed">Completed</option>
+              <option value="Pending">Pending</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
             </Field>
             <ErrorMessage name="status" component="p" />
           </label>

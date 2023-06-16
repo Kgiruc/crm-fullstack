@@ -16,6 +16,7 @@ import UpdateAgreement from './pages/Agreements/components/UpdateAgreement';
 import AddInvoices from './pages/Invoices/components/AddInvoices';
 import UpdateInvoices from './pages/Invoices/components/UpdateInvoices';
 import AddTask from './pages/Tasks/components/AddTask';
+import EditTask from './pages/Tasks/components/EditTask';
 
 function App() {
   return (
@@ -36,7 +37,7 @@ function App() {
 
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/tasks/add" element={<AddTask />} />
-        <Route path="/tasks/update/:id" element={<Tasks />} />
+        <Route path="/tasks/update/:id" element={<EditTask />} />
 
         <Route path="/profile" element={<Profile />} />
       </Route>

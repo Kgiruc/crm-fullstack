@@ -1,4 +1,5 @@
 import { DateTime } from 'luxon';
+import { Link } from 'react-router-dom';
 import { Task } from '../../../models/task';
 import { useDeleteTaskMutation } from '../services/tasksApi';
 
@@ -30,6 +31,9 @@ function TasksList({ tasks }: Props) {
             >
               usuń
             </button>
+            <Link to={`/tasks/update/${task.id}`} state={task}>
+              Edit
+            </Link>
           </td>
         </tr>
       ))}

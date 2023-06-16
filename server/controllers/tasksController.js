@@ -51,10 +51,10 @@ const addTasks = async (req, res) => {
 const editTasks = async (req, res) => {
     try {
         const taskId = req.params.id;
-        const { title, description, date_due, priority, status } = req.body
+        const { title, description, due_date , priority, status } = req.body
         const editedTask = await pool.query(
-            "UPDATE invoices SET customer_id = $1, contract_id = $2, date_issue = $3, date_due = $4, amount = $5, description = $6, paid = $7 WHERE id = $8 RETURNING *",
-            [title, description, date_due, priority, status, taskId]
+            "UPDATE tasks SET title = $1, description = $2, due_date = $3, priority = $4, status = $5 WHERE id = $6 RETURNING *",
+            [title, description, due_date, priority, status, taskId]
         );
         res.json(editedTask.rows);
     } catch (error) {
