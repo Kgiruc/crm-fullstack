@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useAgreementsQuery } from './services/agreementsApi';
+import {
+  useAgreementsQuery,
+  useCustomerAgreementsQuery,
+} from './services/agreementsApi';
 import AgreementsList from './components/AgreementsList';
 
 function Agreements() {
   const { data, error, isLoading, isSuccess, isFetching } =
     useAgreementsQuery();
+  const { data, error, isLoading, isSuccess, isFetching } =
+    useCustomerAgreementsQuery();
   return (
     <section>
       <h1>All Agreements</h1>

@@ -23,7 +23,6 @@ function EditTask() {
 
   const updateHandler = async (values: Task) => {
     await updateTask(values);
-    console.log(values);
     navigate('/tasks');
   };
 

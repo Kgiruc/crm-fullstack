@@ -32,6 +32,7 @@ function App() {
         <Route path="/customers/update/:id" element={<UpdateCustomer />} />
 
         <Route path="/invoices" element={<Invoices />} />
+        <Route path="/invoices/:id" element={<Invoices />} />
         <Route path="/invoices/add" element={<AddInvoices />} />
         <Route path="/invoices/update/:id" element={<UpdateInvoices />} />
 

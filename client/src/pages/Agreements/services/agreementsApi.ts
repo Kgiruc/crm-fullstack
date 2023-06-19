@@ -13,6 +13,10 @@ export const agreementsApi = createApi({
       query: () => '/agreements',
       providesTags: ['Agreements'],
     }),
+    customerAgreements: builder.query<Agreement[], string>({
+      query: (id) => `/agreements/${id}`,
+      providesTags: ['Agreements'],
+    }),
     addAgreement: builder.mutation<void, Agreement>({
       query: (agreement) => ({
         url: '/agreements',
@@ -41,6 +45,7 @@ export const agreementsApi = createApi({
 
 export const {
   useAgreementsQuery,
+  useCustomerAgreementsQuery,
   useAddAgreementMutation,
   useUpdateAgreementMutation,
   useDeleteAgreementMutation,
