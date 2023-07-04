@@ -7,8 +7,8 @@ import detailsReducer from '../pages/Agreements/services/detailsSlice';
 import detailsInvReducer from '../pages/Invoices/services/detailsInvSlice';
 import { registerApi } from '../pages/Register/services/registerApi';
 import { agreementsApi } from '../pages/Agreements/services/agreementsApi';
-import { invoicesApi } from '../pages/Invoices/services/invoicesApi';
 import { tasksApi } from '../pages/Tasks/services/tasksApi';
+import { invoicesApi } from '../pages/Invoices/services/invoicesApi';
 
 export const store = configureStore({
   reducer: {
