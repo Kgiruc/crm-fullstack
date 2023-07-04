@@ -24,6 +24,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route element={<AuthRoutes />}>
         <Route path="/agreements" element={<Agreements />} />
+        <Route path="/agreements/:id" element={<Agreements />} />
         <Route path="/agreements/add" element={<AddAgreement />} />
         <Route path="/agreements/update/:id" element={<UpdateAgreement />} />
 

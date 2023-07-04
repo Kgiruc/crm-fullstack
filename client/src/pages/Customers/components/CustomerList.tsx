@@ -32,6 +32,9 @@ function CustomerList({ customers }: Props) {
               Edit
             </Link>
           </td>
+          <td>
+            <Link to={`/agreements/${customer.id}`}>Umowy</Link>
+          </td>
         </tr>
       ))}
     </tbody>

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
   useAgreementsQuery,
   useCustomerAgreementsQuery,
@@ -6,10 +6,13 @@ import {
 import AgreementsList from './components/AgreementsList';
 
 function Agreements() {
-  const { data, error, isLoading, isSuccess, isFetching } =
-    useAgreementsQuery();
-  const { data, error, isLoading, isSuccess, isFetching } =
-    useCustomerAgreementsQuery();
+  const { id } = useParams<{ id: string }>();
+  const agreementsQuery = useAgreementsQuery();
+  const customerAgreementsQuery = useCustomerAgreementsQuery(id || '');
+
+  const { data, error, isLoading, isSuccess, isFetching } = id
+    ? customerAgreementsQuery
+    : agreementsQuery;
   return (
     <section>
       <h1>All Agreements</h1>

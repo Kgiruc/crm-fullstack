@@ -18,9 +18,12 @@ const getCustomerAgreements = async(req, res) => {
     try {
         const customerId = req.params.id;
         const agreements = await pool.query(
-            'SELECT * FROM contracts WHERE customer_id = $1',
+            "SELECT contracts.*, customers.name, customers.surname, customers.e_mail, customers.address, customers.phone_number " +
+            "FROM contracts " +
+            "JOIN customers ON contracts.customer_id = customers.id " +
+            "WHERE customer_id = $1;",
             [customerId]
-        )
+          );
         if (agreements.rowCount > 0) {
             res.json(agreements.rows)
         } else {
