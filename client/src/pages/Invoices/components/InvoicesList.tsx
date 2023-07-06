@@ -3,7 +3,7 @@ import { Invoice } from '../../../models/invoice';
 import { useDeleteInvoiceMutation } from '../services/invoicesApi';
 import InvoicesDetails from './InvoicesDetails';
 import { useAppDispatch } from '../../../store/store';
-import { detailsInvoice } from '../services/detailsInvSlice';
+import { detailsInvoice } from '../services/detailsInvoiceSlice';
 
 type Props = {
   invoices: Invoice[];

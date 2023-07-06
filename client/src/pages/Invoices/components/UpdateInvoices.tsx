@@ -7,7 +7,7 @@ import FormInvoice from './FormInvoice';
 
 function UpdateInvoices() {
   const [updateInvoice] = useUpdateInvoiceMutation();
-  const invoice = useAppSelector((state) => state.detailsInv);
+  const invoice = useAppSelector((state) => state.detailsInvoice);
   const navigate = useNavigate();
 
   const {

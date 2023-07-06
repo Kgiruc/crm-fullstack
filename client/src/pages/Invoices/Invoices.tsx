@@ -4,7 +4,6 @@ import { useInvoicesQuery } from './services/invoicesApi';
 
 function Invoices() {
   const { data, error, isLoading, isSuccess } = useInvoicesQuery();
-
   return (
     <section>
       <h1>All invoices</h1>

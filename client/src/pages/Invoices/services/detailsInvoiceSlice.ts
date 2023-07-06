@@ -7,8 +7,8 @@ const initialState = {
   isOpen: false,
 } as DetailsInv;
 
-const detailsInvSlice = createSlice({
-  name: 'detailsInv',
+const detailsInvoiceSlice = createSlice({
+  name: 'detailsInvoice',
   initialState,
   reducers: {
     detailsInvoice(state, action: PayloadAction<{ invoice: Invoice }>) {
@@ -22,5 +22,5 @@ const detailsInvSlice = createSlice({
   },
 });
 
-export const { detailsInvoice } = detailsInvSlice.actions;
-export default detailsInvSlice.reducer;
+export const { detailsInvoice } = detailsInvoiceSlice.actions;
+export default detailsInvoiceSlice.reducer;

@@ -7,7 +7,7 @@ interface InvoiceDetailsProps {
 }
 
 function InvoicesDetails({ id }: InvoiceDetailsProps) {
-  const details = useAppSelector((state) => state.detailsInv);
+  const details = useAppSelector((state) => state.detailsInvoice);
   return details.isOpen && id === details.invoice.id ? (
     <ul>
       {details.invoice.date_sign && (
