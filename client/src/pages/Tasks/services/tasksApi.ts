@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { Task } from '../../../models/task';
 
 export const tasksApi = createApi({
-  reducerPath: 'invoicesApi',
+  reducerPath: 'tasksApi',
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_URL,
     credentials: 'include',

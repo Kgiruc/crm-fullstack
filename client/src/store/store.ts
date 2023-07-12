@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
 import { customersApi } from '../pages/Customers/services/customersApi';
+import { invoicesApi } from '../pages/Invoices/services/invoicesApi';
 import { loginApi } from '../pages/Login/services/loginApi';
 import accountReducer from '../pages/Login/services/accountSlice';
 import detailsReducer from '../pages/Agreements/services/detailsSlice';
@@ -8,7 +9,6 @@ import detailsInvoiceReducer from '../pages/Invoices/services/detailsInvoiceSlic
 import { registerApi } from '../pages/Register/services/registerApi';
 import { agreementsApi } from '../pages/Agreements/services/agreementsApi';
 import { tasksApi } from '../pages/Tasks/services/tasksApi';
-import { invoicesApi } from '../pages/Invoices/services/invoicesApi';
 
 export const store = configureStore({
   reducer: {
