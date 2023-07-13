@@ -9,6 +9,7 @@ import detailsInvoiceReducer from '../pages/Invoices/services/detailsInvoiceSlic
 import { registerApi } from '../pages/Register/services/registerApi';
 import { agreementsApi } from '../pages/Agreements/services/agreementsApi';
 import { tasksApi } from '../pages/Tasks/services/tasksApi';
+import { profileApi } from '../pages/Profie/services/profileApi';
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     [tasksApi.reducerPath]: tasksApi.reducer,
     [loginApi.reducerPath]: loginApi.reducer,
     [registerApi.reducerPath]: registerApi.reducer,
+    [profileApi.reducerPath]: profileApi.reducer,
     account: accountReducer,
     details: detailsReducer,
     detailsInvoice: detailsInvoiceReducer,
@@ -30,6 +32,7 @@ export const store = configureStore({
       tasksApi.middleware,
       loginApi.middleware,
       registerApi.middleware,
+      profileApi.middleware,
     ]),
 });
 

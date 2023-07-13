@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Account } from '../../../models/account';
+import { Account } from '../../../models/Account';
 
 const initialState = {
   login: '',
@@ -23,8 +23,11 @@ const accountSlice = createSlice({
         isLogin: true,
       };
     },
+    resetProfileInfo() {
+      return initialState;
+    },
   },
 });
 
-export const { addLoginUser } = accountSlice.actions;
+export const { addLoginUser, resetProfileInfo } = accountSlice.actions;
 export default accountSlice.reducer;
