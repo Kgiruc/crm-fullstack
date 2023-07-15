@@ -22,8 +22,7 @@ function Customers() {
                 <th>Phone Number</th>
                 <th>Address</th>
                 <th>Notes</th>
-                <th>Actions</th>
-                <th>Edit</th>
+                <th colSpan={3}>Actions</th>
               </tr>
             </thead>
             <CustomerList customers={data} />
