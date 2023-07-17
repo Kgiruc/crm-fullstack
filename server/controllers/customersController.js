@@ -47,17 +47,31 @@ const deleteCustomer = async (req, res) => {
 };
 
 const editCustomer = async (req, res) => {
-    try {
-        const customerId = req.params.id;
-        const { name, surname, e_mail, phone_number, address, notes } = req.body;
-        const editedCustomer = await pool.query(
-            "UPDATE customers SET name = $1, surname = $2, e_mail = $3, phone_number = $4, address = $5, notes = $6 WHERE id = $7 RETURNING *",
-            [name, surname, e_mail, phone_number, address, notes, customerId]
-        );
-        res.json(editedCustomer.rows);
-    } catch (err) {
-        console.error(err.message);
+  try {
+    const customerId = req.params.id;
+    const { name, surname, e_mail, phone_number, address, notes } = req.body;
+    const editedCustomer = await pool.query(
+        "UPDATE customers SET name = $1, surname = $2, e_mail = $3, phone_number = $4, address = $5, notes = $6 WHERE id = $7 RETURNING *",
+        [name, surname, e_mail, phone_number, address, notes, customerId]
+    );
+    res.json(editedCustomer.rows);
+  } catch (err) {
+      console.error(err.message);
     }
 };
 
-export { getCustomers, addCustomer, deleteCustomer, editCustomer };
+const filterCustomer = async (req, res) => {
+  try {
+    const { searchTerm } = req.params.searchTerm;
+    const filteredCustomers = await pool.query(
+      "SELECT * FROM customers WHERE name ILIKE $1 OR surname ILIKE $1 OR e_mail ILIKE $1 OR phone_number ILIKE $1",
+      [`${searchTerm}`]
+    );
+    res.json(filteredCustomers.rows);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ error: 'Server error' });
+  }
+};
+
+export { getCustomers, addCustomer, deleteCustomer, editCustomer, filterCustomer };
