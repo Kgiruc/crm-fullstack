@@ -62,10 +62,10 @@ const editCustomer = async (req, res) => {
 
 const filterCustomer = async (req, res) => {
   try {
-    const { searchTerm } = req.params.searchTerm;
+    const { searchTerm } = req.params;
     const filteredCustomers = await pool.query(
       "SELECT * FROM customers WHERE name ILIKE $1 OR surname ILIKE $1 OR e_mail ILIKE $1 OR phone_number ILIKE $1",
-      [`${searchTerm}`]
+      [`%${searchTerm}%`]
     );
     res.json(filteredCustomers.rows);
   } catch (err) {

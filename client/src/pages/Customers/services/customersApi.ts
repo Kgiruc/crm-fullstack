@@ -36,6 +36,13 @@ export const customersApi = createApi({
       }),
       invalidatesTags: ['Customers'],
     }),
+    filterCustomers: builder.query<Customer[], string>({
+      query: (searchTerm) => ({
+        url: `/customers/filter/${searchTerm}`,
+        method: 'GET',
+      }),
+      providesTags: ['Customers'],
+    }),
   }),
 });
 
