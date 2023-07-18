@@ -51,4 +51,5 @@ export const {
   useAddCustomerMutation,
   useUpdateCustomerMutation,
   useDeleteCustomerMutation,
+  useFilterCustomersQuery,
 } = customersApi;

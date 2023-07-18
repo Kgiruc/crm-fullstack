@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
 import CustomerList from './components/CustomerList';
-import { useCustomersQuery } from './services/customersApi';
+import {
+  useCustomersQuery,
+  useFilterCustomersQuery,
+} from './services/customersApi';
 import './styles/table.css';
 
 function Customers() {
   const { data, error, isLoading, isFetching, isSuccess } = useCustomersQuery();
+
   return (
     <section>
       <h1>All Clients</h1>
