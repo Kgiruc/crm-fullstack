@@ -1,11 +1,10 @@
 interface FilterProps {
-  functionQuery(value: string): void;
+  functionQuery(value: string): Promise<{ data: string[] }>;
   value: string;
 }
 
-const filterFunction = ({ functionQuery, value }: FilterProps) => {
-  const { data } = functionQuery(value);
-  return data;
+// eslint-disable-next-line import/prefer-default-export
+export const filterFunction = async ({ functionQuery, value }: FilterProps) => {
+  const response = await functionQuery(value);
+  return response.data;
 };
-
-export default filterFunction;
