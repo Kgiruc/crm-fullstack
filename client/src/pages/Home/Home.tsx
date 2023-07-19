@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Box, Button, Typography } from '@mui/material';
+import PeopleIcon from '@mui/icons-material/People';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import DescriptionIcon from '@mui/icons-material/Description';
+import RequestPageIcon from '@mui/icons-material/RequestPage';
 import { useAppSelector } from '../../store/store';
 import ProfileButton from './components/ProfileButton';
 
@@ -11,62 +15,132 @@ function Home() {
       sx={{
         display: 'flex',
         flexDirection: 'column',
+        boxSizing: 'border-box',
         height: '100vh',
         width: '240px',
         backgroundColor: '#f0f0f0',
         overflow: 'auto',
         margin: 0,
-        padding: '0 16px',
-        flex: 1,
+        padding: '30px 16px',
+        justifyContent: 'space-between',
+        alignItems: 'stretch',
       }}
     >
       <Typography variant="h6" sx={{ marginBottom: '16px' }}>
         CRM zmiana nazwy
       </Typography>
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+        <Button
+          variant="contained"
+          component={Link}
+          to="/customers"
+          sx={{
+            width: '100%',
+            marginBottom: '8px',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            '& .MuiButton-startIcon': {
+              marginBottom: '4px',
+            },
+            '& .MuiButton-label': {
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            },
+          }}
+        >
+          <PeopleIcon sx={{ fontSize: '32px' }} />
+          <Typography variant="body2">Klienci</Typography>
+        </Button>
 
-      <Button
-        variant="contained"
-        component={Link}
-        to="/customers"
-        sx={{ width: '100%', marginBottom: '8px' }}
-      >
-        Klienci
-      </Button>
+        <Button
+          variant="contained"
+          component={Link}
+          to="/agreements"
+          sx={{
+            width: '100%',
+            marginBottom: '8px',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            '& .MuiButton-startIcon': {
+              marginBottom: '4px',
+            },
+            '& .MuiButton-label': {
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '4px',
+            },
+          }}
+        >
+          <DescriptionIcon sx={{ fontSize: '32px' }} />
+          <Typography variant="body2">Umowy</Typography>
+        </Button>
 
-      <Button
-        variant="contained"
-        component={Link}
-        to="/agreements"
-        sx={{ width: '100%', marginBottom: '8px' }}
-      >
-        Umowy
-      </Button>
+        <Button
+          variant="contained"
+          component={Link}
+          to="/invoices"
+          sx={{
+            width: '100%',
+            marginBottom: '8px',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            '& .MuiButton-startIcon': {
+              marginBottom: '4px',
+            },
+            '& .MuiButton-label': {
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '4px',
+            },
+          }}
+        >
+          <RequestPageIcon sx={{ fontSize: '32px' }} />
+          <Typography variant="body2">Faktury</Typography>
+        </Button>
 
-      <Button
-        variant="contained"
-        component={Link}
-        to="/invoices"
-        sx={{ width: '100%', marginBottom: '8px' }}
-      >
-        Faktury
-      </Button>
-
-      <Button
-        variant="contained"
-        component={Link}
-        to="/tasks"
-        sx={{ width: '100%', marginBottom: '8px' }}
-      >
-        Zadania
-      </Button>
-
+        <Button
+          variant="contained"
+          component={Link}
+          to="/tasks"
+          sx={{
+            width: '100%',
+            marginBottom: '8px',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            '& .MuiButton-startIcon': {
+              marginBottom: '4px',
+            },
+            '& .MuiButton-label': {
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '4px',
+            },
+          }}
+        >
+          <AssignmentIcon sx={{ fontSize: '32px' }} />
+          <Typography variant="body2">Zadania</Typography>
+        </Button>
+      </Box>
       {isLogin ? (
-        <Box sx={{ marginTop: 'auto', height: 'auto', textAlign: 'center' }}>
+        <Box
+          sx={{
+            textAlign: 'center',
+            margin: '0',
+          }}
+        >
           <ProfileButton />
         </Box>
       ) : (
-        <Box sx={{ width: '100%', marginTop: 'auto' }}>
-          <Button sx={{ width: '100%', marginBottom: '8px' }}>
+        <Box sx={{ width: '100%' }}>
+          <Button sx={{ width: '100%' }}>
             <Link to="/login">Zaloguj się</Link>
           </Button>
           <Button sx={{ width: '100%' }}>

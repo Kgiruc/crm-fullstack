@@ -10,7 +10,10 @@ function Profile() {
       <IconButton
         component={Link}
         to="/profile"
-        sx={{ transform: 'scale(2.5)', marginBottom: '3vh' }}
+        sx={{
+          transform: 'scale(2.5)',
+          marginBottom: '0',
+        }}
       >
         <AccountCircleIcon />
       </IconButton>
