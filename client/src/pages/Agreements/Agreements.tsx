@@ -1,5 +1,13 @@
 import { Link, useParams } from 'react-router-dom';
 import {
+  Paper,
+  Table,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from '@mui/material';
+import {
   useAgreementsQuery,
   useCustomerAgreementsQuery,
 } from './services/agreementsApi';
@@ -20,25 +28,25 @@ function Agreements() {
       {isFetching && <p>fetching</p>}
       {error && <p>error</p>}
       {isSuccess && (
-        <>
-          <table>
-            <thead>
-              <tr>
-                <th>Customer Name</th>
-                <th>Customer Surname</th>
-                <th>Agreement</th>
-                <th>date sign</th>
-                <th>date end</th>
-                <th>value</th>
-                <th>description</th>
-                <th>update</th>
-                <th>actions</th>
-              </tr>
-            </thead>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Customer Name</TableCell>
+                <TableCell>Customer Surname</TableCell>
+                <TableCell>Agreement</TableCell>
+                <TableCell>date sign</TableCell>
+                <TableCell>date end</TableCell>
+                <TableCell>value</TableCell>
+                <TableCell>description</TableCell>
+                <TableCell>update</TableCell>
+                <TableCell>actions</TableCell>
+              </TableRow>
+            </TableHead>
             <AgreementsList agreements={data} />
-          </table>
+          </Table>
           <Link to="/agreements/add">Add Agreement</Link>
-        </>
+        </TableContainer>
       )}
     </section>
   );

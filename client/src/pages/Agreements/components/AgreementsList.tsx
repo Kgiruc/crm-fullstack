@@ -1,4 +1,7 @@
 import { DateTime } from 'luxon';
+import TableBody from '@mui/material/TableBody/TableBody';
+import TableRow from '@mui/material/TableRow/TableRow';
+import TableCell from '@mui/material/TableCell/TableCell';
 import { Agreement } from '../../../models/agreement';
 import { useAppDispatch } from '../../../store/store';
 import { useDeleteAgreementMutation } from '../services/agreementsApi';
@@ -14,20 +17,29 @@ function AgreementsList({ agreements }: Props) {
   const dispatch = useAppDispatch();
 
   return (
-    <tbody>
+    <TableBody>
       {agreements.map((agreement) => (
-        <tr key={agreement.id}>
-          <td>{agreement.name}</td>
-          <td>{agreement.surname}</td>
-          <td>{agreement.title}</td>
-          <td>{DateTime.fromISO(agreement.date_sign).toISODate()}</td>
-          <td>{DateTime.fromISO(agreement.date_end).toISODate()}</td>
-          <td>{agreement.value}</td>
-          <td>{agreement.description}</td>
+        <TableRow
+          key={agreement.id}
+          sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+        >
+          <TableCell>{agreement.name}</TableCell>
+          <TableCell>{agreement.surname}</TableCell>
+          <TableCell>{agreement.title}</TableCell>
+          <TableCell>
+            {DateTime.fromISO(agreement.date_sign).toISODate()}
+          </TableCell>
+          <TableCell>
+            {DateTime.fromISO(agreement.date_end).toISODate()}
+          </TableCell>
+          <TableCell>{agreement.value}</TableCell>
+          <TableCell>{agreement.description}</TableCell>
           {agreement.updated_at && (
-            <td>{new Date(agreement.updated_at).toLocaleString()}</td>
+            <TableCell>
+              {new Date(agreement.updated_at).toLocaleString()}
+            </TableCell>
           )}
-          <td>
+          <TableCell>
             <button
               type="button"
               onClick={() => agreement.id && deleteAgreement(agreement.id)}
@@ -42,10 +54,10 @@ function AgreementsList({ agreements }: Props) {
               szczegóły
             </button>
             {agreement.id && <AgreementDetails id={agreement.id} />}
-          </td>
-        </tr>
+          </TableCell>
+        </TableRow>
       ))}
-    </tbody>
+    </TableBody>
   );
 }
 
