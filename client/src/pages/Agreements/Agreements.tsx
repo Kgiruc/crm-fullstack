@@ -1,12 +1,16 @@
 import { Link, useParams } from 'react-router-dom';
 import {
+  Box,
+  Button,
   Paper,
   Table,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
+  Typography,
 } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 import {
   useAgreementsQuery,
   useCustomerAgreementsQuery,
@@ -22,8 +26,17 @@ function Agreements() {
     ? customerAgreementsQuery
     : agreementsQuery;
   return (
-    <section>
-      <h1>All Agreements</h1>
+    <Box sx={{ margin: '20px' }}>
+      <Typography
+        variant="h3"
+        sx={{
+          textAlign: 'center',
+          marginBottom: '3vh',
+          textTransform: 'uppercase',
+        }}
+      >
+        Agreements
+      </Typography>
       {isLoading && <p>loading...</p>}
       {isFetching && <p>fetching</p>}
       {error && <p>error</p>}
@@ -45,10 +58,19 @@ function Agreements() {
             </TableHead>
             <AgreementsList agreements={data} />
           </Table>
-          <Link to="/agreements/add">Add Agreement</Link>
+          <Button
+            component={Link}
+            to="/agreements/add"
+            variant="contained"
+            color="primary"
+            startIcon={<AddIcon />}
+            sx={{ margin: '12px' }}
+          >
+            Add Agreement
+          </Button>
         </TableContainer>
       )}
-    </section>
+    </Box>
   );
 }
 
