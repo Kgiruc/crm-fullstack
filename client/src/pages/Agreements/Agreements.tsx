@@ -26,13 +26,14 @@ function Agreements() {
     ? customerAgreementsQuery
     : agreementsQuery;
   return (
-    <Box sx={{ margin: '20px' }}>
+    <Box sx={{ margin: '60px 20px' }}>
       <Typography
         variant="h3"
         sx={{
           textAlign: 'center',
           marginBottom: '3vh',
           textTransform: 'uppercase',
+          width: '100%',
         }}
       >
         Agreements

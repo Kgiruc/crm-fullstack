@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { Box, Container } from '@mui/material';
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
 import Agreements from './pages/Agreements/Agreements';
@@ -20,33 +21,40 @@ import EditTask from './pages/Tasks/components/EditTask';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route element={<AuthRoutes />}>
-        <Route path="/agreements" element={<Agreements />} />
-        <Route path="/agreements/:id" element={<Agreements />} />
-        <Route path="/agreements/add" element={<AddAgreement />} />
-        <Route path="/agreements/update/:id" element={<UpdateAgreement />} />
+    <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+      <Home />
+      <Container>
+        <Routes>
+          <Route element={<AuthRoutes />}>
+            <Route path="/agreements" element={<Agreements />} />
+            <Route path="/agreements/:id" element={<Agreements />} />
+            <Route path="/agreements/add" element={<AddAgreement />} />
+            <Route
+              path="/agreements/update/:id"
+              element={<UpdateAgreement />}
+            />
 
-        <Route path="/customers" element={<Customers />} />
-        <Route path="/customers/add" element={<AddCustomer />} />
-        <Route path="/customers/update/:id" element={<UpdateCustomer />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/customers/add" element={<AddCustomer />} />
+            <Route path="/customers/update/:id" element={<UpdateCustomer />} />
 
-        <Route path="/invoices" element={<Invoices />} />
-        <Route path="/invoices/:id" element={<Invoices />} />
-        <Route path="/invoices/add" element={<AddInvoices />} />
-        <Route path="/invoices/update/:id" element={<UpdateInvoices />} />
+            <Route path="/invoices" element={<Invoices />} />
+            <Route path="/invoices/:id" element={<Invoices />} />
+            <Route path="/invoices/add" element={<AddInvoices />} />
+            <Route path="/invoices/update/:id" element={<UpdateInvoices />} />
 
-        <Route path="/tasks" element={<Tasks />} />
-        <Route path="/tasks/add" element={<AddTask />} />
-        <Route path="/tasks/update/:id" element={<EditTask />} />
+            <Route path="/tasks" element={<Tasks />} />
+            <Route path="/tasks/add" element={<AddTask />} />
+            <Route path="/tasks/update/:id" element={<EditTask />} />
 
-        <Route path="/profile" element={<Profile />} />
-      </Route>
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+            <Route path="/profile" element={<Profile />} />
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Container>
+    </Box>
   );
 }
 
