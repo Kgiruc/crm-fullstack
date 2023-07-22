@@ -1,4 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
+import {
+  Typography,
+  CircularProgress,
+  Container,
+  Paper,
+  Grid,
+  Link as MuiLink,
+  Button,
+} from '@mui/material';
 import { useAppDispatch } from '../../store/store';
 import { User } from '../../models/login';
 import LoginForm from './components/LoginForm';
@@ -26,13 +35,65 @@ function Login() {
   };
 
   return (
-    <section>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>Błędne dane logowania</p>}
-      <LoginForm initialUser={initialUser} buttonFunction={loginHandler} />
-      <p>Nie masz konta?</p>
-      <Link to="/register">Zarejestruj się</Link>
-    </section>
+    <Container
+      maxWidth="xs"
+      sx={{
+        display: 'flex',
+        height: '100vh',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Paper elevation={3} sx={{ padding: 3, marginTop: 4 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography variant="h5" align="center">
+              Login
+            </Typography>
+          </Grid>
+          {isLoading && (
+            <Grid
+              item
+              xs={12}
+              sx={{ display: 'flex', justifyContent: 'center' }}
+            >
+              <CircularProgress />
+            </Grid>
+          )}
+          {error && (
+            <Grid item xs={12}>
+              <Typography variant="body1" color="error" align="center">
+                Błędne dane logowania
+              </Typography>
+            </Grid>
+          )}
+          <Grid item xs={12}>
+            <LoginForm
+              initialUser={initialUser}
+              buttonFunction={loginHandler}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="body1" align="center">
+              Nie masz konta?{' '}
+              <MuiLink component={Link} to="/register">
+                Zarejestruj się
+              </MuiLink>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Button
+              variant="contained"
+              color="primary"
+              component={Link}
+              to="/forgot-password"
+            >
+              Zapomniałeś hasła?
+            </Button>
+          </Grid>
+        </Grid>
+      </Paper>
+    </Container>
   );
 }
 
