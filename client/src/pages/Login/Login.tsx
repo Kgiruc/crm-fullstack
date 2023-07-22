@@ -46,11 +46,6 @@ function Login() {
     >
       <Paper elevation={3} sx={{ padding: 3, marginTop: 4 }}>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Typography variant="h5" align="center">
-              Login
-            </Typography>
-          </Grid>
           {isLoading && (
             <Grid
               item

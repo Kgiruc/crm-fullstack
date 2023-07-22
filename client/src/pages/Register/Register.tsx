@@ -1,4 +1,11 @@
 import { useNavigate } from 'react-router-dom';
+import {
+  CircularProgress,
+  Container,
+  Grid,
+  Paper,
+  Typography,
+} from '@mui/material';
 import { User } from '../../models/login';
 import { useAppDispatch } from '../../store/store';
 import RegisterForm from './components/RegisterForm';
@@ -40,14 +47,42 @@ function Register() {
   };
 
   return (
-    <section>
-      {isLoading && <p>Loading...</p>}
-      {isError && <p>{getErrorMessage()}</p>}
-      <RegisterForm
-        initialUser={initialUser}
-        buttonFunction={registerHandler}
-      />
-    </section>
+    <Container
+      maxWidth="xs"
+      sx={{
+        display: 'flex',
+        height: '100vh',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Paper elevation={6} sx={{ padding: 3, marginTop: 4 }}>
+        <Grid container spacing={5}>
+          {isLoading && (
+            <Grid
+              item
+              xs={12}
+              sx={{ display: 'flex', justifyContent: 'center' }}
+            >
+              <CircularProgress />
+            </Grid>
+          )}
+          {isError && (
+            <Grid item xs={12}>
+              <Typography variant="body1" color="error" align="center">
+                {getErrorMessage()}
+              </Typography>
+            </Grid>
+          )}
+          <Grid item xs={12}>
+            <RegisterForm
+              initialUser={initialUser}
+              buttonFunction={registerHandler}
+            />
+          </Grid>
+        </Grid>
+      </Paper>
+    </Container>
   );
 }
 
