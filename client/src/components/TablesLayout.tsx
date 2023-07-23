@@ -8,8 +8,10 @@ import {
   TableRow,
   Button,
   Paper,
+  TextField,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import SearchIcon from '@mui/icons-material/Search';
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
@@ -25,6 +27,10 @@ interface TablesLayoutProps {
   linkAdress: string;
   linkTitle: string;
   children: ReactNode;
+  filter: boolean;
+  filterFunction?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  filterPlaceHolder?: string;
+  filterValue?: string;
 }
 
 function TablesLayout({
@@ -37,6 +43,10 @@ function TablesLayout({
   linkAdress,
   linkTitle,
   children,
+  filter,
+  filterFunction,
+  filterPlaceHolder,
+  filterValue,
 }: TablesLayoutProps) {
   return (
     <Box sx={{ margin: '60px 20px' }}>
@@ -51,6 +61,23 @@ function TablesLayout({
       >
         {title}
       </Typography>
+      {filter && (
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            mb: 2,
+            alignItems: 'center',
+          }}
+        >
+          <SearchIcon sx={{ mr: 1 }} />
+          <TextField
+            value={filterValue}
+            onChange={filterFunction}
+            placeholder={filterPlaceHolder}
+          />
+        </Box>
+      )}
       {isLoading && <p>loading...</p>}
       {isFetching && <p>fetching</p>}
       {isError && <p>error</p>}
@@ -83,3 +110,9 @@ function TablesLayout({
 }
 
 export default TablesLayout;
+
+TablesLayout.defaultProps = {
+  filterFunction: undefined,
+  filterPlaceHolder: undefined,
+  filterValue: undefined,
+};

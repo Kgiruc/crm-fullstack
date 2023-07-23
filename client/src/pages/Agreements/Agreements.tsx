@@ -34,6 +34,7 @@ function Agreements() {
       ]}
       linkAdress="/agreements/add"
       linkTitle="Add Agreement"
+      filter={false}
     >
       {data && <AgreementsList agreements={data} />}
     </TablesLayout>

@@ -1,4 +1,15 @@
 import { Link } from 'react-router-dom';
+import {
+  Button,
+  IconButton,
+  TableBody,
+  TableCell,
+  TableRow,
+} from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import React from 'react';
 import { Customer } from '../../../models/customer';
 import { useDeleteCustomerMutation } from '../services/customersApi';
 
@@ -10,34 +21,42 @@ function CustomerList({ customers }: Props) {
   const [deleteCustomer] = useDeleteCustomerMutation();
 
   return (
-    <tbody>
+    <TableBody>
       {customers.map((customer) => (
-        <tr key={customer.id}>
-          <td>{customer.name}</td>
-          <td>{customer.surname}</td>
-          <td>{customer.e_mail}</td>
-          <td>{customer.phone_number}</td>
-          <td>{customer.address}</td>
-          {customer.notes ? <td>{customer.notes}</td> : <td>-</td>}
-          <td>
-            <button
-              type="button"
-              onClick={() => customer.id && deleteCustomer(customer.id)}
-            >
-              usuń
-            </button>
-          </td>
-          <td>
-            <Link to={`/customers/update/${customer.id}`} state={customer}>
-              Edit
-            </Link>
-          </td>
-          <td>
-            <Link to={`/agreements/${customer.id}`}>Umowy</Link>
-          </td>
-        </tr>
+        <React.Fragment key={customer.id}>
+          <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+            <TableCell>{customer.name}</TableCell>
+            <TableCell>{customer.surname}</TableCell>
+            <TableCell>{customer.e_mail}</TableCell>
+            <TableCell>{customer.phone_number}</TableCell>
+            <TableCell>{customer.address}</TableCell>
+            <TableCell>{customer.notes ? customer.notes : '-'}</TableCell>
+            <TableCell sx={{ display: 'flex', gap: '10px' }}>
+              <IconButton
+                onClick={() => customer.id && deleteCustomer(customer.id)}
+              >
+                <DeleteIcon />
+              </IconButton>
+              <IconButton
+                component={Link}
+                to={`/customers/update/${customer.id}`}
+              >
+                <EditIcon />
+              </IconButton>
+              <Button
+                component={Link}
+                to={`/agreements/${customer.id}`}
+                variant="contained"
+                size="small"
+                endIcon={<KeyboardArrowRightIcon />}
+              >
+                Umowy
+              </Button>
+            </TableCell>
+          </TableRow>
+        </React.Fragment>
       ))}
-    </tbody>
+    </TableBody>
   );
 }
 

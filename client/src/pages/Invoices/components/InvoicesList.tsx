@@ -1,4 +1,8 @@
 import { DateTime } from 'luxon';
+import { IconButton, TableBody, TableCell, TableRow } from '@mui/material';
+import React from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { Invoice } from '../../../models/invoice';
 import { useDeleteInvoiceMutation } from '../services/invoicesApi';
 import InvoicesDetails from './InvoicesDetails';
@@ -14,35 +18,47 @@ function InvoicesList({ invoices }: Props) {
   const dispatch = useAppDispatch();
 
   return (
-    <tbody>
+    <TableBody>
       {invoices.map((invoice) => (
-        <tr key={invoice.id}>
-          <td>{invoice.name}</td>
-          <td>{invoice.surname}</td>
-          <td>{invoice.contract_title}</td>
-          <td>{DateTime.fromISO(invoice.date_due).toISODate()}</td>
-          <td>{DateTime.fromISO(invoice.date_issue).toISODate()}</td>
-          <td>{invoice.amount}</td>
-          <td>{invoice.description}</td>
-          {invoice.paid ? <td>Zapłacone</td> : <td>nie zapłacone</td>}
-          <td>
-            <button
-              type="button"
-              onClick={() => invoice.id && deleteInvoice(invoice.id)}
-            >
-              usuń
-            </button>
-            <button
-              type="button"
-              onClick={() => dispatch(detailsInvoice({ invoice }))}
-            >
-              szczegóły
-            </button>
-            {invoice.id && <InvoicesDetails id={invoice.id} />}
-          </td>
-        </tr>
+        <React.Fragment key={invoice.id}>
+          <TableRow
+            sx={{ '&:last-child TableCell, &:last-child th': { border: 0 } }}
+          >
+            <TableCell>{invoice.name}</TableCell>
+            <TableCell>{invoice.surname}</TableCell>
+            <TableCell>{invoice.contract_title}</TableCell>
+            <TableCell>
+              {DateTime.fromISO(invoice.date_due).toISODate()}
+            </TableCell>
+            <TableCell>
+              {DateTime.fromISO(invoice.date_issue).toISODate()}
+            </TableCell>
+            <TableCell>{invoice.amount}</TableCell>
+            <TableCell>{invoice.description}</TableCell>
+            {invoice.paid ? (
+              <TableCell>Zapłacone</TableCell>
+            ) : (
+              <TableCell>nie zapłacone</TableCell>
+            )}
+            <TableCell>
+              <IconButton
+                onClick={() => invoice.id && deleteInvoice(invoice.id)}
+              >
+                <DeleteIcon />
+              </IconButton>
+              <IconButton onClick={() => dispatch(detailsInvoice({ invoice }))}>
+                <MoreHorizIcon />
+              </IconButton>
+            </TableCell>{' '}
+          </TableRow>
+          {invoice.id && (
+            <TableRow>
+              <InvoicesDetails id={invoice.id} />
+            </TableRow>
+          )}
+        </React.Fragment>
       ))}
-    </tbody>
+    </TableBody>
   );
 }
 
