@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { Box, Typography } from '@mui/material';
 import { Agreement } from '../../../models/agreement';
 import { useAddAgreementMutation } from '../services/agreementsApi';
 import FormAgreement from './FormAgreement';
@@ -22,12 +23,23 @@ function AddAgreement() {
     navigate('/agreements');
   };
   return (
-    <section>
+    <Box sx={{ margin: '60px 20px' }}>
+      <Typography
+        variant="h3"
+        sx={{
+          textAlign: 'center',
+          marginBottom: '3vh',
+          textTransform: 'uppercase',
+          width: '100%',
+        }}
+      >
+        Add Agreement
+      </Typography>
       <FormAgreement
         buttonFunction={AddHanndler}
         initialAgreement={initialAgreement}
       />
-    </section>
+    </Box>
   );
 }
 
