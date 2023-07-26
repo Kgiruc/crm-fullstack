@@ -1,23 +1,15 @@
-import { Link, useNavigate } from 'react-router-dom';
-import {
-  Typography,
-  CircularProgress,
-  Container,
-  Paper,
-  Grid,
-  Link as MuiLink,
-  Button,
-} from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../store/store';
 import { User } from '../../models/login';
 import LoginForm from './components/LoginForm';
 import { useLoginMutation } from './services/loginApi';
 import { addLoginUser } from './services/accountSlice';
+import FormLayout from '../../components/FormLayout';
 
 function Login() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [login, { error, isLoading }] = useLoginMutation();
+  const [login, { isError, isLoading }] = useLoginMutation();
 
   const initialUser: User = {
     login: '',
@@ -35,60 +27,9 @@ function Login() {
   };
 
   return (
-    <Container
-      maxWidth="xs"
-      sx={{
-        display: 'flex',
-        height: '100vh',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <Paper elevation={3} sx={{ padding: 3, marginTop: 4 }}>
-        <Grid container spacing={2}>
-          {isLoading && (
-            <Grid
-              item
-              xs={12}
-              sx={{ display: 'flex', justifyContent: 'center' }}
-            >
-              <CircularProgress />
-            </Grid>
-          )}
-          {error && (
-            <Grid item xs={12}>
-              <Typography variant="body1" color="error" align="center">
-                Błędne dane logowania
-              </Typography>
-            </Grid>
-          )}
-          <Grid item xs={12}>
-            <LoginForm
-              initialUser={initialUser}
-              buttonFunction={loginHandler}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant="body1" align="center">
-              Nie masz konta?{' '}
-              <MuiLink component={Link} to="/register">
-                Zarejestruj się
-              </MuiLink>
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Button
-              variant="contained"
-              color="primary"
-              component={Link}
-              to="/forgot-password"
-            >
-              Zapomniałeś hasła?
-            </Button>
-          </Grid>
-        </Grid>
-      </Paper>
-    </Container>
+    <FormLayout isLoading={isLoading} isError={isError}>
+      <LoginForm initialUser={initialUser} buttonFunction={loginHandler} />
+    </FormLayout>
   );
 }
 
