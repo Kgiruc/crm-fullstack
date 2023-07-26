@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom';
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { Agreement } from '../../../models/agreement';
 import { useAddAgreementMutation } from '../services/agreementsApi';
 import FormAgreement from './FormAgreement';
+import FormLayout from '../../../components/FormLayout';
 
 function AddAgreement() {
   const navigate = useNavigate();
-  const [addAgreement] = useAddAgreementMutation();
+  const [addAgreement, { isError, isLoading }] = useAddAgreementMutation();
 
   const initialAgreement: Agreement = {
     id: '',
@@ -23,7 +24,7 @@ function AddAgreement() {
     navigate('/agreements');
   };
   return (
-    <Box sx={{ margin: '60px 20px' }}>
+    <FormLayout isError={isError} isLoading={isLoading} login={false}>
       <Typography
         variant="h3"
         sx={{
@@ -39,7 +40,7 @@ function AddAgreement() {
         buttonFunction={AddHanndler}
         initialAgreement={initialAgreement}
       />
-    </Box>
+    </FormLayout>
   );
 }
 
