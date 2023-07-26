@@ -1,6 +1,5 @@
 import {
   Link as MuiLink,
-  Button,
   CircularProgress,
   Container,
   Grid,
@@ -15,10 +14,11 @@ import { Link } from 'react-router-dom';
 interface FormLayoutProps {
   isLoading: boolean;
   isError: boolean | FetchBaseQueryError | SerializedError | undefined;
+  login: boolean;
   children: ReactNode;
 }
 
-function FormLayout({ isLoading, isError, children }: FormLayoutProps) {
+function FormLayout({ isLoading, isError, children, login }: FormLayoutProps) {
   return (
     <Container
       maxWidth="xs"
@@ -50,24 +50,16 @@ function FormLayout({ isLoading, isError, children }: FormLayoutProps) {
           <Grid item xs={12}>
             {children}
           </Grid>
-          <Grid item xs={12}>
-            <Typography variant="body1" align="center">
-              Nie masz konta?{' '}
-              <MuiLink component={Link} to="/register">
-                Zarejestruj się
-              </MuiLink>
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Button
-              variant="contained"
-              color="primary"
-              component={Link}
-              to="/forgot-password"
-            >
-              Zapomniałeś hasła?
-            </Button>
-          </Grid>
+          {login && (
+            <Grid item xs={12}>
+              <Typography variant="body1" align="center">
+                Nie masz konta?{' '}
+                <MuiLink component={Link} to="/register">
+                  Zarejestruj się
+                </MuiLink>
+              </Typography>
+            </Grid>
+          )}
         </Grid>
       </Paper>
     </Container>

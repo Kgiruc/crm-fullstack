@@ -27,7 +27,7 @@ function Login() {
   };
 
   return (
-    <FormLayout isLoading={isLoading} isError={isError}>
+    <FormLayout isLoading={isLoading} isError={isError} login>
       <LoginForm initialUser={initialUser} buttonFunction={loginHandler} />
     </FormLayout>
   );
