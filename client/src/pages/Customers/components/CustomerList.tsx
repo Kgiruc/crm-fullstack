@@ -39,6 +39,7 @@ function CustomerList({ customers }: Props) {
               </IconButton>
               <IconButton
                 component={Link}
+                state={customer}
                 to={`/customers/update/${customer.id}`}
               >
                 <EditIcon />
