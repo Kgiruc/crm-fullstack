@@ -1,9 +1,11 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { Link } from 'react-router-dom';
-import { Box, Container } from '@mui/material';
+import { Box, Button, Container } from '@mui/material';
 import { Agreement } from '../../../models/agreement';
 import validationSchema from '../validations/formValidationsAgreement';
 import { useCustomersQuery } from '../../Customers/services/customersApi';
+import CustomField from '../../../components/CustomField';
+import SelectCustomField from '../../../components/SelectCustomField';
 
 interface FormAgreementProps {
   buttonFunction: (values: Agreement) => void;
@@ -14,7 +16,14 @@ function FormAgreement({
   buttonFunction,
   initialAgreement,
 }: FormAgreementProps) {
-  const { data: customers } = useCustomersQuery();
+  const { data: customers, isError, isLoading } = useCustomersQuery();
+  const customerOptions = customers
+    ? customers.map((customer) => ({
+        value: customer.id || '',
+        label: `${customer.name} ${customer.surname}`,
+      }))
+    : [];
+
   return (
     <Container maxWidth="lg">
       <Box
@@ -31,48 +40,37 @@ function FormAgreement({
           onSubmit={buttonFunction}
         >
           {({ isValid }) => (
-            <Form>
-              <label>
-                customer
-                <Field as="select" id="customer_id" name="customer_id">
-                  {customers &&
-                    customers.map((customer) => (
-                      <option key={customer.id} value={customer.id}>
-                        {customer.name} {customer.surname}
-                      </option>
-                    ))}
-                </Field>
-                <Link to="/customers/add">+</Link>
-                <ErrorMessage name="customer_id" component="p" />
-              </label>
-              <label>
-                Title
-                <Field type="text" id="title" name="title" />
-                <ErrorMessage name="title" component="p" />
-              </label>
-              <label>
-                Date Sign
-                <Field type="date" id="date_sign" name="date_sign" />
-                <ErrorMessage name="date_sign" component="p" />
-              </label>
-              <label>
-                Date End
-                <Field type="date" id="date_end" name="date_end" />
-                <ErrorMessage name="date_end" component="p" />
-              </label>
-              <label>
-                Value
-                <Field type="number" id="value" name="value" />
-                <ErrorMessage name="value" component="p" />
-              </label>
-              <label>
-                Description
-                <Field type="text" id="description" name="description" />
-                <ErrorMessage name="description" component="p" />
-              </label>
-              <button type="submit" disabled={!isValid}>
+            <Form style={{ width: '100%', marginTop: 3 }}>
+              <SelectCustomField
+                name="customer_id"
+                label="customer"
+                isError={isError}
+                isLoading={isLoading}
+                options={customerOptions}
+              />
+              <Button
+                component={Link}
+                to="/customers/add"
+                variant="contained"
+                color="primary"
+                sx={{ width: '100%', marginBottom: 3 }}
+              >
+                Dodaj nowego klienta
+              </Button>
+              <CustomField type="text" name="title" label="title" />
+              <CustomField type="date" name="date_sign" label="data sign" />
+              <CustomField type="date" name="date_end" label="data end" />
+              <CustomField type="number" name="value" label="value" />
+              <CustomField type="text" name="description" label="description" />
+              <Button
+                type="submit"
+                disabled={!isValid}
+                variant="contained"
+                color="primary"
+                sx={{ width: '100%' }}
+              >
                 Add Agreement
-              </button>
+              </Button>
             </Form>
           )}
         </Formik>

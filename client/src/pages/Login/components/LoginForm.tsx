@@ -1,7 +1,8 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { Box, Button, Container, TextField, Typography } from '@mui/material';
+import { Form, Formik } from 'formik';
+import { Box, Button, Container, Typography } from '@mui/material';
 import { User } from '../../../models/login';
 import validationSchema from '../validations/formValidationsLogin';
+import CustomField from '../../../components/CustomField';
 
 interface FormUserProps {
   buttonFunction: (values: User) => void;
@@ -28,42 +29,8 @@ function LoginForm({ initialUser, buttonFunction }: FormUserProps) {
           validationSchema={validationSchema}
         >
           <Form style={{ width: '100%', marginTop: 3 }}>
-            <Field
-              type="text"
-              id="login"
-              name="login"
-              as={TextField}
-              label="Login"
-              variant="outlined"
-              fullWidth
-              sx={{ marginBottom: 2 }}
-            />
-            <ErrorMessage name="login">
-              {(msg) => (
-                <Typography variant="body2" color="red" marginBottom="20px">
-                  {msg}
-                </Typography>
-              )}
-            </ErrorMessage>
-
-            <Field
-              type="password"
-              id="password"
-              name="password"
-              as={TextField}
-              label="Password"
-              variant="outlined"
-              fullWidth
-              sx={{ marginBottom: 2 }}
-            />
-            <ErrorMessage name="password">
-              {(msg) => (
-                <Typography variant="body2" color="red" marginBottom="20px">
-                  {msg}
-                </Typography>
-              )}
-            </ErrorMessage>
-
+            <CustomField type="text" name="login" label="login" />
+            <CustomField type="password" name="password" label="Password" />
             <Button type="submit" variant="contained" color="primary" fullWidth>
               Zaloguj
             </Button>
