@@ -2,9 +2,10 @@ import { useNavigate } from 'react-router-dom';
 import { Invoice } from '../../../models/invoice';
 import FormInvoice from './FormInvoice';
 import { useAddInvoiceMutation } from '../services/invoicesApi';
+import FormLayout from '../../../components/FormLayout';
 
 function AddInvoices() {
-  const [addInvoice] = useAddInvoiceMutation();
+  const [addInvoice, { isError, isLoading }] = useAddInvoiceMutation();
   const navigate = useNavigate();
 
   const initialInvoice: Invoice = {
@@ -22,12 +23,12 @@ function AddInvoices() {
     navigate('/invoices');
   };
   return (
-    <section>
+    <FormLayout isError={isError} isLoading={isLoading} login={false}>
       <FormInvoice
         buttonFunction={AddHandler}
         initialInvoice={initialInvoice}
       />
-    </section>
+    </FormLayout>
   );
 }
 

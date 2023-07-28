@@ -3,9 +3,10 @@ import { DateTime } from 'luxon';
 import { Task } from '../../../models/task';
 import { useAddTaskMutation } from '../services/tasksApi';
 import FormTask from './FormTask';
+import FormLayout from '../../../components/FormLayout';
 
 function AddTask() {
-  const [addTask] = useAddTaskMutation();
+  const [addTask, { isError, isLoading }] = useAddTaskMutation();
   const navigate = useNavigate();
 
   const initialTask: Task = {
@@ -21,9 +22,9 @@ function AddTask() {
     navigate('/tasks');
   };
   return (
-    <section>
+    <FormLayout isError={isError} isLoading={isLoading} login={false}>
       <FormTask buttonFunction={AddHandler} initialTask={initialTask} />
-    </section>
+    </FormLayout>
   );
 }
 

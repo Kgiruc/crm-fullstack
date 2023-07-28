@@ -2,10 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import { useAddCustomerMutation } from '../services/customersApi';
 import FormCustomer from './FormCustomer';
 import { Customer } from '../../../models/customer';
+import FormLayout from '../../../components/FormLayout';
 
 function AddCustomer() {
   const navigate = useNavigate();
-  const [addCustomer] = useAddCustomerMutation();
+  const [addCustomer, { isError, isLoading }] = useAddCustomerMutation();
 
   const initialCustomer: Customer = {
     name: '',
@@ -21,12 +22,12 @@ function AddCustomer() {
     navigate('/customers');
   };
   return (
-    <section>
+    <FormLayout isError={isError} isLoading={isLoading} login={false}>
       <FormCustomer
         buttonFunction={AddHandler}
         initialCustomer={initialCustomer}
       />
-    </section>
+    </FormLayout>
   );
 }
 

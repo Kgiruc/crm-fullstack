@@ -1,6 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { Task } from '../../../models/task';
 import validationSchema from '../validations/validationSchemaTasks';
+import CustomField from '../../../components/CustomField';
 
 interface FormTaskProps {
   buttonFunction: (values: Task) => void;
@@ -16,26 +17,28 @@ function FormTask({ buttonFunction, initialTask }: FormTaskProps) {
     >
       {({ isValid }) => (
         <Form>
-          <label>
+          {/* <label>
             title
             <Field type="title" id="title" name="title" />
             <ErrorMessage name="title" component="p" />
-          </label>
-          <label>
+          </label> */}
+          <CustomField type="text" name="title" label="title" />
+          {/* <label>
             Description
             <Field type="text" id="description" name="description" />
             <ErrorMessage name="description" component="p" />
-          </label>
+          </label> */}
           <label>
             Date due
             <Field type="date" id="due_date" name="due_date" />
             <ErrorMessage name="due_date" component="p" />
           </label>
-          <label>
+          {/* <label>
             priority
             <Field type="number" id="priority" name="priority" />
             <ErrorMessage name="priority" component="p" />
-          </label>
+          </label> */}
+          <CustomField type="number" name="priority" label="priority" />
           <label>
             status
             <Field as="select" id="status" name="status">
