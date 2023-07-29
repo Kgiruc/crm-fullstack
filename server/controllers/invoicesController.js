@@ -55,7 +55,7 @@ const deleteInvoices = async (req, res) => {
 const addInvoice = async (req, res) => {
     try {
         const { customer_id, contract_id, date_issue, date_due, amount, description, paid } = req.body;
-        if (!customer_id || !contract_id || !date_issue || !date_due || !amount || !description || paid===undefined) {
+        if (!customer_id || !contract_id || !date_issue || !date_due || !amount || paid===undefined) {
             return res.status(400).json({ error: 'Missing required fields' });
         }
 

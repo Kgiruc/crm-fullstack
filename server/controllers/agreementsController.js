@@ -56,7 +56,7 @@ const deleteAgreements = async (req, res) => {
 const addAgreements = async (req, res) => {
     try {
       const { customer_id, title, date_sign, date_end, value, description  } = req.body;
-      if (!customer_id || !title || !date_sign || !date_end || !value || !description) {
+      if (!customer_id || !title || !date_sign || !date_end || !value) {
         return res.status(400).json({ error: 'Missing required fields' });
       }
   

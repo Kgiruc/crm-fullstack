@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { Task } from '../../../models/task';
 import validationSchema from '../validations/validationSchemaTasks';
 import CustomField from '../../../components/CustomField';
+import SelectCustomField from '../../../components/SelectCustomField';
 
 interface FormTaskProps {
   buttonFunction: (values: Task) => void;
@@ -9,6 +10,12 @@ interface FormTaskProps {
 }
 
 function FormTask({ buttonFunction, initialTask }: FormTaskProps) {
+  const options = [
+    { value: '', label: 'Choose status' },
+    { value: 'Pending', label: 'Pending' },
+    { value: 'In Progress', label: 'In Progress' },
+    { value: 'Completed', label: 'Completed' },
+  ];
   return (
     <Formik
       initialValues={initialTask}
@@ -17,29 +24,11 @@ function FormTask({ buttonFunction, initialTask }: FormTaskProps) {
     >
       {({ isValid }) => (
         <Form>
-          {/* <label>
-            title
-            <Field type="title" id="title" name="title" />
-            <ErrorMessage name="title" component="p" />
-          </label> */}
           <CustomField type="text" name="title" label="title" />
-          {/* <label>
-            Description
-            <Field type="text" id="description" name="description" />
-            <ErrorMessage name="description" component="p" />
-          </label> */}
-          <label>
-            Date due
-            <Field type="date" id="due_date" name="due_date" />
-            <ErrorMessage name="due_date" component="p" />
-          </label>
-          {/* <label>
-            priority
-            <Field type="number" id="priority" name="priority" />
-            <ErrorMessage name="priority" component="p" />
-          </label> */}
+          <CustomField type="text" name="description" label="description" />
+          <CustomField type="date" name="due_date" label="Date due" />
           <CustomField type="number" name="priority" label="priority" />
-          <label>
+          {/* <label>
             status
             <Field as="select" id="status" name="status">
               <option value="">Choose status</option>
@@ -48,7 +37,15 @@ function FormTask({ buttonFunction, initialTask }: FormTaskProps) {
               <option value="Completed">Completed</option>
             </Field>
             <ErrorMessage name="status" component="p" />
-          </label>
+          </label> */}
+          <SelectCustomField
+            name="status"
+            label="status"
+            isLoading={false}
+            isSuccess
+            isError={undefined}
+            options={options}
+          />
           <button type="submit" disabled={!isValid}>
             Add Task
           </button>

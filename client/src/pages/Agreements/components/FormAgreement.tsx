@@ -16,7 +16,12 @@ function FormAgreement({
   buttonFunction,
   initialAgreement,
 }: FormAgreementProps) {
-  const { data: customers, isError, isLoading } = useCustomersQuery();
+  const {
+    data: customers,
+    isError,
+    isLoading,
+    isSuccess,
+  } = useCustomersQuery();
   const customerOptions = customers
     ? customers.map((customer) => ({
         value: customer.id || '',
@@ -46,6 +51,7 @@ function FormAgreement({
                 label="customer"
                 isError={isError}
                 isLoading={isLoading}
+                isSuccess={isSuccess}
                 options={customerOptions}
               />
               <Button

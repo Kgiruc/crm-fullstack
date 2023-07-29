@@ -14,6 +14,7 @@ interface SelectCustomFieldProps {
   name: string;
   label: string;
   isLoading: boolean;
+  isSuccess: boolean;
   isError: boolean | FetchBaseQueryError | SerializedError | undefined;
   options: { value: string; label: string }[];
 }
@@ -24,6 +25,7 @@ function SelectCustomField({
   options,
   isError,
   isLoading,
+  isSuccess,
 }: SelectCustomFieldProps) {
   return (
     <>
@@ -40,26 +42,30 @@ function SelectCustomField({
         </Grid>
       )}
       <InputLabel htmlFor={name}>{label}</InputLabel>
-      <Field
-        name={name}
-        as={Select}
-        variant="outlined"
-        fullWidth
-        sx={{ marginBottom: 2 }}
-      >
-        {options.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
-            {option.label}
-          </MenuItem>
-        ))}
-      </Field>
-      <ErrorMessage name={name}>
-        {(msg) => (
-          <Typography variant="body2" color="red" marginBottom="20px">
-            {msg}
-          </Typography>
-        )}
-      </ErrorMessage>
+      {isSuccess && (
+        <>
+          <Field
+            name={name}
+            as={Select}
+            variant="outlined"
+            fullWidth
+            sx={{ marginBottom: 2 }}
+          >
+            {options.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </Field>
+          <ErrorMessage name={name}>
+            {(msg) => (
+              <Typography variant="body2" color="red" marginBottom="20px">
+                {msg}
+              </Typography>
+            )}
+          </ErrorMessage>
+        </>
+      )}
     </>
   );
 }
