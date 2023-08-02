@@ -18,6 +18,7 @@ import AddInvoices from './pages/Invoices/components/AddInvoices';
 import UpdateInvoices from './pages/Invoices/components/UpdateInvoices';
 import AddTask from './pages/Tasks/components/AddTask';
 import EditTask from './pages/Tasks/components/EditTask';
+import Store from './pages/Store/Store';
 
 function App() {
   return (
@@ -46,6 +47,10 @@ function App() {
             <Route path="/tasks" element={<Tasks />} />
             <Route path="/tasks/add" element={<AddTask />} />
             <Route path="/tasks/update/:id" element={<EditTask />} />
+
+            <Route path="/store" element={<Store />} />
+            <Route path="/store/add" element={<Store />} />
+            <Route path="/store/update/:id" element={<Store />} />
 
             <Route path="/profile" element={<Profile />} />
           </Route>

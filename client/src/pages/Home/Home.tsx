@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Box, Button, Typography } from '@mui/material';
 import PeopleIcon from '@mui/icons-material/People';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
 import DescriptionIcon from '@mui/icons-material/Description';
 import RequestPageIcon from '@mui/icons-material/RequestPage';
 import { useAppSelector } from '../../store/store';
@@ -127,6 +128,31 @@ function Home() {
         >
           <AssignmentIcon sx={{ fontSize: '32px' }} />
           <Typography variant="body2">Zadania</Typography>
+        </Button>
+
+        <Button
+          variant="contained"
+          component={Link}
+          to="/store"
+          sx={{
+            width: '100%',
+            marginBottom: '8px',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            '& .MuiButton-startIcon': {
+              marginBottom: '4px',
+            },
+            '& .MuiButton-label': {
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '4px',
+            },
+          }}
+        >
+          <LocalMallIcon sx={{ fontSize: '32px' }} />
+          <Typography variant="body2">Store</Typography>
         </Button>
       </Box>
       {isLogin ? (
