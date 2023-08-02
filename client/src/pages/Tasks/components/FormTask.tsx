@@ -1,4 +1,4 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { Task } from '../../../models/task';
 import validationSchema from '../validations/validationSchemaTasks';
 import CustomField from '../../../components/CustomField';
@@ -28,16 +28,6 @@ function FormTask({ buttonFunction, initialTask }: FormTaskProps) {
           <CustomField type="text" name="description" label="description" />
           <CustomField type="date" name="due_date" label="Date due" />
           <CustomField type="number" name="priority" label="priority" />
-          {/* <label>
-            status
-            <Field as="select" id="status" name="status">
-              <option value="">Choose status</option>
-              <option value="Pending">Pending</option>
-              <option value="In Progress">In Progress</option>
-              <option value="Completed">Completed</option>
-            </Field>
-            <ErrorMessage name="status" component="p" />
-          </label> */}
           <SelectCustomField
             name="status"
             label="status"
