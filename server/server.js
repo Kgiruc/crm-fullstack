@@ -7,6 +7,7 @@ import { authMiddleware } from './middleware/AuthMiddleware.js';
 import routerAgreements from './routes/agreementsRoutes.js';
 import routerInvoices from './routes/invoicesRoutes.js';
 import routerTasks from './routes/tasksRoutes.js';
+import routerOutbound from './routes/outboundRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT ?? 8800;
@@ -22,6 +23,7 @@ app.use('/customers' , authMiddleware, routerCustomers);
 app.use('/agreements' , authMiddleware, routerAgreements);
 app.use('/invoices' , authMiddleware, routerInvoices);
 app.use('/tasks' , authMiddleware, routerTasks);
+app.use('/outbound' , authMiddleware, routerOutbound);
 app.use('/user', routerUsers);
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);

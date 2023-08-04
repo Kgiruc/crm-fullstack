@@ -41,4 +41,44 @@ const addOutbound = async (req,res) => {
     }
 }
 
-export {getOutbound, addOutbound} 
+
+const editOutbound = async (req, res) => {
+    try {
+        const outboundId = req.params.id;
+        const { wz_number, delivery_date, from_company, from_street, from_postal_code, from_city,
+            to_company, to_street, to_postal_code, to_city, receiving_person, 
+            receiving_person_phone, receiving_person_email,remarks } = req.body;
+        const editedAgreement = await pool.query(
+            "UPDATE outbound_deliveries SET wz_number = $1, delivery_date = $2, from_company = $3, from_street = $4, from_postal_code = $5, from_city = $6" +
+            "to_company = $7, to_street = $8, to_postal_code = $9, to_city = $10, receiving_person = $11, receiving_person_phone = $12, receiving_person_mail = $12" +
+            "remarks = $13 WHERE id = $14 RETURNING *",
+            [wz_number, delivery_date, from_company, from_street, from_postal_code, from_city,
+                to_company, to_street, to_postal_code, to_city, receiving_person, 
+                receiving_person_phone, receiving_person_email,remarks, outboundId]
+        );
+        res.json(editedAgreement.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
+};
+
+const deleteOutbound = async (req, res) => {
+   try { 
+        const outboundId = req.params.id;
+        const deleteOutbound = await pool.query(
+        'DELETE FROM outbound_deliveries WHERE id = $1 RETURNING wz_number, to_company',
+        [outboundId]
+        );
+        if (deleteOutbound.rowCount === 1) {
+            res.json(`Usunięto umowę ${deleteOutbound.rows[0].wz_number} o wartości ${deleteOutbound.rows[0].to_company}`);
+        } else {
+            res.status(404).json({ error: 'Nie znaleziono umowy o podanym Id' });
+        }
+    } catch (error) {
+            console.error('Error in deleteOutbound:', error.message);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+}
+
+
+export {getOutbound, addOutbound, editOutbound, deleteOutbound } 
