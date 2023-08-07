@@ -1,5 +1,5 @@
 import express from "express"
-import { addOutbound, deleteOutbound, editOutbound, getOutbound } from "../controllers/outboundController";
+import { addOutbound, deleteOutbound, editOutbound, getOutbound } from "../controllers/outboundController.js";
 
 const routerOutbound = express.Router();
 
