@@ -36,37 +36,37 @@ function FormOutbound({ buttonFunction, initialOutbound }: FormOutboundProps) {
               <CustomField
                 type="text"
                 name="from_company"
-                label="from_company"
+                label="from company"
               />
               <CustomField type="text" name="from_street" label="from_street" />
               <CustomField
                 type="text"
                 name="from_postal_code"
-                label="from_postal_code"
+                label="from postal code"
               />
-              <CustomField type="text" name="from_city" label="from_city" />
-              <CustomField type="text" name="to_company" label="to_company" />
-              <CustomField type="text" name="to_street" label="to_street" />
+              <CustomField type="text" name="from_city" label="from city" />
+              <CustomField type="text" name="to_company" label="to company" />
+              <CustomField type="text" name="to_street" label="to street" />
               <CustomField
                 type="text"
                 name="to_postal_code"
-                label="to_postal_code"
+                label="to postal code"
               />
-              <CustomField type="text" name="to_city" label="to_city" />
+              <CustomField type="text" name="to_city" label="to city" />
               <CustomField
                 type="text"
                 name="receiving_person"
-                label="receiving_person"
+                label="receiving person"
               />
               <CustomField
                 type="text"
                 name="receiving_person_phone"
-                label="receiving_person_phone"
+                label="receiving person phone"
               />
               <CustomField
                 type="text"
                 name="receiving_person_email"
-                label="receiving_person_email"
+                label="receiving person email"
               />
               <CustomField type="text" name="remarks" label="remarks" />
               <button type="submit" disabled={!isValid}>

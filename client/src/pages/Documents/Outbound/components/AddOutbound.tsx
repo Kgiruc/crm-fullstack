@@ -10,7 +10,7 @@ function AddOutbound() {
 
   const initialOutbound: Outbound = {
     wz_number: '',
-    delivery_date: '',
+    delivery_date: new Date().toISOString().slice(0, 10),
     from_company: '',
     from_street: '',
     from_postal_code: '',

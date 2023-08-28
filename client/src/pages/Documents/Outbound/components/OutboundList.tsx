@@ -1,10 +1,12 @@
 import { IconButton, TableBody, TableCell, TableRow } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import GetAppIcon from '@mui/icons-material/GetApp';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Outbound } from '../../../../models/Outbound';
 import { useDeleteOutboundMutation } from '../services/outboundApi';
+import generateAndDownloadDocx from '../../../../utlis/docxUtils';
 
 type Props = {
   outbounds: Outbound[];
@@ -21,6 +23,9 @@ function OutboundList({ outbounds }: Props) {
             <TableCell>{outbound.wz_number}</TableCell>
             <TableCell>{outbound.from_company}</TableCell>
             <TableCell sx={{ display: 'flex', gap: '10px' }}>
+              <IconButton onClick={() => generateAndDownloadDocx(outbound)}>
+                <GetAppIcon />
+              </IconButton>
               <IconButton
                 onClick={() => outbound.id && deleteOutbound(outbound.id)}
               >
