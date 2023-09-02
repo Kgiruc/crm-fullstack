@@ -1,11 +1,12 @@
 import Docxtemplater from 'docxtemplater';
+import { DateTime } from 'luxon';
 import PizZip from 'pizzip';
 import { saveAs } from 'file-saver';
 import { Outbound } from '../models/Outbound';
-import templateFile from '../assets/files/tag-example.docx';
+import wzFile from '../assets/files/wz.docx';
 
 const generateAndDownloadDocx = async (outbound: Outbound) => {
-  const response = await fetch(templateFile);
+  const response = await fetch(wzFile);
   const content = await response.arrayBuffer();
 
   // Konwersja tablicy bajtów na ArrayBuffer
@@ -18,7 +19,7 @@ const generateAndDownloadDocx = async (outbound: Outbound) => {
   });
 
   doc.setData({
-    delivery_date: outbound.delivery_date,
+    delivery_date: DateTime.fromISO(outbound.delivery_date).toISODate(),
     from_city: outbound.from_city,
     wz_number: outbound.wz_number,
     // Dodaj inne dane
@@ -37,7 +38,7 @@ const generateAndDownloadDocx = async (outbound: Outbound) => {
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
   });
 
-  saveAs(out, `outbound_${outbound.id}.docx`);
+  saveAs(out, `outbound_wz_${outbound.wz_number}.docx`);
 };
 
 export default generateAndDownloadDocx;
