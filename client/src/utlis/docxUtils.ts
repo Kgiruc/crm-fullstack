@@ -20,15 +20,24 @@ const generateAndDownloadDocx = async (outbound: Outbound) => {
 
   doc.setData({
     delivery_date: DateTime.fromISO(outbound.delivery_date).toISODate(),
-    from_city: outbound.from_city,
+    id: outbound.id,
     wz_number: outbound.wz_number,
-    // Dodaj inne dane
+    to_company: outbound.to_company,
+    from_company: outbound.from_company,
+    to_street: outbound.to_street,
+    from_street: outbound.from_street,
+    to_postal_code: outbound.to_postal_code,
+    from_postal_code: outbound.from_postal_code,
+    to_city: outbound.to_city,
+    from_city: outbound.from_city,
+    receiving_person: outbound.receiving_person,
   });
 
   try {
     doc.render();
   } catch (error) {
-    console.log(JSON.stringify({ error }));
+    // eslint-disable-next-line no-alert
+    alert(JSON.stringify({ error }));
     throw error;
   }
 
