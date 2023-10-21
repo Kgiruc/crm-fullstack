@@ -11,7 +11,6 @@ export interface Outbound {
   to_postal_code: string;
   to_city: string;
   receiving_person: string;
-  receiving_person_phone: string;
-  receiving_person_email: string;
-  remarks?: string;
+  destination: string;
+  order_number: string;
 }

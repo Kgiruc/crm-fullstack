@@ -64,9 +64,8 @@ CREATE TABLE outbound_deliveries (
   to_postal_code VARCHAR(10) NOT NULL,
   to_city VARCHAR(100) NOT NULL,
   receiving_person VARCHAR(100) NOT NULL,
-  =receiving_person_phone VARCHAR(20),
-  =receiving_person_email VARCHAR(100),
- = remarks TEXT
+  destination VARCHAR(100),
+  order_number VARCHAR(100);
 );
 
 CREATE TABLE item_lines (

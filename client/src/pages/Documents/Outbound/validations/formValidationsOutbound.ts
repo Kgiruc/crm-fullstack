@@ -11,12 +11,8 @@ const validationSchema = Yup.object({
   to_postal_code: Yup.string().required('Podaj kod pocztowy odbiorcy'),
   to_city: Yup.string().required('Podaj ulice odbiorcy'),
   receiving_person: Yup.string().required('Podaj dostawce'),
-  receiving_person_email: Yup.string()
-    .required('Podaj pełny email')
-    .email('Podaj poprawy mail'),
-  receiving_person_phone: Yup.string()
-    .required('Podaj pełny numer telefonu')
-    .matches(/^\d+$/, 'Podaj poprawny numer telefonu'),
+  order_number: Yup.string().required('Podaj numer zamówienia'),
+  destination: Yup.string().required('Podaj przeznaczenie'),
 });
 
 export default validationSchema;

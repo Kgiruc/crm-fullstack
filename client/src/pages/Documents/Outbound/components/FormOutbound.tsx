@@ -58,17 +58,12 @@ function FormOutbound({ buttonFunction, initialOutbound }: FormOutboundProps) {
                 name="receiving_person"
                 label="receiving person"
               />
+              <CustomField type="text" name="destination" label="destination" />
               <CustomField
                 type="text"
-                name="receiving_person_phone"
-                label="receiving person phone"
+                name="order_number"
+                label="order number"
               />
-              <CustomField
-                type="text"
-                name="receiving_person_email"
-                label="receiving person email"
-              />
-              <CustomField type="text" name="remarks" label="remarks" />
               <button type="submit" disabled={!isValid}>
                 Add Outbound
               </button>

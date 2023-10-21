@@ -20,9 +20,8 @@ function AddOutbound() {
     to_postal_code: '',
     to_city: '',
     receiving_person: '',
-    receiving_person_phone: '',
-    receiving_person_email: '',
-    remarks: '',
+    order_number: '',
+    destination: '',
   };
 
   const AddHandler = async (values: Outbound) => {
