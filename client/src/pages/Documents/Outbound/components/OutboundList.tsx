@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { Outbound } from '../../../../models/Outbound';
 import { useDeleteOutboundMutation } from '../services/outboundApi';
 import generateAndDownloadDocx from '../../../../utlis/docxUtils';
+import { useAppSelector } from '../../../../store/store';
 
 type Props = {
   outbounds: Outbound[];
@@ -14,6 +15,7 @@ type Props = {
 
 function OutboundList({ outbounds }: Props) {
   const [deleteOutbound] = useDeleteOutboundMutation();
+  const profileInfo = useAppSelector((state) => state.account);
 
   return (
     <TableBody>
@@ -23,7 +25,9 @@ function OutboundList({ outbounds }: Props) {
             <TableCell>{outbound.wz_number}</TableCell>
             <TableCell>{outbound.from_company}</TableCell>
             <TableCell sx={{ display: 'flex', gap: '10px' }}>
-              <IconButton onClick={() => generateAndDownloadDocx(outbound)}>
+              <IconButton
+                onClick={() => generateAndDownloadDocx(outbound, profileInfo)}
+              >
                 <GetAppIcon />
               </IconButton>
               <IconButton

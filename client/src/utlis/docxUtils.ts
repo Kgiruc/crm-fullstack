@@ -4,8 +4,12 @@ import PizZip from 'pizzip';
 import { saveAs } from 'file-saver';
 import { Outbound } from '../models/Outbound';
 import wzFile from '../assets/files/wz.docx';
+import { Account } from '../models/Account';
 
-const generateAndDownloadDocx = async (outbound: Outbound) => {
+const generateAndDownloadDocx = async (
+  outbound: Outbound,
+  profilInfo: Account
+) => {
   const response = await fetch(wzFile);
   const content = await response.arrayBuffer();
 
@@ -31,6 +35,7 @@ const generateAndDownloadDocx = async (outbound: Outbound) => {
     to_city: outbound.to_city,
     from_city: outbound.from_city,
     receiving_person: outbound.receiving_person,
+    profil: profilInfo.login,
   });
 
   try {
