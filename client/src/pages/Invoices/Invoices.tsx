@@ -6,7 +6,7 @@ function Invoices() {
   const { data, error, isLoading, isSuccess, isFetching } = useInvoicesQuery();
   return (
     <TablesLayout
-      title="Agreements"
+      title="Invoices"
       isLoading={isLoading}
       isFetching={isFetching}
       isError={error}
@@ -15,8 +15,8 @@ function Invoices() {
         'Customer Name',
         'Customer Surname',
         'Title',
-        'date_issue',
-        'date_due',
+        'date issue',
+        'date due',
         'amount',
         'description',
         'paid',

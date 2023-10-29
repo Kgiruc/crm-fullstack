@@ -6,7 +6,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Outbound } from '../../../../models/Outbound';
 import { useDeleteOutboundMutation } from '../services/outboundApi';
-import generateAndDownloadDocx from '../../../../utlis/docxUtils';
+import generateAndDownloadDocx from '../../../../utils/docxUtils';
 import { useAppSelector } from '../../../../store/store';
 
 type Props = {

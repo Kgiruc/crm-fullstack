@@ -7,7 +7,7 @@ function Tasks() {
 
   return (
     <TablesLayout
-      title="Agreements"
+      title="Tasks"
       isLoading={isLoading}
       isFetching={isFetching}
       isError={error}

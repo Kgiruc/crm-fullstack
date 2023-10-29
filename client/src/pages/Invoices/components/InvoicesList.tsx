@@ -49,7 +49,7 @@ function InvoicesList({ invoices }: Props) {
               <IconButton onClick={() => dispatch(detailsInvoice({ invoice }))}>
                 <MoreHorizIcon />
               </IconButton>
-            </TableCell>{' '}
+            </TableCell>
           </TableRow>
           {invoice.id && (
             <TableRow>
