@@ -152,7 +152,7 @@ function Home() {
           }}
         >
           <LocalMallIcon sx={{ fontSize: '32px' }} />
-          <Typography variant="body2">Store</Typography>
+          <Typography variant="body2">Magazyn</Typography>
         </Button>
       </Box>
       {isLogin ? (
