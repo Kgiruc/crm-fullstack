@@ -18,7 +18,7 @@ import AddInvoices from './pages/Invoices/components/AddInvoices';
 import UpdateInvoices from './pages/Invoices/components/UpdateInvoices';
 import AddTask from './pages/Tasks/components/AddTask';
 import EditTask from './pages/Tasks/components/EditTask';
-import Store from './pages/Store/Store';
+import Warehouse from './pages/Warehouse/Magazin';
 import Outbound from './pages/Documents/Outbound/Outbound';
 import Inbound from './pages/Documents/Inbound/Inbound';
 import AddOutbound from './pages/Documents/Outbound/components/AddOutbound';
@@ -51,7 +51,7 @@ function App() {
             <Route path="/tasks/add" element={<AddTask />} />
             <Route path="/tasks/update/:id" element={<EditTask />} />
 
-            <Route path="/store" element={<Store />} />
+            <Route path="/store" element={<Warehouse />} />
 
             <Route path="/documents/outbound" element={<Outbound />} />
             <Route path="/documents/outbound/add" element={<AddOutbound />} />

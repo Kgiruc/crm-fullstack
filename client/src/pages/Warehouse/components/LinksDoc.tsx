@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function Store() {
+function LinksDoc() {
   return (
     <div>
       <Link to="/documents/new">Dodaj nowy</Link>
@@ -10,4 +10,4 @@ function Store() {
   );
 }
 
-export default Store;
+export default LinksDoc;

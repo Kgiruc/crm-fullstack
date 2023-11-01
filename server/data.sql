@@ -68,14 +68,18 @@ CREATE TABLE outbound_deliveries (
   order_number VARCHAR(100);
 );
 
-CREATE TABLE item_lines (
+CREATE TABLE warehouse_inventory (
   id SERIAL PRIMARY KEY,
-  outbound_delivery_id INTEGER REFERENCES outbound_deliveries (id) ON DELETE CASCADE,
-  line_number INTEGER NOT NULL,
   item_code VARCHAR(50) NOT NULL,
-  item_description TEXT,
-  quantity NUMERIC NOT NULL,
-  unit_of_measure VARCHAR(20)
+  item_name TEXT NOT NULL,
+  allocated_quantity NUMERIC NOT NULL,
+  unit_of_measure VARCHAR(20),
+  issued_quantity NUMERIC NOT NULL,
+  unit_price NUMERIC NOT NULL,
+  total_value NUMERIC NOT NULL, <=wyjebać
+  account_code VARCHAR(20),
+  synthetic_account_code VARCHAR(20),
+  stock_quantity NUMERIC NOT NULL
 );
 
 -- INSERT INTO customers (name, surname, e_mail, phone_number, address, notes) 
@@ -98,3 +102,6 @@ CREATE TABLE item_lines (
 -- VALUES 
 -- ('zadanie', 'wykonac', '2023-06-07', 1, 'zrobione');
 
+INSERT INTO item_lines (outbound_delivery_id, line_number, item_code, item_description, quantity, unit_of_measure) 
+VALUES 
+(1, 'wykonac', '2023-06-07', 1, 'zrobione');
