@@ -16,15 +16,15 @@ function Warehouse() {
         isError={error}
         isSuccess={isSuccess}
         headers={[
-          'code',
-          'name',
-          'allcodete_q',
-          'j.g',
-          'issued_q',
-          'unit_price',
-          'account code',
-          'syn code',
-          'stock',
+          'Kod przedmiotu',
+          'Nazwa przedmiotu',
+          'Przydzielona ilość',
+          'Jednostka miary',
+          'Wydzielona ilość',
+          'Cena jednostkowa',
+          'Kod księgowy',
+          'Syn. kod',
+          'ilość',
         ]}
         linkAdress="/warehouse/add"
         linkTitle="Add item"

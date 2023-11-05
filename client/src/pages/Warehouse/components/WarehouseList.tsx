@@ -18,6 +18,10 @@ function WarehouseList({ warehouseItems }: Props) {
             <TableCell>{warehouseItem.allocated_quantity}</TableCell>
             <TableCell>{warehouseItem.unit_of_measure}</TableCell>
             <TableCell>{warehouseItem.issued_quantity}</TableCell>
+            <TableCell>{warehouseItem.unit_price}</TableCell>
+            <TableCell>{warehouseItem.account_code}</TableCell>
+            <TableCell>{warehouseItem.synthetic_account_code}</TableCell>
+            <TableCell>{warehouseItem.stock_quantity}</TableCell>
             {/* <TableCell>
               <IconButton
                 onClick={() => agreement.id && deleteAgreement(agreement.id)}
