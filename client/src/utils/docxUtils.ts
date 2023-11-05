@@ -2,9 +2,9 @@ import Docxtemplater from 'docxtemplater';
 import { DateTime } from 'luxon';
 import PizZip from 'pizzip';
 import { saveAs } from 'file-saver';
-import { Outbound } from '../models/Outbound';
+import { Outbound } from '../models/outbound';
 import wzFile from '../assets/files/wz.docx';
-import { Account } from '../models/Account';
+import { Account } from '../models/account';
 
 const generateAndDownloadDocx = async (
   outbound: Outbound,

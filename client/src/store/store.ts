@@ -11,6 +11,7 @@ import { agreementsApi } from '../pages/Agreements/services/agreementsApi';
 import { tasksApi } from '../pages/Tasks/services/tasksApi';
 import { profileApi } from '../pages/Profie/services/profileApi';
 import { outboundApi } from '../pages/Documents/Outbound/services/outboundApi';
+import { warehouseApi } from '../pages/Warehouse/services/itemsApi';
 
 export const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
     [loginApi.reducerPath]: loginApi.reducer,
     [registerApi.reducerPath]: registerApi.reducer,
     [profileApi.reducerPath]: profileApi.reducer,
+    [warehouseApi.reducerPath]: warehouseApi.reducer,
     account: accountReducer,
     details: detailsReducer,
     detailsInvoice: detailsInvoiceReducer,
@@ -33,6 +35,7 @@ export const store = configureStore({
       invoicesApi.middleware,
       tasksApi.middleware,
       outboundApi.middleware,
+      warehouseApi.middleware,
       loginApi.middleware,
       registerApi.middleware,
       profileApi.middleware,

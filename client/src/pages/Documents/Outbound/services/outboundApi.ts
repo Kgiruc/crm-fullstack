@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Outbound } from '../../../../models/Outbound';
+import { Outbound } from '../../../../models/outbound';
 
 export const outboundApi = createApi({
   reducerPath: 'outboundApi',

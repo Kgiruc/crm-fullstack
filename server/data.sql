@@ -72,15 +72,15 @@ CREATE TABLE warehouse_inventory (
   id SERIAL PRIMARY KEY,
   item_code VARCHAR(50) NOT NULL,
   item_name TEXT NOT NULL,
-  allocated_quantity NUMERIC NOT NULL,
+  allocated_quantity DECIMAL NOT NULL,
   unit_of_measure VARCHAR(20),
-  issued_quantity NUMERIC NOT NULL,
-  unit_price NUMERIC NOT NULL,
-  total_value NUMERIC NOT NULL, <=wyjebać
+  issued_quantity DECIMAL NOT NULL,
+  unit_price DECIMAL NOT NULL,
   account_code VARCHAR(20),
   synthetic_account_code VARCHAR(20),
-  stock_quantity NUMERIC NOT NULL
+  stock_quantity DECIMAL NOT NULL
 );
+
 
 -- INSERT INTO customers (name, surname, e_mail, phone_number, address, notes) 
 -- VALUES 
@@ -102,6 +102,6 @@ CREATE TABLE warehouse_inventory (
 -- VALUES 
 -- ('zadanie', 'wykonac', '2023-06-07', 1, 'zrobione');
 
-INSERT INTO item_lines (outbound_delivery_id, line_number, item_code, item_description, quantity, unit_of_measure) 
-VALUES 
-(1, 'wykonac', '2023-06-07', 1, 'zrobione');
+-- INSERT INTO warehouse_inventory (item_code, item_name, allocated_quantity, unit_of_measure, issued_quantity, unit_price, account_code, synthetic_account_code, stock_quantity) 
+-- VALUES 
+-- ('321abc', 'przedmiot1', 100, 'szt', 100, 10, 'xxxxx', 'syn120', 10);

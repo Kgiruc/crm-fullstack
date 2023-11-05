@@ -4,7 +4,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import GetAppIcon from '@mui/icons-material/GetApp';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Outbound } from '../../../../models/Outbound';
+import { Outbound } from '../../../../models/outbound';
 import { useDeleteOutboundMutation } from '../services/outboundApi';
 import generateAndDownloadDocx from '../../../../utils/docxUtils';
 import { useAppSelector } from '../../../../store/store';

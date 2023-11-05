@@ -1,6 +1,6 @@
 import { Box, Container } from '@mui/material';
 import { Form, Formik } from 'formik';
-import { Outbound } from '../../../../models/Outbound';
+import { Outbound } from '../../../../models/outbound';
 import CustomField from '../../../../components/CustomField';
 import validationSchema from '../validations/formValidationsOutbound';
 

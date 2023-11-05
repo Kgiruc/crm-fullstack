@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useAddOutboundMutation } from '../services/outboundApi';
-import { Outbound } from '../../../../models/Outbound';
+import { Outbound } from '../../../../models/outbound';
 import FormLayout from '../../../../components/FormLayout';
 import FormOutbound from './FormOutbound';
 
