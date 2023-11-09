@@ -37,7 +37,7 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     login VARCHAR(30),
     e_mail VARCHAR(50),
-    password VARCHAR(30)
+    password VARCHAR(100)
 );
 
 CREATE TABLE tasks (
