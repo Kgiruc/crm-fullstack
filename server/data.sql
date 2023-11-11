@@ -37,7 +37,7 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     login VARCHAR(30),
     e_mail VARCHAR(50),
-    password VARCHAR(30)
+    password VARCHAR(100)
 );
 
 CREATE TABLE tasks (
@@ -65,7 +65,7 @@ CREATE TABLE outbound_deliveries (
   to_city VARCHAR(100) NOT NULL,
   receiving_person VARCHAR(100) NOT NULL,
   destination VARCHAR(100),
-  order_number VARCHAR(100);
+  order_number VARCHAR(100)
 );
 
 CREATE TABLE warehouse_inventory (
@@ -82,26 +82,26 @@ CREATE TABLE warehouse_inventory (
 );
 
 
--- INSERT INTO customers (name, surname, e_mail, phone_number, address, notes) 
--- VALUES 
--- ('Anna', 'Kupaczewska', 'anna@gmail.com', '737705689', 'ul.Brzydka 32 Gdańsk', null);
+INSERT INTO customers (name, surname, e_mail, phone_number, address, notes) 
+VALUES 
+('Anna', 'Kupaczewska', 'anna@gmail.com', '737705689', 'ul.Brzydka 32 Gdańsk', null);
 
--- INSERT INTO users (login, e_mail, password) 
--- VALUES 
--- ('Admin', 'Admin', crypt('Admin', gen_salt('bf', 4)));
+INSERT INTO users (login, e_mail, password) 
+VALUES 
+('Admin', 'Admin', crypt('Admin', gen_salt('bf', 4)));
 
--- INSERT INTO contracts (customer_id, name, date_sign, date_end, value, description) 
--- VALUES 
--- (2, 'Umowa Kupna-Sprzedaży', '2023-05-25', '2023-12-31', 1000.00, 'Opis umowy')
+INSERT INTO contracts (customer_id, name, date_sign, date_end, value, description) 
+VALUES 
+(2, 'Umowa Kupna-Sprzedaży', '2023-05-25', '2023-12-31', 1000.00, 'Opis umowy')
 
--- INSERT INTO invoices (customer_id, contract_id, date_issue, date_due, amount, description, paid) 
--- VALUES 
--- (2, 2, '2023-06-07', '2023-12-31', 1000.00, 'Opis umowy', true);
+INSERT INTO invoices (customer_id, contract_id, date_issue, date_due, amount, description, paid) 
+VALUES 
+(2, 2, '2023-06-07', '2023-12-31', 1000.00, 'Opis umowy', true);
 
--- INSERT INTO tasks (title, description, due_date, priority, status) 
--- VALUES 
--- ('zadanie', 'wykonac', '2023-06-07', 1, 'zrobione');
+INSERT INTO tasks (title, description, due_date, priority, status) 
+VALUES 
+('zadanie', 'wykonac', '2023-06-07', 1, 'zrobione');
 
--- INSERT INTO warehouse_inventory (item_code, item_name, allocated_quantity, unit_of_measure, issued_quantity, unit_price, account_code, synthetic_account_code, stock_quantity) 
--- VALUES 
--- ('321abc', 'przedmiot1', 100, 'szt', 100, 10, 'xxxxx', 'syn120', 10);
+INSERT INTO warehouse_inventory (item_code, item_name, allocated_quantity, unit_of_measure, issued_quantity, unit_price, account_code, synthetic_account_code, stock_quantity) 
+VALUES 
+('321abc', 'przedmiot1', 100, 'szt', 100, 10, 'xxxxx', 'syn120', 10);

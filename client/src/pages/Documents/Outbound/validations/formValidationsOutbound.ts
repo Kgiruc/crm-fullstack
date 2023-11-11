@@ -4,6 +4,7 @@ const validationSchema = Yup.object({
   wz_number: Yup.string().required('Podaj numer'),
   delivery_date: Yup.string().required('Podaj date dostawy'),
   from_company: Yup.string().required('Podaj firme dostawcy'),
+  from_city: Yup.string().required('Podaj miasto dostawcy'),
   from_street: Yup.string().required('Podaj ulice dostawcy'),
   from_postal_code: Yup.string().required('Podaj kod pocztowy dostawcy'),
   to_company: Yup.string().required('Podaj firme odbiorcy'),

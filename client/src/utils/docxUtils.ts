@@ -4,7 +4,7 @@ import PizZip from 'pizzip';
 import { saveAs } from 'file-saver';
 import { Outbound } from '../models/outbound';
 import wzFile from '../assets/files/wz.docx';
-import { Account } from '../models/account';
+import { Account } from '../models/Account';
 
 const generateAndDownloadDocx = async (
   outbound: Outbound,
