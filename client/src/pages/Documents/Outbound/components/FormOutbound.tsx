@@ -3,6 +3,8 @@ import { Form, Formik } from 'formik';
 import { Outbound } from '../../../../models/outbound';
 import CustomField from '../../../../components/CustomField';
 import validationSchema from '../validations/formValidationsOutbound';
+import { useWarehouseItemsQuery } from '../../../Warehouse/services/itemsApi';
+import SelectCustomField from '../../../../components/SelectCustomField';
 
 interface FormOutboundProps {
   buttonFunction: (values: Outbound) => void;
@@ -10,6 +12,20 @@ interface FormOutboundProps {
 }
 
 function FormOutbound({ buttonFunction, initialOutbound }: FormOutboundProps) {
+  const {
+    data: warehouseItems,
+    isError,
+    isLoading,
+    isSuccess,
+  } = useWarehouseItemsQuery();
+
+  const warehouseItemOptions = warehouseItems
+    ? warehouseItems.map((item) => ({
+        value: item.id,
+        label: `${item.item_name} ${item.item_code}`,
+      }))
+    : [];
+
   return (
     <Container maxWidth="lg">
       <Box
@@ -51,6 +67,14 @@ function FormOutbound({ buttonFunction, initialOutbound }: FormOutboundProps) {
                 type="text"
                 name="to_postal_code"
                 label="to postal code"
+              />
+              <SelectCustomField
+                name="warehouseItems_id"
+                label="items"
+                isError={isError}
+                isLoading={isLoading}
+                isSuccess={isSuccess}
+                options={warehouseItemOptions}
               />
               <CustomField type="text" name="to_city" label="to city" />
               <CustomField

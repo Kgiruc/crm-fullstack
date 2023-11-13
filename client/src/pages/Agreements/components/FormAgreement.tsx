@@ -22,6 +22,7 @@ function FormAgreement({
     isLoading,
     isSuccess,
   } = useCustomersQuery();
+
   const customerOptions = customers
     ? customers.map((customer) => ({
         value: customer.id || '',

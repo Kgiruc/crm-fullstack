@@ -1,5 +1,5 @@
 export interface WarehouseItem {
-  id: number;
+  id: string;
   item_code: string;
   item_name: string;
   allocated_quantity: number;
