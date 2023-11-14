@@ -54,7 +54,7 @@ CREATE TABLE tasks (
 CREATE TABLE outbound_deliveries (
   id SERIAL PRIMARY KEY,
   wz_number VARCHAR(20) NOT NULL,
-  warehouse_inventory_id INT REFERENCES outbound_deliveries(id),
+  warehouse_inventory_id INT REFERENCES outbound_deliveries(id), <= do wyjebiania na osobna tabelkę
   delivery_date DATE NOT NULL,
   from_company VARCHAR(100) NOT NULL,
   from_street VARCHAR(100) NOT NULL,
