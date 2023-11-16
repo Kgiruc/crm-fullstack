@@ -54,7 +54,6 @@ CREATE TABLE tasks (
 CREATE TABLE outbound_deliveries (
   id SERIAL PRIMARY KEY,
   wz_number VARCHAR(20) NOT NULL,
-  warehouse_inventory_id INT REFERENCES outbound_deliveries(id), <= do wyjebiania na osobna tabelkę
   delivery_date DATE NOT NULL,
   from_company VARCHAR(100) NOT NULL,
   from_street VARCHAR(100) NOT NULL,
@@ -81,6 +80,13 @@ CREATE TABLE warehouse_inventory (
   synthetic_account_code VARCHAR(20),
   stock_quantity DECIMAL NOT NULL
 );
+
+CREATE TABLE outbound_delivery_items (
+  id SERIAL PRIMARY KEY,
+  outbound_delivery_id INTEGER REFERENCES outbound_deliveries(id),
+  warehouse_inventory_id INTEGER REFERENCES warehouse_inventory(id)
+);
+
 
 
 INSERT INTO customers (name, surname, e_mail, phone_number, address, notes) 
