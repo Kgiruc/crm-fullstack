@@ -1,0 +1,12 @@
+@import "../colors/colors";
+
+$default-headings: (
+    &-h1 (
+      color: $primary-color-blue,
+      font-family: 'Inter',
+      font-size: 36px,
+      font-style: normal,
+      font-weight: 700,
+      line-height: 48px, /* 133.333% */
+  )
+);
