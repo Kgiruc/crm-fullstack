@@ -1,12 +1,25 @@
-@import "../colors/colors";
+@mixin headings() {
+      color: $basic-color-gray-7;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      line-height: 48px;
+};
 
-$default-headings: (
-    &-h1 (
-      color: $primary-color-blue,
-      font-family: 'Inter',
-      font-size: 36px,
-      font-style: normal,
-      font-weight: 700,
-      line-height: 48px, /* 133.333% */
-  )
+$size: (
+  "h1": 36px,
+  "h2": 32px,
+  "h3": 30px,
+  "h4": 24px,
+  "h5": 22px,
+  "h6": 18px,
 );
+
+@each $key, $val in $size {
+  .MuiTypography-root {
+    &.heading-#{$key} {
+      @include headings();
+      font-size: $val;
+    }
+  }
+}
