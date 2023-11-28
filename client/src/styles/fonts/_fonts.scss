@@ -1,25 +1,37 @@
-@mixin headings() {
-      color: $basic-color-gray-7;
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 700;
-      line-height: 48px;
-};
+@mixin headings($colorfont, $lineHeight) {
+  color: $colorfont;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  line-height: $lineHeight;
+}
+
+$colorfont: (
+  "color-1": $basic-color-gray-7,
+  "color-2": $basic-color-white,
+  "color-3": $primary-color-blue,
+);
 
 $size: (
-  "h1": 36px,
-  "h2": 32px,
-  "h3": 30px,
-  "h4": 24px,
-  "h5": 22px,
-  "h6": 18px,
+  "h1": (36px, 40px, $colorfont),
+  "h2": (32px, 40px, $colorfont),
+  "h3": (30px, 30px, $colorfont),
+  "h4": (24px, 24px, $colorfont),
+  "h5": (22px, 22px, $colorfont),
+  "h6": (18px, 18px, $colorfont),
 );
+
 
 @each $key, $val in $size {
   .MuiTypography-root {
-    &.heading-#{$key} {
-      @include headings();
-      font-size: $val;
+    @each $colorKey in $val {
+      $colorValue: map-get($colorfont, $colorKey);
+      &.heading-#{$key} {
+        &-#{$colorKey} {
+          @include headings($colorValue, nth($val, 2));
+          font-size: nth($val, 1);
+        }
+      }
     }
   }
 }

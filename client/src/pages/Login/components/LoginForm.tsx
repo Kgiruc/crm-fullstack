@@ -23,7 +23,7 @@ function LoginForm({ initialUser, buttonFunction }: FormUserProps) {
         <Typography
           // variant="h4"
           // sx={{ marginBottom: '20px' }}
-          className="heading-h3"
+          className="heading-h3-color-3"
         >
           Zaloguj się
         </Typography>
