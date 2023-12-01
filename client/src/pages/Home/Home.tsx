@@ -27,9 +27,7 @@ function Home() {
         alignItems: 'stretch',
       }}
     >
-      <Typography variant="h6" sx={{ marginBottom: '16px' }}>
-        CRM zmiana nazwy
-      </Typography>
+      <Typography className="heading-h3-color-1">Blueberry CRM</Typography>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
         <Button
           variant="contained"
