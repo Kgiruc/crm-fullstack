@@ -7,6 +7,7 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import RequestPageIcon from '@mui/icons-material/RequestPage';
 import { useAppSelector } from '../../store/store';
 import ProfileButton from './components/ProfileButton';
+import Logo from './components/Logo';
 
 function Home() {
   const isLogin = useAppSelector((state) => state.account.isLogin);
@@ -18,17 +19,23 @@ function Home() {
         flexDirection: 'column',
         boxSizing: 'border-box',
         height: '100vh',
-        width: '240px',
-        backgroundColor: '#f0f0f0',
+        minWidth: '264px',
+        backgroundColor: '#0C2556',
         overflow: 'auto',
-        margin: 0,
-        padding: '30px 16px',
+        padding: '20px 0',
         justifyContent: 'space-between',
-        alignItems: 'stretch',
+        alignItems: 'center',
       }}
     >
-      <Typography className="heading-h3-color-1">Blueberry CRM</Typography>
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+      <Logo />
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '30px',
+          width: '100%',
+        }}
+      >
         <Button
           variant="contained"
           component={Link}
