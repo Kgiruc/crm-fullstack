@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
 import Agreements from './pages/Agreements/Agreements';
@@ -22,12 +22,14 @@ import Warehouse from './pages/Warehouse/Magazin';
 import Outbound from './pages/Documents/Outbound/Outbound';
 import Inbound from './pages/Documents/Inbound/Inbound';
 import AddOutbound from './pages/Documents/Outbound/components/AddOutbound';
+import MenuBar from './pages/Home/components/MenuBar';
 
 function App() {
   return (
     <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
       <Home />
-      <Container>
+      <Box sx={{ width: '100%' }}>
+        <MenuBar />
         <Routes>
           <Route element={<AuthRoutes />}>
             <Route path="/agreements" element={<Agreements />} />
@@ -65,7 +67,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Container>
+      </Box>
     </Box>
   );
 }
