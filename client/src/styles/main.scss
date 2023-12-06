@@ -2,4 +2,9 @@
 @import "./colors/colors";
 @import "./fonts/fonts";
 
-@import "../pages/Home/styles/menuBar.scss"
+@import "../pages/Home/styles/menuBar.scss";
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
