@@ -20,13 +20,7 @@ function LoginForm({ initialUser, buttonFunction }: FormUserProps) {
           marginTop: 3,
         }}
       >
-        <Typography
-          // variant="h4"
-          // sx={{ marginBottom: '20px' }}
-          className="heading-h4-color-3"
-        >
-          Zaloguj się
-        </Typography>
+        <Typography className="heading-h4-color-3">Zaloguj się</Typography>
         <Formik
           initialValues={initialUser}
           onSubmit={buttonFunction}

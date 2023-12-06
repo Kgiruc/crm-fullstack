@@ -1,5 +1,4 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
-import '../styles/menuBar.scss';
 
 function MenuBar() {
   return (
