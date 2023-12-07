@@ -24,7 +24,7 @@ function FormLayout({ isLoading, isError, children, login }: FormLayoutProps) {
       maxWidth="xs"
       sx={{
         display: 'flex',
-        height: '100vh',
+        height: 'auto',
         alignItems: 'center',
         justifyContent: 'center',
       }}
