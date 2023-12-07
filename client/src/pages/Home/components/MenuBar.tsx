@@ -28,13 +28,11 @@ function MenuBar() {
             <IconButton>
               <img src={Settings} alt="settings" />
             </IconButton>
-            <IconButton>
+            <IconButton sx={{ marginRight: '26px' }}>
               <img src={Oval} alt="language" />
             </IconButton>
-            <IconButton>
-              <img src={Avatar} alt="avatar" />
-            </IconButton>
-            <Typography>nazwa uzyt</Typography>
+            <img src={Avatar} alt="avatar" />
+            <Typography ml={1}>nazwa uzyt</Typography>
             <IconButton>
               <img src={Chevron} alt="button down" />
             </IconButton>

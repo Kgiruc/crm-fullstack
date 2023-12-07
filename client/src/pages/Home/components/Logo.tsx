@@ -1,6 +1,5 @@
 import { Box } from '@mui/system';
 import { Typography } from '@mui/material';
-import LogoIcon from '../../../assets/icons/Logo.svg';
 
 function Logo() {
   return (
@@ -12,8 +11,7 @@ function Logo() {
         width: '80%',
       }}
     >
-      <img src={LogoIcon} alt="logo" />
-      <Typography className="heading-h6-color-3">
+      <Typography className="heading-h6-color-3 logo">
         Blueberry
         <span style={{ color: 'white' }}> CRM</span>
       </Typography>
