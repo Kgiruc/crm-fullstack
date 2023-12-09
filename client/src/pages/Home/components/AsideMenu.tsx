@@ -31,6 +31,8 @@ function AsideMenu() {
           sx={{
             flexDirection: 'column',
           }}
+          centered
+          orientation="vertical"
         >
           {pages.map((item) => (
             <Tab
