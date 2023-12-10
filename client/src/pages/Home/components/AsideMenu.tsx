@@ -28,11 +28,13 @@ function AsideMenu() {
       <Logo />
       <TabContext value={location.pathname}>
         <TabList
-          sx={{
-            flexDirection: 'column',
-          }}
           centered
           orientation="vertical"
+          TabIndicatorProps={{
+            style: {
+              display: 'none',
+            },
+          }}
         >
           {pages.map((item) => (
             <Tab
@@ -41,6 +43,10 @@ function AsideMenu() {
               value={item.to}
               component={RouterLink}
               to={item.to}
+              sx={{
+                backgroundColor:
+                  location.pathname === item.to ? 'white' : '#0C2556',
+              }}
             />
           ))}
         </TabList>
