@@ -9,7 +9,7 @@ function AsideMenu() {
   const pages = [
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
-    { label: 'Contact', to: '/contact' },
+    { label: 'Contact', to: '/customers' },
   ];
   return (
     <Box
@@ -35,6 +35,7 @@ function AsideMenu() {
               display: 'none',
             },
           }}
+          className="tabMenu"
         >
           {pages.map((item) => (
             <Tab
