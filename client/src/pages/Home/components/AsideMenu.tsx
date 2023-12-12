@@ -1,5 +1,5 @@
 import { Box } from '@mui/system';
-import { Tab } from '@mui/material';
+import { Tab, Typography } from '@mui/material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { TabContext, TabList } from '@mui/lab';
 import Logo from './Logo';
@@ -26,9 +26,9 @@ function AsideMenu() {
       }}
     >
       <Logo />
+      <Typography className="heading-tabs-tabsColor">MANAGMENT</Typography>
       <TabContext value={location.pathname}>
         <TabList
-          centered
           orientation="vertical"
           TabIndicatorProps={{
             style: {
@@ -52,6 +52,7 @@ function AsideMenu() {
           ))}
         </TabList>
       </TabContext>
+      <Typography>pages</Typography>
     </Box>
   );
 }

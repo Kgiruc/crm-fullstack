@@ -11,7 +11,7 @@ function Logo() {
         width: '80%',
       }}
     >
-      <Typography className="heading-h6-color-3 logo">
+      <Typography className="heading-h6-purple logo">
         Blueberry
         <span style={{ color: 'white' }}> CRM</span>
       </Typography>

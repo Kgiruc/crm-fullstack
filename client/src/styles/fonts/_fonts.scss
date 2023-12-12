@@ -71,9 +71,10 @@
 }
 
 $colorfont: (
-  "color-1": $basic-color-gray-7,
-  "color-2": $basic-color-white,
-  "color-3": $info-color-purple,
+  "gray": $basic-color-gray-7,
+  "white": $basic-color-white,
+  "purple": $info-color-purple,
+  "tabsColor": $list-color
 );
 
 $size: (
@@ -83,6 +84,7 @@ $size: (
   "h4": (24px, 24px),
   "h5": (22px, 22px),
   "h6": (18px, 18px),
+  "tabs": (12px, 16px),
 );
 
 
