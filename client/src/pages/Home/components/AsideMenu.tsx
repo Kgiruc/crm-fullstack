@@ -47,12 +47,13 @@ function AsideMenu() {
               sx={{
                 backgroundColor:
                   location.pathname === item.to ? 'white' : '#0C2556',
+                opacity: location.pathname === item.to ? '1' : '0.6',
               }}
             />
           ))}
         </TabList>
       </TabContext>
-      <Typography>pages</Typography>
+      <Typography className="heading-tabs-tabsColor">pages</Typography>
     </Box>
   );
 }
