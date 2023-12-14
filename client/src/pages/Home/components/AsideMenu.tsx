@@ -1,16 +1,9 @@
 import { Box } from '@mui/system';
-import { Tab, Typography } from '@mui/material';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
-import { TabContext, TabList } from '@mui/lab';
+import { Typography } from '@mui/material';
 import Logo from './Logo';
+import ListTab from './ListTab';
 
 function AsideMenu() {
-  const location = useLocation();
-  const pages = [
-    { label: 'Home', to: '/' },
-    { label: 'About', to: '/about' },
-    { label: 'Contact', to: '/customers' },
-  ];
   return (
     <Box
       sx={{
@@ -26,33 +19,15 @@ function AsideMenu() {
       }}
     >
       <Logo />
+      <ListTab pages={[{ label: 'Dashboard', to: '/dashboard' }]} />
       <Typography className="heading-tabs-tabsColor">MANAGMENT</Typography>
-      <TabContext value={location.pathname}>
-        <TabList
-          orientation="vertical"
-          TabIndicatorProps={{
-            style: {
-              display: 'none',
-            },
-          }}
-          className="tabMenu"
-        >
-          {pages.map((item) => (
-            <Tab
-              key={item.to}
-              label={item.label}
-              value={item.to}
-              component={RouterLink}
-              to={item.to}
-              sx={{
-                backgroundColor:
-                  location.pathname === item.to ? 'white' : '#0C2556',
-                opacity: location.pathname === item.to ? '1' : '0.6',
-              }}
-            />
-          ))}
-        </TabList>
-      </TabContext>
+      <ListTab
+        pages={[
+          { label: 'Home', to: '/' },
+          { label: 'About', to: '/about' },
+          { label: 'Contact', to: '/customers' },
+        ]}
+      />
       <Typography className="heading-tabs-tabsColor">pages</Typography>
     </Box>
   );

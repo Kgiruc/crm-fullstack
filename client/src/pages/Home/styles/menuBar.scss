@@ -21,3 +21,21 @@
   display: flex;
   justify-content: flex-start;
 }
+
+.MuiTab-root {
+    &.list {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    text-transform: capitalize;
+    align-items: start;
+    padding: 0 12px;
+    min-height: 40px;
+    }
+      &.Mui-selected {
+        color: $basic-color-white !important;
+      }
+}
