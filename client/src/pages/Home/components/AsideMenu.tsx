@@ -14,21 +14,39 @@ function AsideMenu() {
         minWidth: '264px',
         backgroundColor: '#0C2556',
         overflow: 'auto',
-        padding: '20px 0',
-        alignItems: 'center',
+        padding: '22px',
+        gap: '12px',
       }}
     >
       <Logo />
-      <ListTab pages={[{ label: 'Dashboard', to: '/dashboard' }]} />
-      <Typography className="heading-tabs-tabsColor">MANAGMENT</Typography>
-      <ListTab
-        pages={[
-          { label: 'Home', to: '/' },
-          { label: 'About', to: '/about' },
-          { label: 'Contact', to: '/customers' },
-        ]}
-      />
-      <Typography className="heading-tabs-tabsColor">pages</Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px',
+        }}
+      >
+        <ListTab pages={[{ label: 'Dashboard', to: '/' }]} />
+        <Typography className="heading-tabs-tabsColor">MANAGMENT</Typography>
+        <ListTab
+          pages={[
+            { label: 'Analytics', to: '/analytics' },
+            { label: 'Customers', to: '/customers' },
+            { label: 'Products', to: '/products' },
+            { label: 'Orders', to: '/orders' },
+            { label: 'Invoices', to: '/invoices' },
+          ]}
+        />
+        <Typography className="heading-tabs-tabsColor">PAGES</Typography>
+        <ListTab
+          pages={[
+            { label: 'Authentication', to: '/authentication' },
+            { label: 'Calendar', to: '/calendar' },
+          ]}
+        />
+        <Typography className="heading-tabs-tabsColor">COMPONENTES</Typography>
+        <ListTab pages={[{ label: 'Charts', to: '/Charts' }]} />
+      </Box>
     </Box>
   );
 }

@@ -6,9 +6,10 @@ function Logo() {
     <Box
       sx={{
         display: 'flex',
-        alignItems: 'center',
+        textAlign: 'center',
         justifyContent: 'space-around',
-        width: '80%',
+        width: 'auto',
+        marginBottom: '31px',
       }}
     >
       <Typography className="heading-h6-purple logo">
