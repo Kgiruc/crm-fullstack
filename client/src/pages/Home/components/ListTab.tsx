@@ -5,6 +5,7 @@ import { useLocation, Link as RouterLink } from 'react-router-dom';
 type Page = {
   label: string;
   to: string;
+  iconPath: string;
 };
 
 type ListTabProps = {
@@ -38,6 +39,8 @@ function ListTab({ pages }: ListTabProps) {
               color: 'fff',
             }}
             className="list"
+            icon={<img src={`${item.iconPath}`} alt="icon" />}
+            iconPosition="start"
           />
         ))}
       </TabList>
