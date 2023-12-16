@@ -61,6 +61,16 @@ function TablesLayout({
       >
         {title}
       </Typography>
+      <Button
+        component={Link}
+        to={linkAdress}
+        variant="contained"
+        color="primary"
+        startIcon={<AddIcon />}
+        sx={{ margin: '12px' }}
+      >
+        {linkTitle}
+      </Button>
       {filter && (
         <Box
           sx={{
@@ -93,16 +103,6 @@ function TablesLayout({
             </TableHead>
             {children}
           </Table>
-          <Button
-            component={Link}
-            to={linkAdress}
-            variant="contained"
-            color="primary"
-            startIcon={<AddIcon />}
-            sx={{ margin: '12px' }}
-          >
-            {linkTitle}
-          </Button>
         </TableContainer>
       )}
     </Box>
