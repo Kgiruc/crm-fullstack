@@ -11,7 +11,6 @@ import {
   TextField,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import SearchIcon from '@mui/icons-material/Search';
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
@@ -49,45 +48,47 @@ function TablesLayout({
   filterValue,
 }: TablesLayoutProps) {
   return (
-    <Box sx={{ margin: '60px 20px' }}>
-      <Typography
-        variant="h3"
+    <Box sx={{ margin: '24px 25px' }}>
+      <Box
         sx={{
-          textAlign: 'center',
-          marginBottom: '3vh',
-          textTransform: 'uppercase',
-          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          maxHeight: '40px',
         }}
       >
-        {title}
-      </Typography>
-      <Button
-        component={Link}
-        to={linkAdress}
-        variant="contained"
-        color="primary"
-        startIcon={<AddIcon />}
-        sx={{ margin: '12px' }}
-      >
-        {linkTitle}
-      </Button>
-      {filter && (
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            mb: 2,
-            alignItems: 'center',
-          }}
+        <Typography className="heading-h4-32-gray" sx={{ marginRight: 'auto' }}>
+          {title}
+        </Typography>
+
+        {filter && (
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+              marginLeft: 'auto',
+            }}
+          >
+            <TextField
+              value={filterValue}
+              onChange={filterFunction}
+              placeholder={filterPlaceHolder}
+              className="table"
+            />
+          </Box>
+        )}
+        <Button
+          component={Link}
+          to={linkAdress}
+          variant="contained"
+          color="primary"
+          startIcon={<AddIcon />}
+          sx={{ marginLeft: '22px', textTransform: 'capitalize' }}
         >
-          <SearchIcon sx={{ mr: 1 }} />
-          <TextField
-            value={filterValue}
-            onChange={filterFunction}
-            placeholder={filterPlaceHolder}
-          />
-        </Box>
-      )}
+          {linkTitle}
+        </Button>
+      </Box>
       {isLoading && <p>loading...</p>}
       {isFetching && <p>fetching</p>}
       {isError && <p>error</p>}
