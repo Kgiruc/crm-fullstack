@@ -48,13 +48,14 @@ function TablesLayout({
   filterValue,
 }: TablesLayoutProps) {
   return (
-    <Box sx={{ margin: '24px 25px' }}>
+    <Box sx={{ padding: '24px 25px' }}>
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           maxHeight: '40px',
+          marginBottom: '48px',
         }}
       >
         <Typography className="heading-h4-32-gray" sx={{ marginRight: 'auto' }}>
@@ -68,13 +69,17 @@ function TablesLayout({
               justifyContent: 'flex-end',
               alignItems: 'center',
               marginLeft: 'auto',
+              maxHeight: '40px',
+              '& input': {
+                padding: '11px 16px',
+                height: '18px',
+              },
             }}
           >
             <TextField
               value={filterValue}
               onChange={filterFunction}
               placeholder={filterPlaceHolder}
-              className="table"
             />
           </Box>
         )}
@@ -89,6 +94,9 @@ function TablesLayout({
           {linkTitle}
         </Button>
       </Box>
+      <Typography className=".heading-h6-24-gray" ml={2}>
+        Customer List
+      </Typography>
       {isLoading && <p>loading...</p>}
       {isFetching && <p>fetching</p>}
       {isError && <p>error</p>}
