@@ -9,12 +9,16 @@ import {
   Button,
   Paper,
   TextField,
+  InputAdornment,
 } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import { SerializedError } from '@reduxjs/toolkit';
+import { positions, width } from '@mui/system';
+import { relative } from 'path';
+import SearchIcon from '../assets/icons/search.svg';
+import AddIcon from '../assets/icons/add.svg';
 
 interface TablesLayoutProps {
   title: string;
@@ -70,9 +74,11 @@ function TablesLayout({
               alignItems: 'center',
               marginLeft: 'auto',
               maxHeight: '40px',
+              maxWidth: '320px',
               '& input': {
                 padding: '11px 16px',
                 height: '18px',
+                width: '320px',
               },
             }}
           >
@@ -80,6 +86,14 @@ function TablesLayout({
               value={filterValue}
               onChange={filterFunction}
               placeholder={filterPlaceHolder}
+              sx={{ backgroundColor: '#fff' }}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <img src={SearchIcon} alt="search" />
+                  </InputAdornment>
+                ),
+              }}
             />
           </Box>
         )}
@@ -88,31 +102,49 @@ function TablesLayout({
           to={linkAdress}
           variant="contained"
           color="primary"
-          startIcon={<AddIcon />}
-          sx={{ marginLeft: '22px', textTransform: 'capitalize' }}
+          startIcon={<img src={AddIcon} alt="add" />}
+          sx={{
+            marginLeft: '22px',
+            textTransform: 'capitalize',
+            height: '40px',
+            width: '170px',
+          }}
         >
           {linkTitle}
         </Button>
       </Box>
-      <Typography className=".heading-h6-24-gray" ml={2}>
+      <Typography
+        className="heading-h6-24-gray"
+        sx={{ margin: '0 0 24px 24px' }}
+      >
         Customer List
       </Typography>
       {isLoading && <p>loading...</p>}
       {isFetching && <p>fetching</p>}
       {isError && <p>error</p>}
       {isSuccess && (
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                {headers.map((header) => (
-                  <TableCell key={header}>{header}</TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            {children}
-          </Table>
-        </TableContainer>
+        <>
+          <Box
+            sx={{
+              width: '100px',
+              height: '40px',
+              background: '#E3EEF6',
+              position: 'absolute',
+            }}
+          />
+          <TableContainer sx={{ position: 'relative' }}>
+            <Table sx={{ backgroundColor: '#fff' }}>
+              <TableHead>
+                <TableRow>
+                  {headers.map((header) => (
+                    <TableCell key={header}>{header}</TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              {children}
+            </Table>
+          </TableContainer>
+        </>
       )}
     </Box>
   );

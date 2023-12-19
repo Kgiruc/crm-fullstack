@@ -28,7 +28,7 @@ function App() {
   return (
     <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
       <Home />
-      <Box sx={{ width: '100%' }}>
+      <Box sx={{ width: '100%', height: '100vh', backgroundColor: '#F3F7F9' }}>
         <MenuBar />
         <Routes>
           <Route element={<AuthRoutes />}>
