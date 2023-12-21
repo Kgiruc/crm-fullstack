@@ -52,17 +52,18 @@ function TablesLayout({
   filterValue,
 }: TablesLayoutProps) {
   return (
-    <Box sx={{ padding: '24px 25px', zIndex: '0', position: 'relative' }}>
+    <Box sx={{ margin: '24px 25px', zIndex: '0', position: 'relative' }}>
       <Box
         sx={{
-          width: '73.5%',
-          height: '80vh',
-          background: '#07C180',
+          width: 'calc(100% - 95px)',
+          height: '78vh',
+          background: '#fff',
           zIndex: '-1',
           position: 'absolute',
           right: 0,
-          marginRight: '25px',
           marginTop: '76px',
+          borderRadius: '4px',
+          boxShadow: '0px 5px 20px 0px rgba(176, 195, 211, 0.16)',
         }}
       />
       <Box
