@@ -7,7 +7,6 @@ import {
   TableCell,
   TableRow,
   Button,
-  Paper,
   TextField,
   InputAdornment,
 } from '@mui/material';
@@ -15,8 +14,6 @@ import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import { SerializedError } from '@reduxjs/toolkit';
-import { positions, width } from '@mui/system';
-import { relative } from 'path';
 import SearchIcon from '../assets/icons/search.svg';
 import AddIcon from '../assets/icons/add.svg';
 
@@ -52,11 +49,18 @@ function TablesLayout({
   filterValue,
 }: TablesLayoutProps) {
   return (
-    <Box sx={{ margin: '24px 25px', zIndex: '0', position: 'relative' }}>
+    <Box
+      sx={{
+        margin: '24px 25px',
+        zIndex: '0',
+        position: 'relative',
+        height: '80vh',
+      }}
+    >
       <Box
         sx={{
           width: 'calc(100% - 95px)',
-          height: '85vh',
+          height: '100%',
           background: '#fff',
           zIndex: '-1',
           position: 'absolute',
