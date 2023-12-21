@@ -52,7 +52,19 @@ function TablesLayout({
   filterValue,
 }: TablesLayoutProps) {
   return (
-    <Box sx={{ padding: '24px 25px' }}>
+    <Box sx={{ padding: '24px 25px', zIndex: '0', position: 'relative' }}>
+      <Box
+        sx={{
+          width: '73.5%',
+          height: '80vh',
+          background: '#07C180',
+          zIndex: '-1',
+          position: 'absolute',
+          right: 0,
+          marginRight: '25px',
+          marginTop: '76px',
+        }}
+      />
       <Box
         sx={{
           display: 'flex',
@@ -117,34 +129,24 @@ function TablesLayout({
         className="heading-h6-24-gray"
         sx={{ margin: '0 0 24px 24px' }}
       >
-        Customer List
+        Customers List
       </Typography>
       {isLoading && <p>loading...</p>}
       {isFetching && <p>fetching</p>}
       {isError && <p>error</p>}
       {isSuccess && (
-        <>
-          <Box
-            sx={{
-              width: '100px',
-              height: '40px',
-              background: '#E3EEF6',
-              position: 'absolute',
-            }}
-          />
-          <TableContainer sx={{ position: 'relative' }}>
-            <Table sx={{ backgroundColor: '#fff' }}>
-              <TableHead>
-                <TableRow>
-                  {headers.map((header) => (
-                    <TableCell key={header}>{header}</TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              {children}
-            </Table>
-          </TableContainer>
-        </>
+        <TableContainer>
+          <Table sx={{ backgroundColor: '#fff' }}>
+            <TableHead>
+              <TableRow>
+                {headers.map((header) => (
+                  <TableCell key={header}>{header}</TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            {children}
+          </Table>
+        </TableContainer>
       )}
     </Box>
   );
