@@ -1,5 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
+import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
 import Agreements from './pages/Agreements/Agreements';
@@ -26,49 +26,104 @@ import MenuBar from './pages/Home/components/MenuBar';
 
 function App() {
   return (
-    <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
-      <Home />
-      <Box sx={{ width: '100%', height: '100vh', backgroundColor: '#F3F7F9' }}>
-        <MenuBar />
-        <Routes>
-          <Route element={<AuthRoutes />}>
-            <Route path="/agreements" element={<Agreements />} />
-            <Route path="/agreements/:id" element={<Agreements />} />
-            <Route path="/agreements/add" element={<AddAgreement />} />
-            <Route
-              path="/agreements/update/:id"
-              element={<UpdateAgreement />}
-            />
+    <Routes>
+      {/* Strona Logowania */}
+      <Route
+        path="/login"
+        element={
+          <Box
+            sx={{ width: '100%', height: '100vh', backgroundColor: '#F3F7F9' }}
+          >
+            <Login />
+          </Box>
+        }
+      />
 
-            <Route path="/customers" element={<Customers />} />
-            <Route path="/customers/add" element={<AddCustomer />} />
-            <Route path="/customers/update/:id" element={<UpdateCustomer />} />
+      {/* Strona Rejestracji */}
+      <Route
+        path="/register"
+        element={
+          <Box
+            sx={{ width: '100%', height: '100vh', backgroundColor: '#F3F7F9' }}
+          >
+            <Register />
+          </Box>
+        }
+      />
 
-            <Route path="/invoices" element={<Invoices />} />
-            <Route path="/invoices/:id" element={<Invoices />} />
-            <Route path="/invoices/add" element={<AddInvoices />} />
-            <Route path="/invoices/update/:id" element={<UpdateInvoices />} />
+      {/* Reszta Stron z MenuBar i AuthRoutes */}
+      <Route
+        path="/*"
+        element={
+          <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+            <Home />
+            <Box
+              sx={{
+                width: '100%',
+                height: '100vh',
+                backgroundColor: '#F3F7F9',
+              }}
+            >
+              <MenuBar />
+              <Routes>
+                <Route element={<AuthRoutes />}>
+                  {/* Strony dotyczące umów */}
+                  <Route path="/agreements" element={<Agreements />} />
+                  <Route path="/agreements/:id" element={<Agreements />} />
+                  <Route path="/agreements/add" element={<AddAgreement />} />
+                  <Route
+                    path="/agreements/update/:id"
+                    element={<UpdateAgreement />}
+                  />
 
-            <Route path="/tasks" element={<Tasks />} />
-            <Route path="/tasks/add" element={<AddTask />} />
-            <Route path="/tasks/update/:id" element={<EditTask />} />
+                  {/* Strony dotyczące klientów */}
+                  <Route path="/customers" element={<Customers />} />
+                  <Route path="/customers/add" element={<AddCustomer />} />
+                  <Route
+                    path="/customers/update/:id"
+                    element={<UpdateCustomer />}
+                  />
 
-            <Route path="/store" element={<Warehouse />} />
+                  {/* Strony dotyczące faktur */}
+                  <Route path="/invoices" element={<Invoices />} />
+                  <Route path="/invoices/:id" element={<Invoices />} />
+                  <Route path="/invoices/add" element={<AddInvoices />} />
+                  <Route
+                    path="/invoices/update/:id"
+                    element={<UpdateInvoices />}
+                  />
 
-            <Route path="/documents/outbound" element={<Outbound />} />
-            <Route path="/documents/outbound/add" element={<AddOutbound />} />
-            <Route path="/documents/outbound" element={<Outbound />} />
+                  {/* Strony dotyczące zadań */}
+                  <Route path="/tasks" element={<Tasks />} />
+                  <Route path="/tasks/add" element={<AddTask />} />
+                  <Route path="/tasks/update/:id" element={<EditTask />} />
 
-            <Route path="/documents/inbound" element={<Inbound />} />
+                  {/* Strona magazynu */}
+                  <Route path="/store" element={<Warehouse />} />
 
-            <Route path="/profile" element={<Profile />} />
-          </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Box>
-    </Box>
+                  {/* Strony dotyczące dokumentów wychodzących */}
+                  <Route path="/documents/outbound" element={<Outbound />} />
+                  <Route
+                    path="/documents/outbound/add"
+                    element={<AddOutbound />}
+                  />
+                  <Route path="/documents/outbound" element={<Outbound />} />
+
+                  {/* Strony dotyczące dokumentów przychodzących */}
+                  <Route path="/documents/inbound" element={<Inbound />} />
+
+                  {/* Strona profilu */}
+                  <Route path="/profile" element={<Profile />} />
+                </Route>
+
+                {/* Strona nieznaleziona */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Box>
+          </Box>
+        }
+      />
+    </Routes>
   );
 }
 

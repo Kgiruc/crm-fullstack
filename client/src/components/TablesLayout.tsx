@@ -56,7 +56,7 @@ function TablesLayout({
       <Box
         sx={{
           width: 'calc(100% - 95px)',
-          height: '78vh',
+          height: '85vh',
           background: '#fff',
           zIndex: '-1',
           position: 'absolute',
