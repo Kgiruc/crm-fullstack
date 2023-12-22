@@ -91,7 +91,7 @@ function AsideMenu() {
           pages={[
             {
               label: 'Charts',
-              to: '/Charts',
+              to: '/charts',
               iconPath: 'src/assets/icons/chart.svg',
             },
           ]}

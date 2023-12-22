@@ -14,8 +14,9 @@ type ListTabProps = {
 
 function ListTab({ pages }: ListTabProps) {
   const location = useLocation();
+
   return (
-    <TabContext value={location.pathname}>
+    <TabContext value={pages[0].to}>
       <TabList
         orientation="vertical"
         TabIndicatorProps={{
