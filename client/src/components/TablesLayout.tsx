@@ -54,13 +54,13 @@ function TablesLayout({
         margin: '24px 25px 12px',
         zIndex: '0',
         position: 'relative',
-        height: '92%',
+        height: '90%',
       }}
     >
       <Box
         sx={{
           width: 'calc(100% - 95px)',
-          height: '90%',
+          height: '89%',
           background: '#fff',
           zIndex: '-1',
           position: 'absolute',
