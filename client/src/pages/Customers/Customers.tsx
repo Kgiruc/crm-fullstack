@@ -4,6 +4,7 @@ import { useCustomersQuery } from './services/customersApi';
 import './styles/table.css';
 import { Customer } from '../../models/customer';
 import TablesLayout from '../../components/TablesLayout';
+import CustomTable from '../../components/CustomTable';
 
 function Customers() {
   const { data, error, isLoading, isFetching, isSuccess } = useCustomersQuery();
@@ -23,19 +24,6 @@ function Customers() {
   return (
     <TablesLayout
       title="All Clients"
-      isLoading={isLoading}
-      isFetching={isFetching}
-      isError={error}
-      isSuccess={isSuccess}
-      headers={[
-        'Name',
-        'Surname',
-        'Email',
-        'Phone Number',
-        'Address',
-        'Notes',
-        'Actions',
-      ]}
       linkAdress="/customers/add"
       linkTitle="Add Client"
       filter
@@ -44,6 +32,12 @@ function Customers() {
       filterValue={filter}
     >
       {data && <CustomerList customers={filteredCustomers as Customer[]} />}
+      <CustomTable
+        isLoading={isLoading}
+        isFetching={isFetching}
+        isError={error}
+        isSuccess={isSuccess}
+      />
     </TablesLayout>
   );
 }

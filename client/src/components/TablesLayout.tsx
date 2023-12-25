@@ -1,29 +1,17 @@
 import {
   Typography,
   Box,
-  TableContainer,
-  Table,
-  TableHead,
-  TableCell,
-  TableRow,
   Button,
   TextField,
   InputAdornment,
 } from '@mui/material';
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
-import { SerializedError } from '@reduxjs/toolkit';
 import SearchIcon from '../assets/icons/search.svg';
 import AddIcon from '../assets/icons/add.svg';
 
 interface TablesLayoutProps {
   title: string;
-  isLoading: boolean;
-  isFetching: boolean;
-  isError: boolean | FetchBaseQueryError | SerializedError | undefined;
-  isSuccess: boolean;
-  headers: string[];
   linkAdress: string;
   linkTitle: string;
   children: ReactNode;
@@ -35,11 +23,6 @@ interface TablesLayoutProps {
 
 function TablesLayout({
   title,
-  isLoading,
-  isFetching,
-  isError,
-  isSuccess,
-  headers,
   linkAdress,
   linkTitle,
   children,
@@ -135,23 +118,7 @@ function TablesLayout({
       >
         Customers List
       </Typography>
-      {isLoading && <p>loading...</p>}
-      {isFetching && <p>fetching</p>}
-      {isError && <p>error</p>}
-      {isSuccess && (
-        <TableContainer>
-          <Table sx={{ backgroundColor: '#fff' }}>
-            <TableHead>
-              <TableRow>
-                {headers.map((header) => (
-                  <TableCell key={header}>{header}</TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            {children}
-          </Table>
-        </TableContainer>
-      )}
+      {children}
     </Box>
   );
 }
