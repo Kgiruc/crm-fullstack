@@ -37,6 +37,7 @@ function Customers() {
         isFetching={isFetching}
         isError={error}
         isSuccess={isSuccess}
+        rows={data}
       />
     </TablesLayout>
   );
