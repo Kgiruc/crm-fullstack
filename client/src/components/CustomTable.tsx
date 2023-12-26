@@ -1,34 +1,35 @@
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-import { Customer } from '../models/customer';
 
 interface CustomTableProps {
   isLoading: boolean;
   isFetching: boolean;
   isError: boolean | FetchBaseQueryError | SerializedError | undefined;
   isSuccess: boolean;
-  rows: Readonly[];
 }
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'name', headerName: 'First name', width: 130 },
-  { field: 'surname', headerName: 'Last name', width: 130 },
   {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 90,
+    field: 'name',
+    headerName: 'Name',
+    valueGetter: (params: GridValueGetterParams) =>
+      `${params.row.name || ''} ${params.row.surname || ''}`,
+  },
+  { field: 'e_mail', headerName: 'Email' },
+  {
+    field: 'address',
+    headerName: 'Location',
   },
   {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-    valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+    field: 'phone_number',
+    headerName: 'Phone',
+    type: 'number',
+  },
+  {
+    field: 'xxx',
+    headerName: 'action',
+    type: 'number',
   },
 ];
 
@@ -48,6 +49,9 @@ function CustomTable({
         <DataGrid
           rows={rows}
           columns={columns}
+          disableColumnFilter
+          disableColumnMenu
+          autoHeight
           initialState={{
             pagination: {
               paginationModel: { page: 0, pageSize: 5 },

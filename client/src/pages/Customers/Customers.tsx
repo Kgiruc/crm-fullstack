@@ -1,5 +1,4 @@
 import { ChangeEvent, useState } from 'react';
-import CustomerList from './components/CustomerList';
 import { useCustomersQuery } from './services/customersApi';
 import './styles/table.css';
 import { Customer } from '../../models/customer';
@@ -9,7 +8,6 @@ import CustomTable from '../../components/CustomTable';
 function Customers() {
   const { data, error, isLoading, isFetching, isSuccess } = useCustomersQuery();
   const [filter, setFilter] = useState('');
-
   const filteredCustomers =
     data &&
     data.filter((customer) =>
@@ -31,13 +29,12 @@ function Customers() {
       filterPlaceHolder="wpisz nazwisko"
       filterValue={filter}
     >
-      {data && <CustomerList customers={filteredCustomers as Customer[]} />}
       <CustomTable
         isLoading={isLoading}
         isFetching={isFetching}
         isError={error}
         isSuccess={isSuccess}
-        rows={data}
+        rows={data && (filteredCustomers as Customer[])}
       />
     </TablesLayout>
   );
