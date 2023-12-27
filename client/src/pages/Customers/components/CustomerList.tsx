@@ -7,7 +7,6 @@ import {
   TableRow,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import React from 'react';
 import { Customer } from '../../../models/customer';
@@ -42,7 +41,7 @@ function CustomerList({ customers }: Props) {
                 state={customer}
                 to={`/customers/update/${customer.id}`}
               >
-                <EditIcon />
+                <img src={Edit} alt="edit" />
               </IconButton>
               <Button
                 component={Link}

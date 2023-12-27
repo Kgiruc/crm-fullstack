@@ -34,7 +34,7 @@ function Customers() {
         isFetching={isFetching}
         isError={error}
         isSuccess={isSuccess}
-        rows={data && (filteredCustomers as Customer[])}
+        row={data && (filteredCustomers as Customer[])}
       />
     </TablesLayout>
   );
