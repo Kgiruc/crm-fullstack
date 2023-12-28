@@ -7,7 +7,8 @@ import {
   GridValueGetterParams,
 } from '@mui/x-data-grid';
 import Actions from './Actions';
-import CustomFooter from './CustomFooter';
+import CustomFooter from './Pagination';
+import CustomPagination from './CustomPagination';
 
 interface CustomTableProps<T> {
   isLoading: boolean;
@@ -64,16 +65,11 @@ function CustomTable<T>({
           columns={columns}
           disableColumnFilter
           disableColumnMenu
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
-            },
-          }}
-          rowCount={row.length}
           pageSizeOptions={[5, 10]}
           checkboxSelection
+          rowCount={row.length}
           slots={{
-            footer: CustomFooter,
+            pagination: CustomPagination,
           }}
         />
       )}
