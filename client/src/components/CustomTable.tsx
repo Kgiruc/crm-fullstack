@@ -69,6 +69,7 @@ function CustomTable<T>({
               paginationModel: { page: 0, pageSize: 5 },
             },
           }}
+          rowCount={row.length}
           pageSizeOptions={[5, 10]}
           checkboxSelection
           slots={{

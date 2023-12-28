@@ -1,24 +1,39 @@
 import { MenuItem, Select } from '@mui/material';
-import { GridFooterContainer } from '@mui/x-data-grid';
+import {
+  GridFooterContainer,
+  GridRowCount,
+  useGridApiRef,
+} from '@mui/x-data-grid';
+import { useEffect, useState } from 'react';
 
 interface CustomFooterProps {
-  rows: string[];
+  params: any;
   pageSize: number;
   onPageChange: (page: number) => void;
   onPageSizeChange: (pageSize: number) => void;
+  pagination: {
+    rowCount: number;
+  };
 }
 
 function CustomFooter({
-  rows,
+  params,
+  pagination,
   pageSize,
   onPageChange,
   onPageSizeChange,
 }: CustomFooterProps) {
   const pageSizes = [5, 10, 20];
-  const rowCount = rows?.length || 0;
+
+  const apiRef = useGridApiRef();
+  const [rowCount, setRowCount] = useState(0);
+
+  useEffect(() => {
+    setRowCount(apiRef.current.getRowsCount());
+  }, [apiRef]);
 
   return (
-    <GridFooterContainer>
+    <GridFooterContainer sx={{ border: 'none' }}>
       <div style={{ flexGrow: 1 }}>
         Showing:
         <Select
@@ -31,7 +46,7 @@ function CustomFooter({
             </MenuItem>
           ))}
         </Select>{' '}
-        of {rowCount}
+        {rowCount}
       </div>
       <div>
         {Array.from({ length: 4 }).map((_, index) => {
