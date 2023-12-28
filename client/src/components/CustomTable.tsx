@@ -7,13 +7,14 @@ import {
   GridValueGetterParams,
 } from '@mui/x-data-grid';
 import Actions from './Actions';
+import CustomFooter from './CustomFooter';
 
-interface CustomTableProps {
+interface CustomTableProps<T> {
   isLoading: boolean;
   isFetching: boolean;
   isError: boolean | FetchBaseQueryError | SerializedError | undefined;
   isSuccess: boolean;
-  row: any;
+  row: readonly T[];
 }
 
 const columns: GridColDef[] = [
@@ -45,13 +46,13 @@ const columns: GridColDef[] = [
   },
 ];
 
-function CustomTable({
+function CustomTable<T>({
   isLoading,
   isFetching,
   isError,
   isSuccess,
   row,
-}: CustomTableProps) {
+}: CustomTableProps<T>) {
   return (
     <>
       {isLoading && <p>loading</p>}
@@ -70,6 +71,9 @@ function CustomTable({
           }}
           pageSizeOptions={[5, 10]}
           checkboxSelection
+          slots={{
+            footer: CustomFooter,
+          }}
         />
       )}
     </>

@@ -22,6 +22,7 @@ function Customers() {
   return (
     <TablesLayout
       title="All Clients"
+      listName="Customers List"
       linkAdress="/customers/add"
       linkTitle="Add Client"
       filter
@@ -34,7 +35,7 @@ function Customers() {
         isFetching={isFetching}
         isError={error}
         isSuccess={isSuccess}
-        row={data && (filteredCustomers as Customer[])}
+        row={(data || []) && (filteredCustomers as Customer[])}
       />
     </TablesLayout>
   );

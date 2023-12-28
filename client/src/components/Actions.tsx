@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Edit from '../assets/icons/edit.svg';
 import More from '../assets/icons/more.svg';
 
-function Actions({ row }) {
+function Actions({ ...row }) {
   return (
     <Box>
       <Tooltip title="edit user">

@@ -12,6 +12,7 @@ import AddIcon from '../assets/icons/add.svg';
 
 interface TablesLayoutProps {
   title: string;
+  listName: string;
   linkAdress: string;
   linkTitle: string;
   children: ReactNode;
@@ -23,6 +24,7 @@ interface TablesLayoutProps {
 
 function TablesLayout({
   title,
+  listName,
   linkAdress,
   linkTitle,
   children,
@@ -116,7 +118,7 @@ function TablesLayout({
         className="heading-h6-24-gray"
         sx={{ margin: '0 0 24px 24px' }}
       >
-        Customers List
+        {listName}
       </Typography>
       {children}
     </Box>
