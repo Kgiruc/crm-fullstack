@@ -66,10 +66,14 @@ function CustomTable<T>({
           disableColumnFilter
           disableColumnMenu
           pageSizeOptions={[5, 10]}
+          pagination
           checkboxSelection
           rowCount={row.length}
           slots={{
             pagination: CustomPagination,
+          }}
+          initialState={{
+            pagination: { paginationModel: { pageSize: 1 } },
           }}
         />
       )}
