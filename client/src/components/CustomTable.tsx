@@ -73,7 +73,7 @@ function CustomTable<T>({
             pagination: CustomPagination,
           }}
           initialState={{
-            pagination: { paginationModel: { pageSize: 1 } },
+            pagination: { paginationModel: { pageSize: 2 } },
           }}
         />
       )}
