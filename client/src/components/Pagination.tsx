@@ -15,7 +15,6 @@ function Pagination({
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
   const totalRows = apiRef.current?.getRowsCount() || 0;
   const pageSize = apiRef.current?.state.pagination.paginationModel.pageSize;
-console.log(pageSize)
   return (
     <>
       <span>{`Showing: ${page + 1} of ${totalRows}`}</span>
