@@ -1,5 +1,6 @@
-import { TablePaginationProps } from '@mui/material';
+import { Container, TablePaginationProps } from '@mui/material';
 import MuiPagination from '@mui/material/Pagination';
+import { Box } from '@mui/system';
 import {
   gridPageCountSelector,
   useGridApiContext,
@@ -14,21 +15,33 @@ function Pagination({
   const apiRef = useGridApiContext();
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
   const totalRows = apiRef.current?.getRowsCount() || 0;
-  const pageSize = apiRef.current?.state.pagination.paginationModel.pageSize;
-console.log(pageSize)
+  const pageSize =
+    apiRef.current?.state.pagination.paginationModel.pageSize || 0;
+
   return (
-    <>
-      <span>{`Showing: ${page + 1} of ${totalRows}`}</span>
-      <select
-        value={pageSize}
-        onChange={(event) => {
-          const newPageSize = parseInt(event.target.value, 10);
-          apiRef.current?.setPageSize(newPageSize);
+    <Box>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          width: '100%',
         }}
       >
-        <option value={1}>1</option>
-        <option value={2}>2</option>
-      </select>
+        Showing:{' '}
+        <select
+          value={pageSize}
+          onChange={(event) => {
+            const newPageSize = parseInt(event.target.value, 10);
+            apiRef.current?.setPageSize(newPageSize);
+          }}
+        >
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+        </select>{' '}
+        of {totalRows}
+      </Box>
+
       <MuiPagination
         color="primary"
         className={className}
@@ -38,7 +51,7 @@ console.log(pageSize)
           onPageChange(event as any, newPage - 1);
         }}
       />
-    </>
+    </Box>
   );
 }
 export default Pagination;
