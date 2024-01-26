@@ -7,7 +7,6 @@ import {
   GridValueGetterParams,
 } from '@mui/x-data-grid';
 import Actions from './Actions';
-import CustomFooter from './Pagination';
 import CustomPagination from './CustomPagination';
 
 interface CustomTableProps<T> {
@@ -73,7 +72,7 @@ function CustomTable<T>({
             pagination: CustomPagination,
           }}
           initialState={{
-            pagination: { paginationModel: { pageSize: 2 } },
+            pagination: { paginationModel: { pageSize: 1 } },
           }}
         />
       )}

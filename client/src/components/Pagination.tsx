@@ -15,8 +15,7 @@ function Pagination({
   const apiRef = useGridApiContext();
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
   const totalRows = apiRef.current?.getRowsCount() || 0;
-  const pageSize =
-    apiRef.current?.state.pagination.paginationModel.pageSize || 0;
+  const pageSize = apiRef.current?.state.pagination.paginationModel.pageSize;
 
   return (
     <Box>
