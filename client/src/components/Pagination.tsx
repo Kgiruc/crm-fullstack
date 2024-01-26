@@ -26,6 +26,7 @@ function Pagination({
           flexDirection: 'row',
           alignItems: 'center',
           width: '100%',
+          justifyContent: 'unset',
         }}
       >
         Showing:{' '}
