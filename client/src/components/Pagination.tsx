@@ -18,7 +18,7 @@ function Pagination({
   const pageSize = apiRef.current?.state.pagination.paginationModel.pageSize;
 
   return (
-    <Box>
+    <Box sx={{ border: '1px solid red', width: '100%', display: 'flex' }}>
       <Box
         sx={{
           display: 'flex',

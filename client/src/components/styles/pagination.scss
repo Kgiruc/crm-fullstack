@@ -1,12 +1,24 @@
-.MuiTablePagination-displayedRows {
+.MuiTablePagination{
+  &-displayedRows {
     display: none;
   }
+  &-root {
+    width: 100%;
+  }
+  &-spacer {
+    display: none !important;
+  }
+  &-toolbar {
+    border: 1px solid green
+  }
+}
 
 .css-wop1k0-MuiDataGrid-footerContainer {
   justify-content: unset;
 }
 
-.css-1psng7p-MuiTablePagination-spacer {
-  display: none !important;
+.MuiToolbar-root {
+  .MuiTablePagination-toolbar {
+    border: 1px solid purple
+  }
 }
-
