@@ -8,17 +8,26 @@
   &-spacer {
     display: none !important;
   }
-  &-toolbar {
-    border: 1px solid green
-  }
 }
 
 .css-wop1k0-MuiDataGrid-footerContainer {
   justify-content: unset;
 }
 
-.MuiToolbar-root {
-  .MuiTablePagination-toolbar {
-    border: 1px solid purple
+.pagginationBox {
+  font-family: Inter;
+  width: 100%;
+  display: flex;
+}
+
+.footerSelect {
+
+}
+
+@media (min-width: 600px) {
+  .MuiToolbar-root {
+    padding-left: 0;
   }
 }
+
+

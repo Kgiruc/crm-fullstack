@@ -1,4 +1,4 @@
-import { Container, TablePaginationProps } from '@mui/material';
+import { Container, TablePaginationProps, Typography } from '@mui/material';
 import MuiPagination from '@mui/material/Pagination';
 import { Box } from '@mui/system';
 import {
@@ -18,7 +18,7 @@ function Pagination({
   const pageSize = apiRef.current?.state.pagination.paginationModel.pageSize;
 
   return (
-    <Box sx={{ border: '1px solid red', width: '100%', display: 'flex' }}>
+    <Box className="pagginationBox">
       <Box
         sx={{
           display: 'flex',
@@ -28,8 +28,9 @@ function Pagination({
           justifyContent: 'unset',
         }}
       >
-        Showing:{' '}
+        <Typography>Showing: </Typography>{' '}
         <select
+          className="footerSelect"
           value={pageSize}
           onChange={(event) => {
             const newPageSize = parseInt(event.target.value, 10);

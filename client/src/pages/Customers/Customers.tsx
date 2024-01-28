@@ -21,7 +21,7 @@ function Customers() {
 
   return (
     <TablesLayout
-      title="All Clients"
+      title="Clients"
       listName="Customers List"
       linkAdress="/customers/add"
       linkTitle="Add Client"
