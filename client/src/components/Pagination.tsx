@@ -1,4 +1,4 @@
-import { Container, TablePaginationProps, Typography } from '@mui/material';
+import { TablePaginationProps, Typography } from '@mui/material';
 import MuiPagination from '@mui/material/Pagination';
 import { Box } from '@mui/system';
 import {
@@ -28,7 +28,7 @@ function Pagination({
           justifyContent: 'unset',
         }}
       >
-        <Typography>Showing: </Typography>{' '}
+        <Typography>Showing: </Typography>
         <select
           className="footerSelect"
           value={pageSize}
@@ -39,7 +39,7 @@ function Pagination({
         >
           <option value={1}>1</option>
           <option value={2}>2</option>
-        </select>{' '}
+        </select>
         of {totalRows}
       </Box>
 
