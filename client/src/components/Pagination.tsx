@@ -1,4 +1,9 @@
-import { TablePaginationProps, Typography } from '@mui/material';
+import {
+  FormControl,
+  Select,
+  TablePaginationProps,
+  Typography,
+} from '@mui/material';
 import MuiPagination from '@mui/material/Pagination';
 import { Box } from '@mui/system';
 import {
