@@ -34,17 +34,17 @@ function Pagination({
         }}
       >
         <Typography>Showing: </Typography>
-        <select
+        <Select
           className="footerSelect"
           value={pageSize}
           onChange={(event) => {
-            const newPageSize = parseInt(event.target.value, 10);
+            const newPageSize = parseInt(event.target.value as string, 10);
             apiRef.current?.setPageSize(newPageSize);
           }}
         >
           <option value={1}>1</option>
           <option value={2}>2</option>
-        </select>
+        </Select>
         of {totalRows}
       </Box>
 
