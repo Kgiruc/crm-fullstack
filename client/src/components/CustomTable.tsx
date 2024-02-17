@@ -61,7 +61,7 @@ function CustomTable<T>({
       {isFetching && <p>fetching</p>}
       {isError && <p>error</p>}
       {isSuccess && (
-        // <ThemeProvider theme={table}>
+        <ThemeProvider theme={table}>
           <DataGrid
             rows={row}
             columns={columns}
@@ -78,7 +78,7 @@ function CustomTable<T>({
               pagination: { paginationModel: { pageSize: 1 } },
             }}
           />
-        // </ThemeProvider>
+        </ThemeProvider>
       )}
     </>
   );

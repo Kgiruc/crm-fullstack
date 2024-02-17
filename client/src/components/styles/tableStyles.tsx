@@ -1,27 +1,13 @@
+import type {} from '@mui/x-data-grid/themeAugmentation';
 import { createTheme } from '@mui/system';
 
 const table = createTheme({
   components: {
+    // Use `MuiDataGrid` on DataGrid, DataGridPro and DataGridPremium
     MuiDataGrid: {
       styleOverrides: {
         root: {
-          backgroundColor: 'lightgray',
-        },
-        cell: {
-          borderBottom: '1px solid #ccc',
-        },
-        row: {
-          '&:hover': {
-            backgroundColor: 'lightyellow',
-          },
-        },
-        footer: {
-          backgroundColor: 'lightgray',
-        },
-        columnHeader: {
-          backgroundColor: 'gray',
-          color: 'white',
-          fontWeight: 'bold',
+          backgroundColor: 'red',
         },
       },
     },
