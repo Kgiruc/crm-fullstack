@@ -6,8 +6,10 @@ import {
   GridRenderCellParams,
   GridValueGetterParams,
 } from '@mui/x-data-grid';
+import { ThemeProvider } from '@mui/system';
 import Actions from './Actions';
 import CustomPagination from './CustomPagination';
+import table from './styles/tableStyles';
 
 interface CustomTableProps<T> {
   isLoading: boolean;
@@ -59,23 +61,24 @@ function CustomTable<T>({
       {isFetching && <p>fetching</p>}
       {isError && <p>error</p>}
       {isSuccess && (
-        <DataGrid
-          className='table'
-          rows={row}
-          columns={columns}
-          disableColumnFilter
-          disableColumnMenu
-          pageSizeOptions={[5, 10]}
-          pagination
-          checkboxSelection
-          rowCount={row.length}
-          slots={{
-            pagination: CustomPagination,
-          }}
-          initialState={{
-            pagination: { paginationModel: { pageSize: 1 } },
-          }}
-        />
+        // <ThemeProvider theme={table}>
+          <DataGrid
+            rows={row}
+            columns={columns}
+            disableColumnFilter
+            disableColumnMenu
+            pageSizeOptions={[5, 10]}
+            pagination
+            checkboxSelection
+            rowCount={row.length}
+            slots={{
+              pagination: CustomPagination,
+            }}
+            initialState={{
+              pagination: { paginationModel: { pageSize: 1 } },
+            }}
+          />
+        // </ThemeProvider>
       )}
     </>
   );

@@ -27,11 +27,29 @@
   border-radius: 5px;
   height: 40px;
   width: 75px;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: start;
   padding: 5px 10px;
   font-family: Inter;
   font-weight: 400;
   font-style: normal;
+  color: $basic-color-gray-7;
   margin: 0;
+   &:focus-visible {
+    border: 2px solid rgba($basic-color-gray-5, 0.4);
+    outline: none;
+   }
+}
+
+.footerSelect option {
+  background-color: white;
+  width: 50%;
+  border-width: 20px;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 400;
+  font-style: normal;
+   &:active {
+    background-color: red;
+    outline: none;
+   }
 }
