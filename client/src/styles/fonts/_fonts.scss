@@ -73,6 +73,7 @@
 $colorfont: (
   "gray": $basic-color-gray-7,
   "table": $basic-color-gray-2,
+  "toolbarColor": $basic-color-gray-5,
   "white": $basic-color-white,
   "purple": $info-color-purple,
   "tabsColor": $list-color
@@ -106,4 +107,8 @@ $size: (
       }
     }
   }
+}
+
+.normal {
+  font-weight: 400 !important;
 }

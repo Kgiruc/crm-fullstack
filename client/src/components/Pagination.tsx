@@ -33,8 +33,10 @@ function Pagination({
           justifyContent: 'unset',
         }}
       >
-        <Typography>Showing: </Typography>
-        <Select
+        <Typography className="heading-input-toolbarColor normal" mr={1}>
+          Showing:
+        </Typography>
+        <select
           className="footerSelect"
           value={pageSize}
           onChange={(event) => {
@@ -44,8 +46,10 @@ function Pagination({
         >
           <option value={1}>1</option>
           <option value={2}>2</option>
-        </Select>
-        of {totalRows}
+        </select>
+        <Typography className="heading-input-toolbarColor normal" ml={1}>
+          of {totalRows}
+        </Typography>
       </Box>
 
       <MuiPagination

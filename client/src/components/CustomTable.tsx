@@ -60,6 +60,7 @@ function CustomTable<T>({
       {isError && <p>error</p>}
       {isSuccess && (
         <DataGrid
+          className='table'
           rows={row}
           columns={columns}
           disableColumnFilter
