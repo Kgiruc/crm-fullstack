@@ -3,11 +3,12 @@ import { createTheme } from '@mui/system';
 
 const table = createTheme({
   components: {
-    // Use `MuiDataGrid` on DataGrid, DataGridPro and DataGridPremium
     MuiDataGrid: {
       styleOverrides: {
         root: {
-          backgroundColor: 'red',
+          '& .MuiDataGrid-footer': {
+            borderBottom: 'none', // Usunięcie borderu z footera
+          },
         },
       },
     },

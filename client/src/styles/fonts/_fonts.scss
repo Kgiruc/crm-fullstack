@@ -70,6 +70,8 @@
   line-height: $lineHeight;
 }
 
+$fontFamilyInter: "Inter";
+
 $colorfont: (
   "gray": $basic-color-gray-7,
   "table": $basic-color-gray-2,
@@ -111,4 +113,5 @@ $size: (
 
 .normal {
   font-weight: 400 !important;
+  font-family: $fontFamilyInter;
 }

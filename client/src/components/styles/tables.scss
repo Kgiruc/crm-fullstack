@@ -1,0 +1,17 @@
+.MuiDataGrid {
+    &-cell {
+        font-family: $fontFamilyInter;
+        color: $basic-color-gray-7;
+    }
+    &-main {
+    background-color: white;
+    border-top: 1px solid $basic-color-gray-2;
+    }
+    &-columnHeader {
+        text-align: start;
+        &Title {
+            font-family: $fontFamilyInter;
+            color: $basic-color-gray-4;
+        }
+    }
+}

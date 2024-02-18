@@ -36,7 +36,6 @@ const columns: GridColDef[] = [
   {
     field: 'phone_number',
     headerName: 'Phone',
-    type: 'number',
     flex: 1,
   },
   {
@@ -44,7 +43,8 @@ const columns: GridColDef[] = [
     headerName: 'Actions',
     type: 'actions',
     renderCell: (params: GridRenderCellParams) => <Actions row={params.row} />,
-    flex: 1,
+    flex: 0.5,
+    align: 'center',
   },
 ];
 
@@ -61,24 +61,25 @@ function CustomTable<T>({
       {isFetching && <p>fetching</p>}
       {isError && <p>error</p>}
       {isSuccess && (
-        <ThemeProvider theme={table}>
-          <DataGrid
-            rows={row}
-            columns={columns}
-            disableColumnFilter
-            disableColumnMenu
-            pageSizeOptions={[5, 10]}
-            pagination
-            checkboxSelection
-            rowCount={row.length}
-            slots={{
-              pagination: CustomPagination,
-            }}
-            initialState={{
-              pagination: { paginationModel: { pageSize: 1 } },
-            }}
-          />
-        </ThemeProvider>
+        <DataGrid
+          rows={row}
+          columns={columns}
+          disableColumnFilter
+          disableColumnMenu
+          pageSizeOptions={[5, 10]}
+          pagination
+          checkboxSelection
+          rowCount={row.length}
+          sx={{
+            border: 'none',
+          }}
+          slots={{
+            pagination: CustomPagination,
+          }}
+          initialState={{
+            pagination: { paginationModel: { pageSize: 1 } },
+          }}
+        />
       )}
     </>
   );
