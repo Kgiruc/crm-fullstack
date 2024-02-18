@@ -53,7 +53,7 @@ function FormLayout({ isLoading, isError, children, login }: FormLayoutProps) {
           {login && (
             <Grid item xs={12}>
               <Typography variant="body1" align="center">
-                Nie masz konta?{' '}
+                Nie masz konta?
                 <MuiLink component={Link} to="/register">
                   Zarejestruj się
                 </MuiLink>

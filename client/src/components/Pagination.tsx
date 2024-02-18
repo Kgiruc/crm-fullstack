@@ -1,9 +1,4 @@
-import {
-  FormControl,
-  Select,
-  TablePaginationProps,
-  Typography,
-} from '@mui/material';
+import { TablePaginationProps, Typography } from '@mui/material';
 import MuiPagination from '@mui/material/Pagination';
 import { Box } from '@mui/system';
 import {
@@ -58,7 +53,7 @@ function Pagination({
         count={pageCount}
         page={page + 1}
         onChange={(event, newPage) => {
-          onPageChange(event as any, newPage - 1);
+          onPageChange(event as React.ChangeEvent, newPage - 1);
         }}
       />
     </Box>

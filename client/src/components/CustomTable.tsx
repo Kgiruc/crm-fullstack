@@ -6,10 +6,8 @@ import {
   GridRenderCellParams,
   GridValueGetterParams,
 } from '@mui/x-data-grid';
-import { ThemeProvider } from '@mui/system';
 import Actions from './Actions';
 import CustomPagination from './CustomPagination';
-import table from './styles/tableStyles';
 
 interface CustomTableProps<T> {
   isLoading: boolean;

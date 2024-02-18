@@ -1,7 +1,7 @@
 import { GridPagination } from '@mui/x-data-grid';
 import Pagination from './Pagination';
 
-function CustomPagination(props: any) {
+function CustomPagination(props: string[]) {
   return (
     <GridPagination
       ActionsComponent={Pagination}
