@@ -52,8 +52,11 @@ function Pagination({
         className={className}
         count={pageCount}
         page={page + 1}
-        onChange={(event, newPage) => {
-          onPageChange(event as React.ChangeEvent, newPage - 1);
+        onChange={(e, newPage) => {
+          onPageChange(
+            e as React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
+            newPage - 1
+          );
         }}
       />
     </Box>
