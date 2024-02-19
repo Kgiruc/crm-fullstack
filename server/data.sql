@@ -7,7 +7,13 @@ CREATE TABLE customers (
     e_mail VARCHAR(255),
     phone_number VARCHAR(255),
     address VARCHAR(255),
-    notes TEXT
+    birthday date,
+    country VARCHAR(255)
+    gender VARCHAR(255)
+    company VARCHAR(255)
+    state VARCHAR(255)
+    zipcode DECIMAL(8,0)
+    bio TEXT
 );
 
 CREATE TABLE contracts (
