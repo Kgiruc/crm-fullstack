@@ -12,15 +12,28 @@ const getCustomers = async (req, res) => {
 
 const addCustomer = async (req, res) => {
   try {
-    const { name, surname, e_mail, phone_number, address, notes } = req.body;
-    if (!name || !surname || !e_mail || !phone_number || !address) {
+    const { 
+      name, 
+      surname, 
+      e_mail, 
+      phone_number, 
+      address, 
+      birthday, 
+      country, 
+      gender, 
+      state, 
+      zipcode,
+      bio } = req.body;
+
+    if (!name || !surname || !e_mail || !phone_number || !address || !birthday || !country || !gender || !zipcode) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
     const newCustomer = await pool.query(
-      'INSERT INTO customers (name, surname, e_mail, phone_number, address, notes) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-      [name, surname, e_mail, phone_number, address, notes]
+      'INSERT INTO customers (name, surname, e_mail, phone_number, address, birthday, country, gender, state, zipcode, bio) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *',
+      [name, surname, e_mail, phone_number, address, birthday, country, gender, state, zipcode, bio]
     );
+
     res.json(newCustomer.rows);
   } catch (error) {
     console.error('Error in addCustomer:', error.message);
