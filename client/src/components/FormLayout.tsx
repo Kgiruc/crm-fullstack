@@ -21,7 +21,7 @@ interface FormLayoutProps {
 function FormLayout({ isLoading, isError, children, login }: FormLayoutProps) {
   return (
     <Container
-      maxWidth="xs"
+      maxWidth="xs"s
       sx={{
         display: 'flex',
         height: 'auto',

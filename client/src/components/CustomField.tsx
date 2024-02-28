@@ -2,7 +2,7 @@ import { TextField, Typography } from '@mui/material';
 import { ErrorMessage, Field } from 'formik';
 
 interface CustomFieldProps {
-  type: string;
+  type: 'text' | 'date';
   name: string;
   label: string;
 }
