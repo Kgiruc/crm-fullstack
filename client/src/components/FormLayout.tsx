@@ -21,7 +21,6 @@ interface FormLayoutProps {
 function FormLayout({ isLoading, isError, children, login }: FormLayoutProps) {
   return (
     <Container
-      maxWidth="xs"s
       sx={{
         display: 'flex',
         height: 'auto',
@@ -47,9 +46,7 @@ function FormLayout({ isLoading, isError, children, login }: FormLayoutProps) {
               </Typography>
             </Grid>
           )}
-          <Grid item xs={12}>
-            {children}
-          </Grid>
+          {children}
           {login && (
             <Grid item xs={12}>
               <Typography variant="body1" align="center">
