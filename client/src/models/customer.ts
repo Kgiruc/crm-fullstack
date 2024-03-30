@@ -4,6 +4,12 @@ export interface Customer {
   surname: string;
   e_mail: string;
   phone_number: string;
-  notes?: string;
+  bio?: string;
   address: string;
+  state: string;
+  birthday: string;
+  country: string;
+  company: string;
+  gender: string;
+  zipcode: string;
 }

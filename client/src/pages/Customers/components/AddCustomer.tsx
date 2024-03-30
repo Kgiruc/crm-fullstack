@@ -14,12 +14,19 @@ function AddCustomer() {
     e_mail: '',
     phone_number: '',
     address: '',
-    notes: '',
+    bio: '',
+    birthday: new Date().toISOString().slice(0, 10),
+    company: '',
+    country: '',
+    gender: '',
+    state: '',
+    zipcode: '',
   };
 
   const AddHandler = async (values: Customer) => {
     await addCustomer(values);
-    navigate('/customers');
+    console.log(values);
+    // navigate('/customers');
   };
   return (
     <FormLayout isError={isError} isLoading={isLoading} login={false}>

@@ -1,5 +1,5 @@
 import { Form, Formik } from 'formik';
-import { Box, Button, Container, Grid, TextField } from '@mui/material';
+import { Button, Grid, TextField } from '@mui/material';
 import validationSchema from '../validations/formValidationsCustomers';
 import { Customer } from '../../../models/customer';
 import CustomField from '../../../components/CustomField';
@@ -27,7 +27,7 @@ function FormCustomer({ buttonFunction, initialCustomer }: FormCustomerProps) {
             </Grid>
             <Grid item xs={5}>
               <CustomField type="text" name="name" label="name" />
-              {/* <CustomField type="text" name="surname" label="surname" /> */}
+              <CustomField type="text" name="surname" label="surname" />
               <CustomField type="date" name="birthday" label="" />
               <CustomField type="text" name="e_mail" label="email" />
               <CustomField type="text" name="country" label="country" />

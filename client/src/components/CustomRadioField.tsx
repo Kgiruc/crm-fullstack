@@ -1,5 +1,4 @@
 import { FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
-import { margin } from '@mui/system';
 
 interface RadioProperties {
   title: string;

@@ -29,7 +29,7 @@ function CustomerList({ customers }: Props) {
             <TableCell>{customer.e_mail}</TableCell>
             <TableCell>{customer.phone_number}</TableCell>
             <TableCell>{customer.address}</TableCell>
-            <TableCell>{customer.notes ? customer.notes : '-'}</TableCell>
+            <TableCell>{customer.bio ? customer.bio : '-'}</TableCell>
             <TableCell sx={{ display: 'flex', gap: '10px' }}>
               <IconButton
                 onClick={() => customer.id && deleteCustomer(customer.id)}

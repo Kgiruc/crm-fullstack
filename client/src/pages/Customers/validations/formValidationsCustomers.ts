@@ -10,6 +10,11 @@ const validationSchema = Yup.object({
     .required('Podaj pełny numer telefonu')
     .matches(/^\d+$/, 'Podaj poprawny numer telefonu'),
   address: Yup.string().required('Podaj ulicę'),
+  country: Yup.string().required('Podaj kraj'),
+  // gender: Yup.string().required('Podaj płeć'),
+  company: Yup.string().required('Podaj firmę'),
+  state: Yup.string().required('Podaj stan zamieszkania'),
+  zipcode: Yup.string().required('Podaj kod pocztowy'),
 });
 
 export default validationSchema;
