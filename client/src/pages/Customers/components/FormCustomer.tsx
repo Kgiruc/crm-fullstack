@@ -1,8 +1,9 @@
 import { Form, Formik } from 'formik';
-import { Box, Button, Container, Grid } from '@mui/material';
+import { Box, Button, Container, Grid, TextField } from '@mui/material';
 import validationSchema from '../validations/formValidationsCustomers';
 import { Customer } from '../../../models/customer';
 import CustomField from '../../../components/CustomField';
+import CustomRadioField from '../../../components/CustomRadioField';
 
 interface FormCustomerProps {
   buttonFunction: (values: Customer) => void;
@@ -33,7 +34,14 @@ function FormCustomer({ buttonFunction, initialCustomer }: FormCustomerProps) {
               <CustomField type="text" name="address" label="address" />
             </Grid>
             <Grid item xs={5}>
-              <CustomField type="text" name="gender" label="gender" />
+              <CustomRadioField
+                title="Gender"
+                controls={[
+                  { value: 'female', label: 'Female' },
+                  { value: 'male', label: 'Male' },
+                  { value: 'other', label: 'Other' },
+                ]}
+              />
               <CustomField type="text" name="company" label="company" />
               <CustomField
                 type="text"
@@ -45,8 +53,8 @@ function FormCustomer({ buttonFunction, initialCustomer }: FormCustomerProps) {
             </Grid>
             <Grid item xs={12} sx={{ justifyContent: 'flex-end' }}>
               <Grid container justifyContent="flex-end">
-                <Grid item xs={10} sx={{ height: '100%' }}>
-                  <CustomField type="text" name="bio" label="bio" />
+                <Grid item xs={10} sx={{ height: '200px' }}>
+                  <TextField label="bio" multiline minRows={4} fullWidth />
                 </Grid>
               </Grid>
             </Grid>
