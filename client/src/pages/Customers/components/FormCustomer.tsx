@@ -35,7 +35,7 @@ function FormCustomer({ buttonFunction, initialCustomer }: FormCustomerProps) {
             </Grid>
             <Grid item xs={5}>
               <CustomRadioField
-                title="Gender"
+                title="gender"
                 controls={[
                   { value: 'female', label: 'Female' },
                   { value: 'male', label: 'Male' },

@@ -1,4 +1,5 @@
-import { FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
+import { FormControlLabel, Radio, RadioGroup } from '@mui/material';
+import { Field } from 'formik';
 
 interface RadioProperties {
   title: string;
@@ -7,21 +8,20 @@ interface RadioProperties {
 
 function CustomRadioField({ title, controls }: RadioProperties) {
   return (
-    <>
-      <FormLabel id="demo-row-radio-buttons-group-label" sx={{ lineHeight: 0 }}>
-        {title}
-      </FormLabel>
-      <RadioGroup row name="gender" sx={{ marginBottom: '12.5px' }}>
-        {controls.map((option) => (
-          <FormControlLabel
-            key={option.value}
-            value={option.value}
-            control={<Radio />}
-            label={option.label}
-          />
-        ))}
-      </RadioGroup>
-    </>
+    <Field name={title}>
+      {({ field }: any) => (
+        <RadioGroup {...field}>
+          {controls.map((option) => (
+            <FormControlLabel
+              key={option.value}
+              value={option.value}
+              control={<Radio />}
+              label={option.label}
+            />
+          ))}
+        </RadioGroup>
+      )}
+    </Field>
   );
 }
 
