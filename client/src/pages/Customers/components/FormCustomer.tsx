@@ -4,6 +4,8 @@ import validationSchema from '../validations/formValidationsCustomers';
 import { Customer } from '../../../models/customer';
 import CustomField from '../../../components/CustomField';
 import CustomRadioField from '../../../components/CustomRadioField';
+import SelectCustomField from '../../../components/SelectCustomField';
+import countries from './Countries';
 
 interface FormCustomerProps {
   buttonFunction: (values: Customer) => void;
@@ -30,7 +32,14 @@ function FormCustomer({ buttonFunction, initialCustomer }: FormCustomerProps) {
               <CustomField type="text" name="surname" label="surname" />
               <CustomField type="date" name="birthday" label="" />
               <CustomField type="text" name="e_mail" label="email" />
-              <CustomField type="text" name="country" label="country" />
+              <SelectCustomField
+                name="country"
+                label="country"
+                options={countries}
+                isError={false}
+                isLoading={false}
+                isSuccess
+              />
               <CustomField type="text" name="address" label="address" />
             </Grid>
             <Grid item xs={5}>

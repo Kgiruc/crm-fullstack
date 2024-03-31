@@ -25,8 +25,7 @@ function AddCustomer() {
 
   const AddHandler = async (values: Customer) => {
     await addCustomer(values);
-    console.log(values);
-    // navigate('/customers');
+    navigate('/customers');
   };
   return (
     <FormLayout isError={isError} isLoading={isLoading} login={false}>
