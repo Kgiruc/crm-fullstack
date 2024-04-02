@@ -15,6 +15,7 @@ function AddCustomer() {
     phone_number: '',
     address: '',
     bio: '',
+    avatar: '',
     birthday: new Date().toISOString().slice(0, 10),
     company: '',
     country: '',

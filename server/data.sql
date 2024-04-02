@@ -13,6 +13,7 @@ CREATE TABLE customers (
     company VARCHAR(255)
     state VARCHAR(255)
     zipcode DECIMAL(8,0)
+    avatar TEXT
     bio TEXT
 );
 

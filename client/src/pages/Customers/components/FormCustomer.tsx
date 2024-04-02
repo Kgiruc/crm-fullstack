@@ -23,9 +23,7 @@ function FormCustomer({ buttonFunction, initialCustomer }: FormCustomerProps) {
         <Form style={{ width: '100%', marginTop: 3 }}>
           <Grid container spacing={3} padding={2}>
             <Grid item xs={2}>
-              <Button
-                sx={{ height: '170px', width: '150px', background: 'red' }}
-              />
+              <CustomField type="file" name="avatar" label="avatar" />
             </Grid>
             <Grid item xs={5}>
               <CustomField type="text" name="name" label="name" />
